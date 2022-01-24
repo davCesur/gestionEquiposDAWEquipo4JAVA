@@ -17,11 +17,11 @@ public class AsignarEquipo {
       }
       
       public Equipo getEquipo(){
-          return Equipo;
+          return equipo;
       }
       
       public Jugador getJugador(){
-         return Jugador;
+         return jugador;
       }
       
 }
