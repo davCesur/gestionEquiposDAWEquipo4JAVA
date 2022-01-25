@@ -133,7 +133,7 @@ class JugadorTest {
 		assertEquals(edad,jugador.getEdad());
 	}
 	/**
-	 * Guardar edad no válida superior (=99)
+	 * Guardar edad no válida superior (>99)
 	 */
 	@Test
 	void testSetEdadErrorSuperior() {
