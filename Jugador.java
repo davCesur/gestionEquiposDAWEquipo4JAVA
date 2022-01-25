@@ -4,46 +4,30 @@ public class Jugador {
 	private int edad;
 	private String idioma;
 	
-	/**
-	 * Constructor
-	 */
 	public Jugador () {
 			
-	}
+		}
 	
 	public void setNombreJugador(String nombre) {
-		/*
-		 * Recibe un texto de máximo 20 carácteres.
-		 * No permite caracteres numéricos.
-		 * No puede estar vacío. 
-		 */
-		this.nombre = nombre;
+		//code here
 	}
 	
 	public void setEdad(int edad) {
-		/* Sólo numérico.
-		 * Debe ser mayor de edad (>18).
-		 * No puede estar vacío.
-		 */
-		this.edad = edad;
+		//code here
 	}
 	public void setIdioma(String idioma) {
-		/*
-		 * Entre estos valores (string):  inglés, español, alemán o francés.
-		 * No puede estar vacío.
-		 */
-		this.idioma = idioma;
+		//code here
 	}
 	
+
 	public String getIdioma() {
 		return idioma;
 	}
+	
 	public String getNombreJugador() {
 		return nombre;
 	}
 	public int getEdad() {
 		return edad;
 	}
-	
-	
 }
