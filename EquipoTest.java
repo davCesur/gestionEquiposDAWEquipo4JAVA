@@ -16,7 +16,7 @@ class EquipoTest {
 		//Se asigna nombre
 		String nombreEquipo = "";
 		//Se asigna el equipo
-		Equipo.setNombreEquipo(nombreEquipo);
+		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
 		assertEquals(null, equipo.getNombreEquipo());
 	}
@@ -32,7 +32,7 @@ class EquipoTest {
 		//Se asigna nombre
 		String nombreEquipo = "Lolete";
 		//Se asigna el equipo
-		Equipo.setNombreEquipo(nombreEquipo);
+		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
 		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	}
@@ -48,7 +48,7 @@ class EquipoTest {
 		//Se asigna nombre
 		String nombreEquipo = "paquito";
 		//Se asigna el equipo
-		Equipo.setNombreEquipo(nombreEquipo);
+		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
 		assertEquals(null, equipo.getNombreEquipo());
 	}
@@ -64,7 +64,7 @@ class EquipoTest {
 		//Se asigna nombre
 		String nombreEquipo = "Lol";
 		//Se asigna el equipo
-		Equipo.setNombreEquipo(nombreEquipo);
+		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
 		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
@@ -81,7 +81,7 @@ class EquipoTest {
 		//Se asigna nombre
 		String nombreEquipo = "Juanjo";
 		//Se asigna el equipo
-		Equipo.setNombreEquipo(nombreEquipo);
+		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
 		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
@@ -98,7 +98,7 @@ class EquipoTest {
 		//Añadimos el nombre
 		String nombreEquipo = "Juanjo2";
 		//Se asigna el nombre
-		Equipo.setNombreEquipo(nombreEquipo);
+		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
 		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
