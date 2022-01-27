@@ -11,9 +11,21 @@ import org.junit.jupiter.api.Test;
  */
 
 class JugadorTest {
+	
+	/**
+	 * Guardar jugador con m·s de 0 caracteres
+	 */
+	@Test
+	void testSetNombreJugadorCero() {
+		Jugador jugador = new Jugador();
+		String nombreJugador = "";
+		jugador.setNombreJugador(nombreJugador);
+		
+		assertEquals(null, jugador.getNombreJugador());
+	}
 
 	/**
-	 * Guardar jugador con m√°s de 4 caracteres
+	 * Guardar jugador con m·s de 4 caracteres
 	 */
 	@Test
 	void testSetNombreJugadorValido() {
@@ -58,19 +70,19 @@ class JugadorTest {
 	@Test
 	void testSetNombreJugadorValidoMaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "JoseRamonJim√©nezdela";
+		String nombreJugador = "JoseRamonJimÈnezdela";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
 	}
 	
 	/**
-	 * Guardar un jugador con m√°s de 20 caracteres
+	 * Guardar un jugador con m·s de 20 caracteres
 	 */
 	@Test
 	void testSetNombreJugadorInvalidoMaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "JoseRamonJim√©nezdelaS";
+		String nombreJugador = "JoseRamonJimÈnezdelaS";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(null,jugador.getNombreJugador());
@@ -82,10 +94,94 @@ class JugadorTest {
 	@Test
 	void testSetNombreJugadorValidoMenosMaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "Jos√© Antonio";
+		String nombreJugador = "JosÈ Antonio";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(null,jugador.getNombreJugador());
+	}
+	
+	/**
+	 * Guardar un jugador con un n˙mero
+	 */
+	@Test
+	void testSetNombreJugadorInvalidoNumero() {
+		Jugador jugador = new Jugador();
+		String nombreJugador = "Manolo1";
+		jugador.setNombreJugador(nombreJugador);
+		
+		assertEquals(null,jugador.getNombreJugador());
+	}
+	
+	/**
+	 * Seleccionar idioma valido EspaÒol
+	 */
+	@Test
+	void testSetIdiomaValidoespanol() {
+		Jugador jugador = new Jugador();
+		String idioma = "espaÒol";
+		jugador.setIdioma(idioma);
+		
+		assertEquals(idioma,jugador.getIdioma());
+	}
+	
+	/**
+	 * Seleccionar idioma valido InglÈs
+	 */
+	@Test
+	void testSetIdiomaValidoIngles() {
+		Jugador jugador = new Jugador();
+		String idioma = "inglÈs";
+		jugador.setIdioma(idioma);
+		
+		assertEquals(idioma,jugador.getIdioma());
+	}
+	
+	/**
+	 * Seleccionar idioma valido FrancÈs
+	 */
+	@Test
+	void testSetIdiomaValidofrances() {
+		Jugador jugador = new Jugador();
+		String idioma = "frances";
+		jugador.setIdioma(idioma);
+		
+		assertEquals(idioma,jugador.getIdioma());
+	}
+	
+	/**
+	 * Seleccionar idioma valido Alem·n
+	 */
+	@Test
+	void testSetIdiomaValidoaleman() {
+		Jugador jugador = new Jugador();
+		String idioma = "aleman";
+		jugador.setIdioma(idioma);
+		
+		assertEquals(idioma,jugador.getIdioma());
+	}
+	
+	/**
+	 * Seleccionar idioma invalido
+	 */
+	@Test
+	void testSetIdiomaInvalido() {
+		Jugador jugador = new Jugador();
+		String idioma = "portuguÈs";
+		jugador.setIdioma(idioma);
+		
+		assertEquals(null,jugador.getIdioma());
+	}
+	
+	/**
+	 * Seleccionar idioma vacio
+	 */
+	@Test
+	void testSetIdiomaVacioInvalido() {
+		Jugador jugador = new Jugador();
+		String idioma = "";
+		jugador.setIdioma(idioma);
+		
+		assertEquals(null,jugador.getIdioma());
 	}
 
 	/**
@@ -144,77 +240,5 @@ class JugadorTest {
 		assertEquals(null,(Integer)jugador.getEdad());
 	}
 	
-
-	/**
-	 * Seleccionar idioma valido espa√±ol
-	 */
-	@Test
-	void testSetIdiomaValidoespanol() {
-		Jugador jugador = new Jugador();
-		String idioma = "espa√±ol";
-		jugador.setIdioma(idioma);
-		
-		assertEquals(idioma,jugador.getIdioma());
-	}
-	
-	/**
-	 * Seleccionar idioma valido Ingl√©s
-	 */
-	@Test
-	void testSetIdiomaValidoIngles() {
-		Jugador jugador = new Jugador();
-		String idioma = "ingl√©s";
-		jugador.setIdioma(idioma);
-		
-		assertEquals(idioma,jugador.getIdioma());
-	}
-	
-	/**
-	 * Seleccionar idioma valido franc√©s
-	 */
-	@Test
-	void testSetIdiomaValidofrances() {
-		Jugador jugador = new Jugador();
-		String idioma = "frances";
-		jugador.setIdioma(idioma);
-		
-		assertEquals(idioma,jugador.getIdioma());
-	}
-	
-	/**
-	 * Seleccionar idioma valido Alem√°n
-	 */
-	@Test
-	void testSetIdiomaValidoaleman() {
-		Jugador jugador = new Jugador();
-		String idioma = "aleman";
-		jugador.setIdioma(idioma);
-		
-		assertEquals(idioma,jugador.getIdioma());
-	}
-	
-	/**
-	 * Seleccionar idioma invalido
-	 */
-	@Test
-	void testSetIdiomaInvalido() {
-		Jugador jugador = new Jugador();
-		String idioma = "portugu√©s";
-		jugador.setIdioma(idioma);
-		
-		assertEquals(null,jugador.getIdioma());
-	}
-	
-	/**
-	 * Seleccionar idioma vacio
-	 */
-	@Test
-	void testSetIdiomaVacioInvalido() {
-		Jugador jugador = new Jugador();
-		String idioma = "";
-		jugador.setIdioma(idioma);
-		
-		assertEquals(null,jugador.getIdioma());
-	}
 
 }
