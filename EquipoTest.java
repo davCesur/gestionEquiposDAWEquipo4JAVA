@@ -75,6 +75,73 @@ class EquipoTest {
 	
 	}
 
+	//Asignar posición de ranking por debajo del mínimo (No válido)
+	@Test
+	void testSetRankingPorDebajoDeLimite() {
+		Equipo equipo = new Equipo();
+		int ranking = -1;
+		equipo.setRanking(ranking);
+		assertEquals(null,(Integer)equipo.getRanking());
+	}
+	
+	
+	//Asignar posición de ranking mínimo (Válido)
+	@Test
+	void testSetRankingLimiteInferior() {
+		Equipo equipo = new Equipo();
+		int ranking = 0;
+		equipo.setRanking(ranking);
+
+		assertEquals(ranking,equipo.getRanking());
+	}
+	
+	//Asignar posición de ranking con valor intermedio (Válido)
+	@Test
+	void testSetRankingValorIntermedio() {
+		Equipo equipo = new Equipo();
+		int ranking = 5;
+		equipo.setRanking(ranking);
+		
+		assertEquals(ranking,equipo.getRanking());		
+	}
+	
+	//Asignar posicion de ranking máximo (Válido).
+	@Test
+	void testSetRankingValorMaximo() {
+		Equipo equipo = new Equipo();
+		int ranking=10;
+		equipo.setRanking(ranking);
+		
+		assertEquals(ranking,equipo.getRanking());
+	}
+	
+	//Asignar posición de ranking por encima del máximo (No válido)
+	@Test
+	void testSetRankingValorPorEncimaLimite() {
+		Equipo equipo = new Equipo();
+		int ranking=11;
+		equipo.setRanking(ranking);
+		
+		assertEquals(null,(Integer)equipo.getRanking());
+	}
+	
+	//Dejar el valor vacío (No válido)
+	@Test
+	void testSetRankingVacio() {
+		Equipo equipo = new Equipo();
+		int ranking=0;
+		equipo.setRanking(ranking);
+		
+		assertEquals(null,(Integer)equipo.getRanking());
+	}
+	
+	// ESTO DICE QUE LO VA A EXPLICAR CON LAS EXCEPCIONES
+	//Introducir caracteres no permitidos en el campo Ranking (Nó válido)
+//	void testSetRankingCaracterInvalido() {
+//		Equipo equipo = new Equipo();
+//		//int ranking="10prueba";
+//	}
+
 
 
 }
