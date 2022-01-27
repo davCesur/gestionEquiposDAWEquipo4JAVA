@@ -1,4 +1,3 @@
-
 public class Equipo {
 	private String nombreEquipo;
 	private int ranking;
