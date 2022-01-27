@@ -1,72 +1,107 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 
 class EquipoTest {
 
 
-	@Test/**
-	 * Guardar Equipo con más de 6 caracteres
-	 */
-	void testSetNombreEquipoMinCaracteres() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Lolete";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
-	}
-	/**
-	 * Guardar Equipo con menos de 6 caracteres
+	 /**
+	 * Si el nombre del equipo esta vacio no se guardara
 	 */
 	
-	void testSetNombreEquipoInferiorcaracteres() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Lolete";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(null, Equipo2.getNombreEquipo());
+	@Test
+	void testSetNombreEquipoVacio() {
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
+		String nombreEquipo = "";
+		//Se asigna el equipo
+		Equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(null, equipo.getNombreEquipo());
 	}
-	/**
-	 * Guardar Equipo con maximo de 3 caracteres
+	
+	 /**
+	 * Si el nombre del equipo es menor de 6 caracteres no se guarda.
 	 */
+	
+	@Test
+	void testSetNombreEquipoMinCaracteres() {
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
+		String nombreEquipo = "Lolete";
+		//Se asigna el equipo
+		Equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
+	}
+	
+	 /**
+	 * Si el nombre del equipo es menor de 6 caracteres no se guarda.
+	 */
+	
+	@Test
+	void testSetNombreEquipoInferiorcaracteres() {
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
+		String nombreEquipo = "paquito";
+		//Se asigna el equipo
+		Equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(null, equipo.getNombreEquipo());
+	}
+	
+	 /**
+	 * Guardar Equipo con un maximo de 3 caracteres
+	 */
+	
 	@Test
 	void testTestSetNombreEquipoMaxCaracteres() {
-		Equipo Equipo2 = new Equipo();
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
 		String nombreEquipo = "Lol";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
-		/**
-		 * Guardar Equipo con mas de 3 caracteres
-		 */
-	}
-	void testTestSetNombreEquipoSuperiorCaracteres() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Lol";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(null, Equipo2.getNombreEquipo());
+		//Se asigna el equipo
+		Equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
 	}
-	/**
-	 * Guardar Equipo con nombre sin numeros
+
+	 /**
+	 * Si el nombre del equipo no contiene numeros, sera guardado.
 	 */
-	void testTestSetNombreEquipoValido() {
-		Equipo Equipo2 = new Equipo();
+	
+	@Test
+	void testTestSetNombreEquipovalidoNumerico() {
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
 		String nombreEquipo = "Juanjo";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
+		//Se asigna el equipo
+		Equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
 	}
-	/**
-	 * Guardar Equipo con numeros
+	
+	 /**
+	 * No guarda el nombre del equipo si contiene numeros.
 	 */
-	void testTestSetNombreEquipoInvalido() {
-		Equipo Equipo2 = new Equipo();
+	
+	@Test
+	void testTestSetNombreEquipoinvalidoNumerico() {
+		//Creamos el equipo
+		Equipo equipo = new Equipo();
+		//Añadimos el nombre
 		String nombreEquipo = "Juanjo2";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(null, Equipo2.getNombreEquipo());
+		//Se asigna el nombre
+		Equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
+	
 	}
 	
 	//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE RANKING
