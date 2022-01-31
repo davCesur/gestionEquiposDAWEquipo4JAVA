@@ -1,244 +1,243 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
- *  IMPORTANTE - CodificaciÃ³n UTF8
  *  
- * @autores Miguel Carmona - IvÃ¡n MÃ¡rquez
+ * @autores Miguel Carmona - Iván Márquez
  *
  */
 
 class JugadorTest {
 	
+	
 	/**
-	 * Guardar jugador con más de 0 caracteres
+	 * ########## SET NOMBRE ##########   
 	 */
+	
+	// Set nombre INVÁLIDO vacío
 	@Test
-	void testSetNombreJugadorCero() {
+	void testSetNombreJugador_INVALIDO_Vacio() {
 		Jugador jugador = new Jugador();
+		
 		String nombreJugador = "";
 		jugador.setNombreJugador(nombreJugador);
 		
-		assertEquals(null, jugador.getNombreJugador());
+		assertNull(jugador.getNombreJugador());	
 	}
 
-	/**
-	 * Guardar jugador con más de 4 caracteres
-	 */
+	// Set nombre INVÁLIDO menor del límite inferior (menos de 4 caracteres)
 	@Test
-	void testSetNombreJugadorValido() {
+	void testSetNombreJugador_INVALIDO_MenorMinimoCaracteres() {
 		Jugador jugador = new Jugador();
+		
+		String nombreJugador = "Pep";
+		jugador.setNombreJugador(nombreJugador);
+		
+		assertNull(jugador.getNombreJugador());	
+	}
+
+	 // Set nombre VÁLIDO límite inferior (4 caracteres)
+	@Test
+	void testSetNombreJugador_VALIDO_MinimoCaracteres() {
+		Jugador jugador = new Jugador();
+		
+		String nombreJugador = "Pepe";
+		jugador.setNombreJugador(nombreJugador);
+		
+		assertEquals(nombreJugador,jugador.getNombreJugador());
+	}	
+
+	 // Set nombre VÁLIDO en el intervalo (entre 4 y 20 caracteres)
+	@Test
+	void testSetNombreJugador_VALIDO() {
+		Jugador jugador = new Jugador();
+		
 		String nombreJugador = "Antonio";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
 	}
-	
-	/**
-	 * Guardar jugador con menos de 4 caracteres
-	 */
+
+	 // Set nombre VÁLIDO límite superior (20 caracteres)
 	@Test
-	
-	void testSetNombreJugadorInvalidoMinimoCaracteres() {
+	void testSetNombreJugador_VALIDO_MaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "Pep";
-		jugador.setNombreJugador(nombreJugador);
 		
-		assertEquals(null,jugador.getNombreJugador());
-		
-	}
-	
-	/**
-	 * Guardar jugador con 4 caracteres
-	 */
-	@Test
-	
-	void testSetNombreJugadorValidoMinimoCaracteres() {
-		Jugador jugador = new Jugador();
-		String nombreJugador = "Pepe";
-		jugador.setNombreJugador(nombreJugador);
-		
-		assertEquals(nombreJugador,jugador.getNombreJugador());
-		
-	}
-	
-	/**
-	 * Guardar jugador con 20 caracteres
-	 */
-	@Test
-	void testSetNombreJugadorValidoMaximoCaracteres() {
-		Jugador jugador = new Jugador();
-		String nombreJugador = "JoseRamonJiménezdela";
+		String nombreJugador = "José Ramón De Jimena";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
 	}
-	
-	/**
-	 * Guardar un jugador con más de 20 caracteres
-	 */
+
+	 // Set nombre INVÁLIDO por encima del límite (20 caracteres)
 	@Test
-	void testSetNombreJugadorInvalidoMaximoCaracteres() {
+	void testSetNombreJugador_INVALIDO_MaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "JoseRamonJiménezdelaS";
+		
+		String nombreJugador = "José Ramón De Jiménez";
 		jugador.setNombreJugador(nombreJugador);
 		
-		assertEquals(null,jugador.getNombreJugador());
+		assertNull(jugador.getNombreJugador());
 	}
-	
-	/**
-	 * Guardar un jugador con menos de 20 caracteres
-	 */
+
+	// Set nombre INVÁLIDO que contenga algún número
 	@Test
-	void testSetNombreJugadorValidoMenosMaximoCaracteres() {
+	void testSetNombreJugador_INVALIDO_Numero() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "José Antonio";
+		
+		String nombreJugador = "Manolo 1";
 		jugador.setNombreJugador(nombreJugador);
 		
-		assertEquals(null,jugador.getNombreJugador());
+		assertNull(jugador.getNombreJugador());
 	}
 	
-	/**
-	 * Guardar un jugador con un número
-	 */
+	// Set nombre no VÁLIDo Null
 	@Test
-	void testSetNombreJugadorInvalidoNumero() {
+	void testSetNombreJugador_INVALIDO_Null() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "Manolo1";
+		
+		String nombreJugador = null;
 		jugador.setNombreJugador(nombreJugador);
-		
-		assertEquals(null,jugador.getNombreJugador());
+			
+		assertNull(jugador.getEdad());
 	}
 	
+
+	
 	/**
-	 * Seleccionar idioma valido Español
+	 * ########## SET idioma ##########   
 	 */
-	@Test
-	void testSetIdiomaValidoespanol() {
+
+	// Set idiomas VÁLIDOS
+	@ParameterizedTest
+	@ValueSource(strings = {"español", "inglés", "alemán"})
+	void testSetIdioma_VALIDO(String idioma) {
 		Jugador jugador = new Jugador();
-		String idioma = "español";
 		jugador.setIdioma(idioma);
 		
 		assertEquals(idioma,jugador.getIdioma());
 	}
-	
-	/**
-	 * Seleccionar idioma valido Inglés
-	 */
+
+	// Set idioma INVÁLIDO (string incorrecto)
 	@Test
-	void testSetIdiomaValidoIngles() {
+	void testSetIdioma_INVALIDO() {
 		Jugador jugador = new Jugador();
-		String idioma = "inglés";
-		jugador.setIdioma(idioma);
 		
-		assertEquals(idioma,jugador.getIdioma());
-	}
-	
-	/**
-	 * Seleccionar idioma valido Francés
-	 */
-	@Test
-	void testSetIdiomaValidofrances() {
-		Jugador jugador = new Jugador();
-		String idioma = "frances";
-		jugador.setIdioma(idioma);
-		
-		assertEquals(idioma,jugador.getIdioma());
-	}
-	
-	/**
-	 * Seleccionar idioma valido Alemán
-	 */
-	@Test
-	void testSetIdiomaValidoaleman() {
-		Jugador jugador = new Jugador();
-		String idioma = "aleman";
-		jugador.setIdioma(idioma);
-		
-		assertEquals(idioma,jugador.getIdioma());
-	}
-	
-	/**
-	 * Seleccionar idioma invalido
-	 */
-	@Test
-	void testSetIdiomaInvalido() {
-		Jugador jugador = new Jugador();
 		String idioma = "portugués";
 		jugador.setIdioma(idioma);
 		
-		assertEquals(null,jugador.getIdioma());
+		assertNull(jugador.getIdioma());
 	}
-	
-	/**
-	 * Seleccionar idioma vacio
-	 */
+
+	// Set idioma INVÁLIDO vacío
 	@Test
-	void testSetIdiomaVacioInvalido() {
+	void testSetIdioma_INVALIDO_Vacio() {
 		Jugador jugador = new Jugador();
+		
 		String idioma = "";
 		jugador.setIdioma(idioma);
 		
-		assertEquals(null,jugador.getIdioma());
+		assertNull(jugador.getIdioma());
 	}
 
-	/**
-	 * Guardar edad vÃ¡lida (>=18 && =<99)
-	 */
+	// Set idioma INVÁLIDO Null
 	@Test
-	void testSetEdadValida() {
+	void testSetIdioma_INVALIDO_Null() {
 		Jugador jugador = new Jugador();
-		int edad = 20;
+		
+		String idioma = null;
+		jugador.setIdioma(idioma);
+		
+		assertNull(jugador.getIdioma());
+	}
+
+
+	/**
+	 * ########## SET edad ##########   
+	 */
+
+	// Set edad INVÁLIDA inferior(<18)
+	@Test
+	void testSetEdad_INVALIDA_Inferior() {
+		Jugador jugador = new Jugador();
+		
+		int edad = 17;
 		jugador.setEdad(edad);
 		
-		assertEquals(edad,jugador.getEdad());
+		assertNull(jugador.getEdad());
 	}
-	/**
-	 * Guardar edad vÃ¡lida limite inferior (=18)
-	 */
+
+	 // Set edad VÁLIDA límite inferior (=18)
 	@Test
-	void testSetEdadLimiteInferior() {
+	void testSetEdad_VALIDA_LimiteInferior() {
 		Jugador jugador = new Jugador();
+		
 		int edad = 18;
 		jugador.setEdad(edad);
 
 		assertEquals(edad,jugador.getEdad());
 	}
-	/**
-	 * Guardar edad no vÃ¡lida inferior(<18)
-	 */
+
+	 // Set edad VÁLIDA (>=18 && =<99)
 	@Test
-	void testSetEdadErrorInferior() {
+	void testSetEdad_VALIDA_Intervalo() {
 		Jugador jugador = new Jugador();
-		int edad = 15;
-		jugador.setEdad(edad);
 		
-		assertEquals(null,(Integer)jugador.getEdad());
-	}
-	/**
-	 * Guardar edad vÃ¡lida lÃ­mite superior (=99)
-	 */
-	@Test
-	void testSetEdadLimiteSuperior() {
-		Jugador jugador = new Jugador();
-		int edad = 99;
+		int edad = 20;
 		jugador.setEdad(edad);
 		
 		assertEquals(edad,jugador.getEdad());
 	}
-	/**
-	 * Guardar edad no vÃ¡lida superior (>99)
-	 */
+
+	// Set edad VÁLIDA límite superior (=99)
 	@Test
-	void testSetEdadErrorSuperior() {
+	void testSetEdad_VALIDA_LimiteSuperior() {
 		Jugador jugador = new Jugador();
-		int edad = 120;
+		
+		int edad = 99;
+		jugador.setEdad(edad);
+
+		assertEquals(edad,jugador.getEdad());
+	}
+
+	// Set edad no VÁLIDA superior (>99)
+	@Test
+	void testSetEdad_INVALIDA_Superior() {
+		Jugador jugador = new Jugador();
+		
+		int edad = 100;
 		jugador.setEdad(edad);
 		
-		assertEquals(null,(Integer)jugador.getEdad());
+		assertNull(jugador.getEdad());
 	}
 	
-
+	// Set edad no VÁLIDA Null
+	@Test
+	void testSetEdad_INVALIDA_Null() {
+		Jugador jugador = new Jugador();
+		
+		assertThrows(NumberFormatException.class, () -> {
+			int edad = Integer.parseInt(null);
+			jugador.setEdad(edad);
+	    });
+		
+		assertNull(jugador.getEdad());
+	}
+	
+	// Set edad no VÁLIDA String
+	@Test
+	void testSetEdad_INVALIDA_String() {
+		Jugador jugador = new Jugador();
+		
+		assertThrows(NumberFormatException.class, () -> {
+			int edad = Integer.parseInt("texto");
+			jugador.setEdad(edad);
+			
+			assertNull(jugador.getEdad());
+	    });
+	}
+	
 }
