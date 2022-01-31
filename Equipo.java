@@ -26,7 +26,7 @@ public class Equipo {
 		
 		if(nombreEquipo != null && !nombreEquipo.isEmpty()){
 			for (int i = 0; i < nombreEquipo.length(); i++) {
-				if (nombreEquipo.charAt(i) >47 && nombreEquipo.charAt(i)<49) {
+				if (nombreEquipo.charAt(i) >47 && nombreEquipo.charAt(i)<59) {
 						nombreEquipo = null;
 				}
 			}
