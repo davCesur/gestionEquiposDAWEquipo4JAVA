@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Equipo {
 	private String nombreEquipo;
 	private int ranking;
@@ -33,13 +34,33 @@ public class Equipo {
 		}
 	}
 	public void setRanking(int ranking) {
-		//code here
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Por favor, Introduce el ranking del equipo: ");
+		ranking = sc.nextInt();
+		
+		if (ranking>10) ranking = 0;
+		else if (ranking<0) ranking = 0;
+	
+		
+		System.out.println("El ranking de tu equipo es: "+ranking);
+		
+	}
+	
+	public String categoriaEquipo (int ranking, String nombreEquipo) {
+		String categoria="";
+		
+		if (ranking <3)	categoria = "Tercera";
+		else if (ranking >= 3 && ranking <=6) categoria ="Segunda";
+		else categoria = "Primera";
+		
+		return categoria;
 	}
 	
 	public String getNombreEquipo() {
 		return nombreEquipo;
 	}
-	public int getRanking() {
+	public int getRanking(int ranking) {
 		return ranking;
 	}
 }
