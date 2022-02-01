@@ -35,13 +35,17 @@ public class Equipo {
 	}
 	public void setRanking(int ranking) {
 
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Por favor, Introduce el ranking del equipo: ");
-		ranking = sc.nextInt();
+//		Scanner sc = new Scanner(System.in);
+//		System.out.print("Por favor, Introduce el ranking del equipo: ");
+//		ranking = sc.nextInt();
 		
-		if (ranking>10) ranking = 0;
-		else if (ranking<0) ranking = 0;
-	
+		
+		
+		this.ranking=ranking;
+		if (ranking<0)
+			ranking = -1;
+		else if (ranking>10)
+			ranking = 11;
 		
 		System.out.println("El ranking de tu equipo es: "+ranking);
 		
@@ -60,7 +64,7 @@ public class Equipo {
 	public String getNombreEquipo() {
 		return nombreEquipo;
 	}
-	public int getRanking(int ranking) {
+	public int getRanking() {
 		return ranking;
 	}
 }

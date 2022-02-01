@@ -111,7 +111,7 @@ class EquipoTest {
 			Equipo equipo = new Equipo();
 			int ranking = -1;
 			equipo.setRanking(ranking);
-			assertNull(equipo.getRanking(ranking));
+			assertEquals(-1, equipo.getRanking());
 		}
 		
 		
@@ -122,7 +122,7 @@ class EquipoTest {
 			int ranking = 0;
 			equipo.setRanking(ranking);
 
-			assertEquals(ranking,equipo.getRanking(ranking));
+			assertEquals(ranking,equipo.getRanking());
 		}
 		
 		//Asignar posición de ranking con valor intermedio (Válido)
@@ -132,7 +132,7 @@ class EquipoTest {
 			int ranking = 5;
 			equipo.setRanking(ranking);
 			
-			assertEquals(ranking,equipo.getRanking(ranking));		
+			assertEquals(ranking,equipo.getRanking());		
 		}
 		
 		//Asignar posicion de ranking máximo (Válido).
@@ -142,7 +142,7 @@ class EquipoTest {
 			int ranking=10;
 			equipo.setRanking(ranking);
 			
-			assertEquals(ranking,equipo.getRanking(ranking));
+			assertEquals(ranking,equipo.getRanking());
 		}
 		
 		//Asignar posición de ranking por encima del máximo (No válido)
@@ -152,7 +152,8 @@ class EquipoTest {
 			int ranking=11;
 			equipo.setRanking(ranking);
 			
-			assertNull(equipo.getRanking(ranking));
+
+			assertEquals(11, equipo.getRanking());
 		}
 		
 		//Dejar el valor vacío (No válido)
