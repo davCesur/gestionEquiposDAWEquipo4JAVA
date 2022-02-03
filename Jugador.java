@@ -4,19 +4,55 @@ public class Jugador {
 	private int edad;
 	private String idioma;
 	
+	/**
+	 * Constructor
+	 */
 	public Jugador () {
-			
-		}
+		
+	}
 	
+	/**
+	 * Establece el nombre del Jugador
+	 * Condiciones (si no se cumplen, establecer como null):
+	 *   Entre 4 y 20 caracteres.
+	 *   No contenga ningún número
+	 */
 	public void setNombreJugador(String nombre) {
-		//code here
+		this.nombre = nombre;
+		//if( nombre )
 	}
 	
+	/**
+	 * Establece la edad
+	 * Condiciones (si no se cumplen, establecer como null):
+	 *   Entero entre 18 y 99.
+	 *   No contenga ningún carácter que no sea número
+	 */
+	//@SuppressWarnings("null")
 	public void setEdad(int edad) {
-		//code here
+		if( edad >=18 && edad <=99 )
+			this.edad = edad;
+/*		else {
+			Integer nulo = (Integer) null;
+			this.edad = nulo;
+		}
+*/
 	}
+	
+	/**
+	 * Establece el idioma
+	 * Condiciones (si no se cumplen, establecer como null):
+	 *   Tiene que ser uno de estos valores: español, inglés o alemán
+	 */
 	public void setIdioma(String idioma) {
-		//code here
+		
+		String idiomas[] = {"español","inglés","alemán"};
+		
+		for( String id:idiomas ) {
+			if( id.equals(idioma) )
+				this.idioma = idioma;
+		}
+		
 	}
 	
 
