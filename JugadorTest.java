@@ -240,4 +240,143 @@ class JugadorTest {
 	    });
 	}
 	
+	
+	// Test Tipo jugador Junior
+	@Test
+	void testTipoJugadorJunior_Inferior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(18);
+		jugador.setIdioma("español");
+		
+		assertEquals("Junior", jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorJunior_Intermedio() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(20);
+		jugador.setIdioma("español");
+		
+		assertEquals("Junior", jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorJunior_Superior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(25);
+		jugador.setIdioma("español");
+		
+		assertEquals("Junior", jugador.getTipoJugador());
+		
+	}
+	
+	@Test
+	void testTipoJugadorSenior_Inferior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(26);
+		jugador.setIdioma("español");
+		
+		assertEquals("Senior", jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorSenior_Intermedio() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(30);
+		jugador.setIdioma("español");
+		
+		assertEquals("Senior", jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorSenior_Superior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(35);
+		jugador.setIdioma("español");
+		
+		assertEquals("Senior", jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorMaster_Inferior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(36);
+		jugador.setIdioma("español");
+		
+		assertEquals("Master", jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorMaster_Intermedio() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(40);
+		jugador.setIdioma("español");
+		
+		assertEquals("Master", jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorMaster_Superior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Nombre");
+		jugador.setEdad(99);
+		jugador.setIdioma("español");
+		
+		assertEquals("Master", jugador.getTipoJugador());
+		
+	}
+	
+	@Test
+	void testTipoJugadorSinNombre() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(null);
+		jugador.setEdad(99);
+		jugador.setIdioma("español");
+		
+		assertNull(jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorSinEdad() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(null);
+		jugador.setEdad(0);
+		jugador.setIdioma("español");
+		
+		assertNull(jugador.getTipoJugador());
+		
+	}
+	@Test
+	void testTipoJugadorSinIdioma() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(null);
+		jugador.setEdad(99);
+		jugador.setIdioma("idioma no válido");
+		
+		assertNull(jugador.getTipoJugador());
+		
+	}
+	
+	
+	
 }
