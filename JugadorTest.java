@@ -167,7 +167,7 @@ class JugadorTest {
 		int edad = 17;
 		jugador.setEdad(edad);
 		
-		assertNull(jugador.getEdad());
+		assertEquals(0, jugador.getEdad());
 	}
 
 	 // Set edad VÁLIDA límite inferior (=18)
@@ -211,7 +211,7 @@ class JugadorTest {
 		int edad = 100;
 		jugador.setEdad(edad);
 		
-		assertNull(jugador.getEdad());
+		assertEquals(0, jugador.getEdad());
 	}
 	
 	// Set edad no VÁLIDA Null

@@ -36,7 +36,6 @@ public class Jugador {
 	public void setEdad(int edad) {
 		if( edad >=18 && edad <=99 )
 			this.edad = edad;
-
 	}
 	
 	/**
