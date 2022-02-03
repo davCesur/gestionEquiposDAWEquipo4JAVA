@@ -224,7 +224,7 @@ class JugadorTest {
 			jugador.setEdad(edad);
 	    });
 		
-		assertNull(jugador.getEdad());
+		assertEquals(0, jugador.getEdad());
 	}
 	
 	// Set edad no VÁLIDA String
