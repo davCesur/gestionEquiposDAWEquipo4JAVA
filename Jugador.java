@@ -3,7 +3,7 @@ public class Jugador {
 	private String nombre;
 	private int edad;
 	private String idioma;
-	private String tipoJugador;
+	private String TipoJugador;
 	
 	/**
 	 * Constructor
@@ -57,6 +57,16 @@ public class Jugador {
 		
 	}
 	
+	/**
+	 * Establece el idioma
+	 * Condiciones (si no se cumplen, establecer como null):
+	 *   Tiene que ser uno de estos valores: español, inglés o alemán
+	 */
+	public void setTipoJugador(String TipoJugador) {
+		//code here
+		
+	}
+	
 
 	public String getIdioma() {
 		return idioma;
@@ -70,6 +80,6 @@ public class Jugador {
 	}
 	
 	public String getTipoJugador() {
-		return tipoJugador;
+		return TipoJugador;
 	}
 }
