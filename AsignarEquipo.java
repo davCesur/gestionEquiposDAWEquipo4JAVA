@@ -3,10 +3,7 @@ public class AsignarEquipo {
       private Equipo equipo;
       private Jugador jugador;
       
-      
-      public AsignarEquipo() {
-    	  
-      }
+  
       
       public void setEquipo(Equipo equipo) {
   		//code here
