@@ -18,8 +18,12 @@ public class Jugador {
 	 *   No contenga ningún número
 	 */
 	public void setNombreJugador(String nombre) {
-		this.nombre = nombre;
-		//if( nombre )
+		if ( nombre.length()>=4 && nombre.length()<=20 && !nombre.matches(".*\\d.*") ) {
+			this.nombre = nombre;
+		} else {
+			this.nombre = null;
+		}
+		
 	}
 	
 	/**
