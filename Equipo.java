@@ -9,7 +9,6 @@ public class Equipo {
 	
 	
 	public void setNombreEquipo(String nombreEquipo) {
-		
 		// Si el nombre esta vacio
 		if (nombreEquipo.isEmpty()) {
 			nombreEquipo= null;
@@ -34,22 +33,12 @@ public class Equipo {
 			}
 		}
 	}
-	public void setRanking(int ranking) {
-
-//		Scanner sc = new Scanner(System.in);
-//		System.out.print("Por favor, Introduce el ranking del equipo: ");
-//		ranking = sc.nextInt();
-		
-		
-		
+	public void setRanking(int ranking) {				
 		this.ranking=ranking;
 		if (ranking<0)
 			ranking = -1;
 		else if (ranking>10)
 			ranking = 11;
-		
-		System.out.println("El ranking de tu equipo es: "+ranking);
-		
 	}
 	
 	public String categoriaEquipo (int ranking, String nombreEquipo) {
