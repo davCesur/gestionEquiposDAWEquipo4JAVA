@@ -241,7 +241,7 @@ class JugadorTest {
 	}
 	
 	
-	// Test Tipo jugador Junior
+	// Test tipoJugador Junior límite inferior
 	@Test
 	void testTipoJugadorJunior_Inferior() {
 		Jugador jugador = new Jugador();
@@ -253,6 +253,7 @@ class JugadorTest {
 		assertEquals("Junior", jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador Junior rango intermedio
 	@Test
 	void testTipoJugadorJunior_Intermedio() {
 		Jugador jugador = new Jugador();
@@ -264,6 +265,7 @@ class JugadorTest {
 		assertEquals("Junior", jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador Junior límite superior
 	@Test
 	void testTipoJugadorJunior_Superior() {
 		Jugador jugador = new Jugador();
@@ -276,6 +278,7 @@ class JugadorTest {
 		
 	}
 	
+	// Test tipoJugador Senior límite inferior
 	@Test
 	void testTipoJugadorSenior_Inferior() {
 		Jugador jugador = new Jugador();
@@ -287,6 +290,7 @@ class JugadorTest {
 		assertEquals("Senior", jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador Senior rango intermedio
 	@Test
 	void testTipoJugadorSenior_Intermedio() {
 		Jugador jugador = new Jugador();
@@ -298,6 +302,7 @@ class JugadorTest {
 		assertEquals("Senior", jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador Senior límite superior
 	@Test
 	void testTipoJugadorSenior_Superior() {
 		Jugador jugador = new Jugador();
@@ -309,6 +314,7 @@ class JugadorTest {
 		assertEquals("Senior", jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador Master límite inferior
 	@Test
 	void testTipoJugadorMaster_Inferior() {
 		Jugador jugador = new Jugador();
@@ -320,6 +326,7 @@ class JugadorTest {
 		assertEquals("Master", jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador Master rango intermedio
 	@Test
 	void testTipoJugadorMaster_Intermedio() {
 		Jugador jugador = new Jugador();
@@ -331,6 +338,7 @@ class JugadorTest {
 		assertEquals("Master", jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador Master límite superior
 	@Test
 	void testTipoJugadorMaster_Superior() {
 		Jugador jugador = new Jugador();
@@ -343,6 +351,7 @@ class JugadorTest {
 		
 	}
 	
+	// Test tipoJugador sin nombre válido
 	@Test
 	void testTipoJugadorSinNombre() {
 		Jugador jugador = new Jugador();
@@ -354,6 +363,7 @@ class JugadorTest {
 		assertNull(jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador sin edad válida
 	@Test
 	void testTipoJugadorSinEdad() {
 		Jugador jugador = new Jugador();
@@ -365,6 +375,7 @@ class JugadorTest {
 		assertNull(jugador.getTipoJugador());
 		
 	}
+	// Test tipoJugador sin Idioma válido
 	@Test
 	void testTipoJugadorSinIdioma() {
 		Jugador jugador = new Jugador();
