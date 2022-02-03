@@ -69,7 +69,7 @@ public class Jugador {
 		return edad;
 	}
 	
-	public String gettipoJugador() {
+	public String getTipoJugador() {
 		return tipoJugador;
 	}
 }
