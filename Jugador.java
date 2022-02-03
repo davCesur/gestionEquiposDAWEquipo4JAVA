@@ -9,7 +9,6 @@ public class Jugador {
 	 * Constructor
 	 */
 	public Jugador () {
-		
 	}
 	
 	/**
@@ -19,7 +18,8 @@ public class Jugador {
 	 *   No contenga ningún número
 	 */
 	public void setNombreJugador(String nombre) {
-		if ( nombre!=null && !nombre.matches(".*\\d.*") && nombre.length()>=4 && nombre.length()<=20 ) {
+		if ( nombre!=null && !nombre.matches(".*\\d.*")
+		&& nombre.length()>=4 && nombre.length()<=20 ) {
 			this.nombre = nombre;
 		} else {
 			this.nombre = null;
@@ -29,12 +29,19 @@ public class Jugador {
 	
 	/**
 	 * Establece la edad
-	 * Condiciones (si no se cumplen, establecer como null):
+	 * Condiciones (si no se cumplen, establecer como 0):
 	 *   Entero entre 18 y 99.
 	 *   No contenga ningún carácter que no sea número
 	 */
-	//@SuppressWarnings("null")
 	public void setEdad(int edad) {
+		//Comprobamos si es Integer
+		this.edad = 0;
+		try { 
+	        Integer.parseInt(edad+""); 
+	    } catch(NumberFormatException e) {
+	    } catch(NullPointerException e) {
+	    }
+		
 		if( edad >=18 && edad <=99 )
 			this.edad = edad;
 
@@ -59,9 +66,10 @@ public class Jugador {
 	
 	/**
 	 * Establece el Tipo de Jugador
-	 * Condiciones (si tiene entre 18 y 25 años, es de tipo Junior
-	 * Si tiene entre 25 y 35 años, es de tipo Senior
-	 * Si tiene más de 35 años, es Master):
+	 * Condiciones:
+	 *   de 18 a 25 años, Junior
+	 *   de 25 a 35 años, Senior
+	 *   más de 35 años, Master
 	 *   Debe tener todos sus campos edad, nombre e idioma rellenos
 	 */
 	public void setTipoJugador(String tipojugador, int edad, String nombre, String idioma) {

@@ -7,7 +7,6 @@ public class Equipo {
 	public Equipo () {
 	}
 	
-	
 	public void setNombreEquipo(String nombreEquipo) {
 		// Si el nombre esta vacio
 		if (nombreEquipo.isEmpty()) {
@@ -33,28 +32,26 @@ public class Equipo {
 			}
 		}
 	}
+	
 	public void setRanking(int ranking) {				
 		this.ranking=ranking;
 		if (ranking<0)
 			ranking = -1;
 		else if (ranking>10)
 			ranking = 11;
+		
+		
 	}
 	
-	public String setCategoriaEquipo (int ranking, String nombreEquipo) {
-		String categoria="";
-		
-		if (ranking <3)	
-			categoria = "Tercera";
-		else if (ranking >= 3 && ranking <=6) 
-			categoria ="Segunda";
-		else 
-			categoria = "Primera";
-		
-		return categoria;
-	}
+	
 	
 	public String getCategoriaEquipo() {
+		if (ranking>=7 && ranking <=10)
+			categoria = "Primera";
+		else if (ranking>=3 && ranking<=6)
+			categoria = "Segunda";
+		else
+			categoria = "Tercera";
 		return categoria;
 	}
 	
