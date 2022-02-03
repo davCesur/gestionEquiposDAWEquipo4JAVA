@@ -3,6 +3,7 @@ public class Jugador {
 	private String nombre;
 	private int edad;
 	private String idioma;
+	private String TipoJugador;
 	
 	/**
 	 * Constructor
@@ -18,8 +19,12 @@ public class Jugador {
 	 *   No contenga ningún número
 	 */
 	public void setNombreJugador(String nombre) {
-		this.nombre = nombre;
-		//if( nombre )
+		if ( nombre!=null && !nombre.matches(".*\\d.*") && nombre.length()>=4 && nombre.length()<=20 ) {
+			this.nombre = nombre;
+		} else {
+			this.nombre = null;
+		}
+		
 	}
 	
 	/**
@@ -32,10 +37,6 @@ public class Jugador {
 	public void setEdad(int edad) {
 		if( edad >=18 && edad <=99 )
 			this.edad = edad;
-		else {
-			int nulo = Integer.parseInt(null);
-			this.edad = nulo;
-		}
 
 	}
 	
@@ -56,6 +57,18 @@ public class Jugador {
 		
 	}
 	
+	/**
+	 * Establece el Tipo de Jugador
+	 * Condiciones (si tiene entre 18 y 25 años, es de tipo Junior
+	 * Si tiene entre 25 y 35 años, es de tipo Senior
+	 * Si tiene más de 35 años, es Master):
+	 *   Debe tener todos sus campos edad, nombre e idioma rellenos
+	 */
+	public void setTipoJugador(String TipoJugador) {
+		//code here
+		
+	}
+	
 
 	public String getIdioma() {
 		return idioma;
@@ -66,5 +79,9 @@ public class Jugador {
 	}
 	public int getEdad() {
 		return edad;
+	}
+	
+	public String getTipoJugador() {
+		return TipoJugador;
 	}
 }
