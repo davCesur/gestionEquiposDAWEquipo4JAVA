@@ -3,6 +3,7 @@ public class Jugador {
 	private String nombre;
 	private int edad;
 	private String idioma;
+	private String tipoJugador;
 	
 	/**
 	 * Constructor
@@ -66,5 +67,9 @@ public class Jugador {
 	}
 	public int getEdad() {
 		return edad;
+	}
+	
+	public String gettipoJugador() {
+		return tipoJugador;
 	}
 }
