@@ -36,11 +36,11 @@ public class Jugador {
 	public void setEdad(int edad) {
 		if( edad >=18 && edad <=99 )
 			this.edad = edad;
-/*		else {
-			Integer nulo = (Integer) null;
+		else {
+			int nulo = Integer.parseInt(null);
 			this.edad = nulo;
 		}
-*/
+
 	}
 	
 	/**
@@ -51,6 +51,7 @@ public class Jugador {
 	public void setIdioma(String idioma) {
 		
 		String idiomas[] = {"español","inglés","alemán"};
+		this.idioma = null;
 		
 		for( String id:idiomas ) {
 			if( id.equals(idioma) )

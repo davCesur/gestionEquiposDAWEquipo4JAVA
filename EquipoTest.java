@@ -176,6 +176,24 @@ class EquipoTest {
 				equipo.setRanking(ranking);
 		  });
 		}
-
+		
+		//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE RANKING
+		//Introducir ranking con categoría primera(Válida)
+		@Test
+		void testSetRankingPrimeraValida() {
+			Equipo equipo = new Equipo();
+			int ranking=8;
+			equipo.setRanking(ranking);
+			assertEquals("Primera", equipo.getCategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría segunda(Válida)
+		@Test
+		void testSetRankingSegundaValida() {
+			Equipo equipo = new Equipo();
+			int ranking=8;
+			equipo.setRanking(ranking);
+			assertEquals("Segunda", equipo.getCategoriaEquipo());
+		}
 	
 }
