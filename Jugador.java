@@ -18,7 +18,7 @@ public class Jugador {
 	 *   No contenga ningún número
 	 */
 	public void setNombreJugador(String nombre) {
-		if ( nombre.length()>=4 && nombre.length()<=20 && !nombre.matches(".*\\d.*") ) {
+		if ( nombre!=null && !nombre.matches(".*\\d.*") && nombre.length()>=4 && nombre.length()<=20 ) {
 			this.nombre = nombre;
 		} else {
 			this.nombre = null;
@@ -36,6 +36,7 @@ public class Jugador {
 	public void setEdad(int edad) {
 		if( edad >=18 && edad <=99 )
 			this.edad = edad;
+
 	}
 	
 	/**

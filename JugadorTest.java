@@ -102,7 +102,7 @@ class JugadorTest {
 		String nombreJugador = null;
 		jugador.setNombreJugador(nombreJugador);
 			
-		assertNull(jugador.getEdad());
+		assertNull(jugador.getNombreJugador());
 	}
 	
 
