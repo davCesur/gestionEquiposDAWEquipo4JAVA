@@ -14,11 +14,11 @@ class EquipoTest {
 		//Se crea el equipo
 		Equipo equipo = new Equipo();
 		//Se asigna nombre
-		String nombreEquipo = "";
+		String nombreEquipo = " ";
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertEquals(null, equipo.getNombreEquipo());
+		assertNull(equipo.getNombreEquipo());
 	}
 	
 	 /**
@@ -34,7 +34,7 @@ class EquipoTest {
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertEquals(nombreEquipo, equipo.getNombreEquipo());
+		assertNull(equipo.getNombreEquipo());
 	}
 	
 	 /**
@@ -46,11 +46,11 @@ class EquipoTest {
 		//Se crea el equipo
 		Equipo equipo = new Equipo();
 		//Se asigna nombre
-		String nombreEquipo = "paquito";
+		String nombreEquipo = "pa";
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertEquals(null, equipo.getNombreEquipo());
+		assertNull(equipo.getNombreEquipo());
 	}
 	
 	 /**
@@ -66,7 +66,7 @@ class EquipoTest {
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertEquals(nombreEquipo, equipo.getNombreEquipo());
+		assertNull(null,equipo.getNombreEquipo());
 	
 	}
 
@@ -83,7 +83,7 @@ class EquipoTest {
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertEquals(nombreEquipo, equipo.getNombreEquipo());
+		assertNull(equipo.getNombreEquipo());
 	
 	}
 	
@@ -96,12 +96,11 @@ class EquipoTest {
 		//Creamos el equipo
 		Equipo equipo = new Equipo();
 		//Añadimos el nombre
-		String nombreEquipo = "Juanjo2";
+		String nombreEquipo = "Juan2";
 		//Se asigna el nombre
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertEquals(nombreEquipo, equipo.getNombreEquipo());
-	
+		assertNull(equipo.getNombreEquipo());
 	}
 	
 	//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE RANKING

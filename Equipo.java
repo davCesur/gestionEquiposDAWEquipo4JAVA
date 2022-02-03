@@ -15,19 +15,20 @@ public class Equipo {
 			nombreEquipo= null;
 		}
 		// Si el nombre es menor de 6 caracteres
-		if (nombreEquipo.length() < 6) {
+		if (nombreEquipo.length() > 6) {
 			nombreEquipo = null;
 		}
 		// Si el nombre es mayor de 4 caracteres
-		if (nombreEquipo.length() > 4) {
+		if (nombreEquipo.length() < 3) {
 			nombreEquipo = null;
 		}
 		
 		// Si el nombre contiene un numero
 		
 		if(nombreEquipo != null && !nombreEquipo.isEmpty()){
-			for (int i = 0; i < nombreEquipo.length(); i++) {
-				if (nombreEquipo.charAt(i) >47 && nombreEquipo.charAt(i)<59) {
+				char [] cadena = nombreEquipo.toCharArray();
+				for (int i = 0; i < cadena.length; i++) {
+					if (Character.isDigit(cadena[i])) {
 						nombreEquipo = null;
 				}
 			}
