@@ -58,9 +58,11 @@ public class Jugador {
 	}
 	
 	/**
-	 * Establece el idioma
-	 * Condiciones (si no se cumplen, establecer como null):
-	 *   Tiene que ser uno de estos valores: español, inglés o alemán
+	 * Establece el Tipo de Jugador
+	 * Condiciones (si tiene entre 18 y 25 años, es de tipo Junior
+	 * Si tiene entre 25 y 35 años, es de tipo Senior
+	 * Si tiene más de 35 años, es Master):
+	 *   Debe tener todos sus campos edad, nombre e idioma rellenos
 	 */
 	public void setTipoJugador(String TipoJugador) {
 		//code here
