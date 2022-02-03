@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Equipo {
 	private String nombreEquipo;
 	private int ranking;
-	
+	private String categoria;
 	
 	public Equipo () {
 	}
@@ -41,13 +41,20 @@ public class Equipo {
 			ranking = 11;
 	}
 	
-	public String categoriaEquipo (int ranking, String nombreEquipo) {
+	public String setCategoriaEquipo (int ranking, String nombreEquipo) {
 		String categoria="";
 		
-		if (ranking <3)	categoria = "Tercera";
-		else if (ranking >= 3 && ranking <=6) categoria ="Segunda";
-		else categoria = "Primera";
+		if (ranking <3)	
+			categoria = "Tercera";
+		else if (ranking >= 3 && ranking <=6) 
+			categoria ="Segunda";
+		else 
+			categoria = "Primera";
 		
+		return categoria;
+	}
+	
+	public String getCategoriaEquipo() {
 		return categoria;
 	}
 	
