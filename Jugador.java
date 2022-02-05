@@ -20,7 +20,7 @@ public class Jugador {
 	public void setNombreJugador(String nombre) {
 		if ( nombre!=null && !nombre.matches(".*\\d.*")
 		&& nombre.length()>=4 && nombre.length()<=20 ) {
-			this.nombre = nombre;
+			this.nombre = nombre.toUpperCase();
 		} else {
 			this.nombre = null;
 		}
