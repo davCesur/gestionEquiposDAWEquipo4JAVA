@@ -39,25 +39,23 @@ public class Equipo {
 			ranking = -1;
 		else if (ranking>10)
 			ranking = 11;
-		
-		
 	}
 	
-	
-	
-	public String getCategoriaEquipo() {
+	public String CategoriaEquipo() {
 		if (ranking>=7 && ranking <=10)
 			categoria = "Primera";
 		else if (ranking>=3 && ranking<=6)
 			categoria = "Segunda";
 		else
 			categoria = "Tercera";
+			
 		return categoria;
 	}
 	
 	public String getNombreEquipo() {
 		return nombreEquipo;
 	}
+	
 	public int getRanking() {
 		return ranking;
 	}
