@@ -2,24 +2,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TestAsignarEquipo {
-
-
-	@Test
-	void testEquipo() {
-		fail("Not yet implemented");
-	}
+class AsignarEquipoTest {
 
 	@Test/**
-	 * Guardar Equipo con m�s de 6 caracteres
+	 * Guardar Equipo con mï¿½s de 6 caracteres
 	 */
 	void testSetNombreEquipoMinCaracteres() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Lolete";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
-	}
+		//Se crea el equipo
+				Equipo equipo = new Equipo();
+				//Se asigna nombre
+				String nombreEquipo = "Lolete";
+				//Se asigna el equipo
+				equipo.setNombreEquipo(nombreEquipo);
+				//Se comprueba
+				assertNull(equipo.getNombreEquipo());
+			}
 	/**
 	 * Guardar Equipo con menos de 6 caracteres
 	 */
@@ -27,12 +24,15 @@ class TestAsignarEquipo {
 	 
 	@Test
 	void testTestSetNombreEquipoMaxCaracteres() {
-		Equipo Equipo2 = new Equipo();
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
 		String nombreEquipo = "Lol";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
-		
+		//Se asigna el equipo
+		equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertNull(null,equipo.getNombreEquipo());
+	
 	}
 
 	/**
@@ -59,7 +59,7 @@ class TestAsignarEquipo {
 	}
 
 	/**
-	 * Guardar jugador con más de 4 caracteres
+	 * Guardar jugador con mÃ¡s de 4 caracteres
 	 */
 	@Test
 	void testSetNombreJugadorValido() {
@@ -102,21 +102,22 @@ class TestAsignarEquipo {
 	 * Guardar jugador con 20 caracteres
 	 */
 	@Test
-	void testSetNombreJugadorValidoMaximoCaracteres() {
+	void testSetNombreJugador_VALIDO_MaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "JoseRamonJiménezdela";
+		
+		String nombreJugador = "José Ramón De Jimena";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
 	}
 	
 	/**
-	 * Guardar un jugador con más de 20 caracteres
+	 * Guardar un jugador con mÃ¡s de 20 caracteres
 	 */
 	@Test
 	void testSetNombreJugadorInvalidoMaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "JoseRamonJiménezdelaS";
+		String nombreJugador = "JoseRamonJimÃ©nezdelaS";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(null,jugador.getNombreJugador());
@@ -128,10 +129,10 @@ class TestAsignarEquipo {
 	@Test
 	void testSetNombreJugadorValidoMenosMaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "José Antonio";
+		String nombreJugador = "José";
 		jugador.setNombreJugador(nombreJugador);
 		
-		assertEquals(null,jugador.getNombreJugador());
+		assertEquals(nombreJugador,jugador.getNombreJugador());
 	}
 
 }
