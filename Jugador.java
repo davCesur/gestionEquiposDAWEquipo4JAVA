@@ -82,7 +82,7 @@ public class Jugador {
 			this.tipojugador="Junior";
 		} else if (edad>=26 && edad<=35) {
 			this.tipojugador="Senior";
-		} else if (edad<=36 && edad<=99) {
+		} else if (edad>=36 && edad<=99) {
 			this.tipojugador="Master";
 		} else {
 			this.tipojugador=null;
