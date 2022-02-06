@@ -276,9 +276,9 @@ class EquipoTest {
 		@Test
 		void testSetCategoriaRankingVacio() {
 			Equipo equipo = new Equipo();
+			Integer ranking = null;
 			equipo.setNombreEquipo("nombre");
 			assertNull(equipo.CategoriaEquipo());
-			
 		}
 		
 		//Introducir nombre vacío(No Válida)

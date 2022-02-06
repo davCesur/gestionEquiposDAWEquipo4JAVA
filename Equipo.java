@@ -42,13 +42,15 @@ public class Equipo {
 	}
 	
 	public String CategoriaEquipo() {
-		if (ranking>=7 && ranking <=10)
-			categoria = "Primera";
-		else if (ranking>=3 && ranking<=6)
-			categoria = "Segunda";
-		else
-			categoria = "Tercera";
-			
+		
+			if (ranking>=7 && ranking <=10)
+				categoria = "Primera";
+			else if (ranking>=3 && ranking<=6)
+				categoria = "Segunda";
+			else
+				categoria = "Tercera";
+
+		
 		return categoria;
 	}
 	
