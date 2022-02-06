@@ -368,7 +368,7 @@ class JugadorTest {
 		jugador.setNombreJugador(null);
 		jugador.setEdad(99);
 		jugador.setIdioma("español");
-		jugador.setTipoJugador(null, 0, null, null);
+		jugador.setTipoJugador("Master", 99, null, "español");
 		
 		assertNull(jugador.getTipoJugador());
 		
@@ -378,10 +378,10 @@ class JugadorTest {
 	void testTipoJugadorSinEdad() {
 		Jugador jugador = new Jugador();
 		
-		jugador.setNombreJugador(null);
+		jugador.setNombreJugador("Miguel");
 		jugador.setEdad(0);
 		jugador.setIdioma("español");
-		jugador.setTipoJugador(null, 0, null, null);
+		jugador.setTipoJugador("Junior", 0, "Miguel", "español");
 		
 		assertNull(jugador.getTipoJugador());
 		
@@ -391,10 +391,10 @@ class JugadorTest {
 	void testTipoJugadorSinIdioma() {
 		Jugador jugador = new Jugador();
 		
-		jugador.setNombreJugador(null);
-		jugador.setEdad(99);
+		jugador.setNombreJugador("Mariano");
+		jugador.setEdad(25);
 		jugador.setIdioma("idioma no válido");
-		jugador.setTipoJugador(null, 0, null, null);
+		jugador.setTipoJugador("Senior", 25, "Mariano", null);
 		
 		assertNull(jugador.getTipoJugador());
 		
