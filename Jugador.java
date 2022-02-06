@@ -76,9 +76,7 @@ public class Jugador {
 		
 		if (edad==0 || nombre==null || idioma==null) {
 			this.tipojugador=null;
-		} 
-		
-		if (edad>=18 && edad<=25) {
+		} else if (edad>=18 && edad<=25) {
 			this.tipojugador="Junior";
 		} else if (edad>=26 && edad<=35) {
 			this.tipojugador="Senior";
