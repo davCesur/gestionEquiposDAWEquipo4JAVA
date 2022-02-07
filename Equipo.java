@@ -30,6 +30,7 @@ public class Equipo {
 			this.ranking = 11;
 	}
 	
+<<<<<<< Updated upstream
 	public String CategoriaEquipo() {
 		if( this.nombreEquipo == null || this.nombreEquipo.isEmpty() || this.ranking < 0 || this.ranking > 10)
 			return "";
@@ -41,6 +42,25 @@ public class Equipo {
 		else if (this.ranking >=0 && this.ranking <3)
 			categoria = "Tercera";
 	
+=======
+	
+	
+	public String getCategoriaEquipo() {
+		if( this.nombreEquipo == null )
+			return null;
+		
+		//if (nombreEquipo!=null && ranking!=-1) {
+			if (ranking>=7 && ranking <=10) {
+				categoria = "Primera";
+				//return categoria;
+			} else if (ranking>=3 && ranking<=6) {
+				categoria = "Segunda";
+				//return categoria;
+			}	else
+				categoria = "Tercera";
+				//return categoria;
+		//}
+>>>>>>> Stashed changes
 		return categoria;
 		
 	}

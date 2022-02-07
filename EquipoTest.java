@@ -286,10 +286,17 @@ class EquipoTest {
 		void testSetCategoriaNombreVacio() {
 			Equipo equipo = new Equipo();
 			Integer ranking=7;
+<<<<<<< Updated upstream
 			String nombreEquipo="";
 			equipo.setNombreEquipo(nombreEquipo);
 			equipo.setRanking(ranking);
 			assertEquals("",equipo.CategoriaEquipo());
+=======
+			//equipo.setNombreEquipo("");
+			equipo.setRanking(ranking);
+			assertNull(equipo.getCategoriaEquipo());
+
+>>>>>>> Stashed changes
 		}
 		
 }
