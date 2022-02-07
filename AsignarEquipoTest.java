@@ -15,7 +15,7 @@ class AsignarEquipoTest {
 				//Se asigna el equipo
 				equipo.setNombreEquipo(nombreEquipo);
 				//Se comprueba
-				assertEquals(nombreEquipo,nombreEquipo.getNombreEquipo());
+				assertEquals(nombreEquipo,equipo.getNombreEquipo());
 			}
 	/**
 	 * Guardar Equipo con menos de 6 caracteres
