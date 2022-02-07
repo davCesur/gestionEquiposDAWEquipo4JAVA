@@ -51,4 +51,10 @@ public class Equipo {
 	public int getRanking() {
 		return ranking;
 	}
+	
+	public String HOLAMUNDO() {
+		String hola = "hola mundo";
+		return hola;
+	}
+
 }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class AsignarEquipoTest {
 
 	@Test/**
-	 * Guardar Equipo con mï¿½s de 6 caracteres
+	 * Guardar Equipo con mas de 6 caracteres
 	 */
 	void testSetNombreEquipoMinCaracteres() {
 		//Se crea el equipo
@@ -38,27 +38,28 @@ class AsignarEquipoTest {
 	 * Guardar Equipo con nombre sin numeros
 	 */
 	void testTestSetNombreEquipoValido() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "JUANJO";
-		Equipo2.setNombreEquipo(nombreEquipo);
 		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
+		Equipo equipo = new Equipo();
+		String nombreEquipo = "JUANJO";
+		equipo.setNombreEquipo(nombreEquipo);
+		
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
 	}
 	/**
 	 * Guardar Equipo con numeros
 	 */
 	void testTestSetNombreEquipoInvalido() {
-		Equipo Equipo2 = new Equipo();
+		Equipo equipo = new Equipo();
 		String nombreEquipo = "JUANJO2";
-		Equipo2.setNombreEquipo(nombreEquipo);
+		equipo.setNombreEquipo(nombreEquipo);
 		
-		assertEquals(null, Equipo2.getNombreEquipo());
+		assertNull(equipo.getNombreEquipo());
 	
 	}
 
 	/**
-	 * Guardar jugador con mÃ¡s de 4 caracteres
+	 * Guardar jugador con mas de 4 caracteres
 	 */
 	@Test
 	void testSetNombreJugadorValido() {
@@ -111,7 +112,7 @@ class AsignarEquipoTest {
 	}
 	
 	/**
-	 * Guardar un jugador con mÃ¡s de 20 caracteres
+	 * Guardar un jugador con mas de 20 caracteres
 	 */
 	@Test
 	void testSetNombreJugadorInvalidoMaximoCaracteres() {
@@ -128,24 +129,24 @@ class AsignarEquipoTest {
 	@Test
 	void testSetNombreJugadorValidoMenosMaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "JOSÉ";
+		String nombreJugador = "JOSE";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador,jugador.getNombreJugador());
 	}
 	
-	// Set idioma INVÁLIDO (string incorrecto)
+	// Set idioma INVALIDO (string incorrecto)
 	@Test
 	void testSetIdioma_INVALIDO() {
 		Jugador jugador = new Jugador();
 		
-		String idioma = "portugués";
+		String idioma = "portugu�s";
 		jugador.setIdioma(idioma);
 		
 		assertNull(jugador.getIdioma());
 	}
 
-	// Set idioma INVÁLIDO vacío
+	// Set idioma INVALIDO vacio
 	@Test
 	void testSetIdioma_INVALIDO_Vacio() {
 		Jugador jugador = new Jugador();
@@ -156,7 +157,7 @@ class AsignarEquipoTest {
 		assertNull(jugador.getIdioma());
 	}
 
-	// Set idioma INVÁLIDO Null
+	// Set idioma INVALIDO Null
 	@Test
 	void testSetIdioma_INVALIDO_Null() {
 		Jugador jugador = new Jugador();
@@ -167,14 +168,14 @@ class AsignarEquipoTest {
 		assertNull(jugador.getIdioma());
 	}
 	
-	// Test tipoJugador sin edad válida
+	// Test tipoJugador sin edad valida
 		@Test
 		void testTipoJugadorSinEdad() {
 			Jugador jugador = new Jugador();
 			
 			jugador.setNombreJugador(null);
 			jugador.setEdad(0);
-			jugador.setIdioma("español");
+			jugador.setIdioma("espa�ol");
 			
 			assertNull(jugador.getTipoJugador());
 			
