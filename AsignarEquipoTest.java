@@ -104,7 +104,7 @@ class AsignarEquipoTest {
 	void testSetNombreJugador_VALIDO_MaximoCaracteres() {
 		Jugador jugador = new Jugador();
 		
-		String nombreJugador = "JOSÉ RAMON DE JIMENA";
+		String nombreJugador = "JOSE RAMON DE JIMENA";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
