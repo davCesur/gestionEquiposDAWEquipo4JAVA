@@ -30,7 +30,7 @@ class EquipoTest {
 		//Se crea el equipo
 		Equipo equipo = new Equipo();
 		//Se asigna nombre
-		String nombreEquipo = "Lolete";
+		String nombreEquipo = "Lo";
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
@@ -83,7 +83,7 @@ class EquipoTest {
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertNull(equipo.getNombreEquipo());
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
 	}
 	
@@ -276,9 +276,9 @@ class EquipoTest {
 		@Test
 		void testSetCategoriaRankingVacio() {
 			Equipo equipo = new Equipo();
-			Integer ranking = null;
+			//Integer ranking = null;
 			equipo.setNombreEquipo("nombre");
-			assertNull(equipo.CategoriaEquipo());
+			assertEquals("", equipo.CategoriaEquipo());
 		}
 		
 		//Introducir nombre vacío(No Válida)
@@ -286,10 +286,10 @@ class EquipoTest {
 		void testSetCategoriaNombreVacio() {
 			Equipo equipo = new Equipo();
 			Integer ranking=7;
-			String nombreEquipo=" ";
+			String nombreEquipo="";
 			equipo.setNombreEquipo(nombreEquipo);
 			equipo.setRanking(ranking);
-			assertNull(equipo.CategoriaEquipo());
+			assertEquals("",equipo.CategoriaEquipo());
 		}
 		
 }

@@ -5,53 +5,44 @@ public class Equipo {
 	private String categoria;
 	
 	public Equipo () {
+		this.ranking = -1;
 	}
 	
 	public void setNombreEquipo(String nombreEquipo) {
+		this.nombreEquipo = null;
+		
 		// Si el nombre esta vacio
-		if (nombreEquipo.isEmpty()) {
-			nombreEquipo= null;
-		}
-		// Si el nombre es menor de 6 caracteres
-		if (nombreEquipo.length() > 6) {
-			nombreEquipo = null;
-		}
-		// Si el nombre es mayor de 4 caracteres
-		if (nombreEquipo.length() < 3) {
-			nombreEquipo = null;
-		}
-		
-		// Si el nombre contiene un numero
-		
-		if(nombreEquipo != null && !nombreEquipo.isEmpty()){
-				char [] cadena = nombreEquipo.toCharArray();
-				for (int i = 0; i < cadena.length; i++) {
-					if (Character.isDigit(cadena[i])) {
-						nombreEquipo = null;
-				}
-			}
+		if ( !nombreEquipo.isEmpty()
+			 && nombreEquipo != null
+			 && nombreEquipo.length() <= 6
+			 && nombreEquipo.length() >= 3
+			 && !nombreEquipo.matches(".*\\d.*") ) {
+			// Si contiene algún número
+			this.nombreEquipo = nombreEquipo;
 		}
 	}
 	
 	public void setRanking(int ranking) {				
 		this.ranking=ranking;
 		if (ranking<0)
-			ranking = -1;
+			this.ranking = -1;
 		else if (ranking>10)
-			ranking = 11;
+			this.ranking = 11;
 	}
 	
 	public String CategoriaEquipo() {
+		if( this.nombreEquipo == null || this.nombreEquipo.isEmpty() || this.ranking < 0 || this.ranking > 10)
+			return "";
 		
-			if (ranking>=7 && ranking <=10)
-				categoria = "Primera";
-			else if (ranking>=3 && ranking<=6)
-				categoria = "Segunda";
-			else
-				categoria = "Tercera";
-
-		
+		if (this.ranking>=7 && this.ranking <=10)
+			categoria = "Primera";
+		else if (this.ranking>=3 && this.ranking<=6)
+			categoria = "Segunda";
+		else if (this.ranking >=0 && this.ranking <3)
+			categoria = "Tercera";
+	
 		return categoria;
+		
 	}
 	
 	public String getNombreEquipo() {
