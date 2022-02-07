@@ -30,7 +30,6 @@ public class Equipo {
 			this.ranking = 11;
 	}
 	
-<<<<<<< Updated upstream
 	public String CategoriaEquipo() {
 		if( this.nombreEquipo == null || this.nombreEquipo.isEmpty() || this.ranking < 0 || this.ranking > 10)
 			return "";
@@ -42,7 +41,7 @@ public class Equipo {
 		else if (this.ranking >=0 && this.ranking <3)
 			categoria = "Tercera";
 	
-=======
+
 	
 	
 	public String getCategoriaEquipo() {
@@ -60,7 +59,6 @@ public class Equipo {
 				categoria = "Tercera";
 				//return categoria;
 		//}
->>>>>>> Stashed changes
 		return categoria;
 		
 	}
