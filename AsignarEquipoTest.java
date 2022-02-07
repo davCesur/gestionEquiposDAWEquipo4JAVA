@@ -11,7 +11,7 @@ class AsignarEquipoTest {
 		//Se crea el equipo
 				Equipo equipo = new Equipo();
 				//Se asigna nombre
-				String nombreEquipo = "Lolete";
+				String nombreEquipo = "Lol";
 				//Se asigna el equipo
 				equipo.setNombreEquipo(nombreEquipo);
 				//Se comprueba
@@ -40,7 +40,7 @@ class AsignarEquipoTest {
 	 */
 	void testTestSetNombreEquipoValido() {
 		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Juanjo";
+		String nombreEquipo = "JUANJO";
 		Equipo2.setNombreEquipo(nombreEquipo);
 		
 		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
@@ -51,7 +51,7 @@ class AsignarEquipoTest {
 	 */
 	void testTestSetNombreEquipoInvalido() {
 		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Juanjo2";
+		String nombreEquipo = "JUANJO2";
 		Equipo2.setNombreEquipo(nombreEquipo);
 		
 		assertEquals(null, Equipo2.getNombreEquipo());
@@ -77,7 +77,7 @@ class AsignarEquipoTest {
 	
 	void testSetNombreJugadorInvalidoMinimoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "Pep";
+		String nombreJugador = "PEP";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(null,jugador.getNombreJugador());
@@ -117,7 +117,7 @@ class AsignarEquipoTest {
 	@Test
 	void testSetNombreJugadorInvalidoMaximoCaracteres() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "JoseRamonJimÃ©nezdelaS";
+		String nombreJugador = "JOSE RAMON JIMENEZ DE LAS";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(null,jugador.getNombreJugador());
@@ -134,5 +134,50 @@ class AsignarEquipoTest {
 		
 		assertEquals(nombreJugador,jugador.getNombreJugador());
 	}
+	
+	// Set idioma INVÁLIDO (string incorrecto)
+	@Test
+	void testSetIdioma_INVALIDO() {
+		Jugador jugador = new Jugador();
+		
+		String idioma = "portugués";
+		jugador.setIdioma(idioma);
+		
+		assertNull(jugador.getIdioma());
+	}
 
+	// Set idioma INVÁLIDO vacío
+	@Test
+	void testSetIdioma_INVALIDO_Vacio() {
+		Jugador jugador = new Jugador();
+		
+		String idioma = "";
+		jugador.setIdioma(idioma);
+		
+		assertNull(jugador.getIdioma());
+	}
+
+	// Set idioma INVÁLIDO Null
+	@Test
+	void testSetIdioma_INVALIDO_Null() {
+		Jugador jugador = new Jugador();
+		
+		String idioma = null;
+		jugador.setIdioma(idioma);
+		
+		assertNull(jugador.getIdioma());
+	}
+	
+	// Test tipoJugador sin edad válida
+		@Test
+		void testTipoJugadorSinEdad() {
+			Jugador jugador = new Jugador();
+			
+			jugador.setNombreJugador(null);
+			jugador.setEdad(0);
+			jugador.setIdioma("español");
+			
+			assertNull(jugador.getTipoJugador());
+			
+		}
 }
