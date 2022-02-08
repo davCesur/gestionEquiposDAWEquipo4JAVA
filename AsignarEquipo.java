@@ -4,6 +4,8 @@ public class AsignarEquipo {
 	private String asignarJugador;
 	private int asignarEdad;
 	private String asignarIdioma;
+	private int asignarRanking;
+	private String asignarCategoria;
 
 	public void setAsignarEquipo(String asignarEquipo) {
 	}
@@ -15,6 +17,12 @@ public class AsignarEquipo {
 	}
 	
 	public void setAsignarIdioma(String asignarIdioma) {		
+	}
+	
+	public void setAsignarRanking(int asignarRanking) {	
+	}
+	
+	public void setAsignarCategoria(String asignarCategoria) {		
 	}
 	
 	public String getAsignarEquipo(){
@@ -32,4 +40,13 @@ public class AsignarEquipo {
 	public String getAsignarIdioma() {
 	return asignarIdioma;
 	}
+	
+	public int getAsignarRanking(){		
+	return asignarRanking;
+	}
+	
+	public String getAsignarCategoria() {
+	return asignarCategoria;	
+	}
+	
 }
