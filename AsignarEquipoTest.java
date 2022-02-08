@@ -2,195 +2,220 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class AsignarEquipoTest {
+public class AsignarEquipoTest {
 
-		 
-	// Guardar nombre de equipo VALIDO con el mínimo (3 caracteres)
+
+	// Asignar equipo que exista y tenga todos sus campos válidos
 	@Test
-	void testSetNombreEquipoMinCaracteres() {
+	void testTestSetNombreAsignarEquipoValido() {
+		//Se crea el equipo
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		//Se asigna nombre
+		String nombreEquipo = "NEWTEAM";
+		//Se asigna el equipo
+		asignarEquipo.setAsignarEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(nombreEquipo, asignarEquipo.getAsignarEquipo());
+	
+	}
+	
+	// Asignar equipo que no exista (es decir es nulo)
+	@Test
+	void testSetAsignarEquipo_INVALIDO() {
+			
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		String nombreEquipo = null;
+		asignarEquipo.setAsignarEquipo(nombreEquipo);
+
+		assertNull(asignarEquipo.getAsignarEquipo());	
+			
+	}
 		
-		Equipo equipo = new Equipo();
-		String nombreEquipo = "LOL";
-		equipo.setNombreEquipo(nombreEquipo);
+	// Asignar equipo que existe, pero su nombre es INVALIDO en intervalo (>=3 || <=8)
+	@Test
+	void testSetNombreAsignarEquipo_INVALIDO() {
+
+		AsignarEquipo asignarEquipo = new AsignarEquipo();	
+		String nombreEquipo = "NE";
+		asignarEquipo.setAsignarEquipo(nombreEquipo);
+
+		assertNull(asignarEquipo.getAsignarEquipo());
+
+	}
 		
-		assertEquals(nombreEquipo,equipo.getNombreEquipo());
-	}
-
-	// Guardar nombre de equipo VALIDO con el máximo (6 caracteres)
+	// Asignar equipo que existe, pero no tiene nombre.
 	@Test
-	void testTestSetNombreEquipoMaxCaracteres() {
+	void testSetNombreAsignarEquipo_sin_nombre() {
+
+			AsignarEquipo asignarEquipo = new AsignarEquipo();	
+			String nombreEquipo = "NEWTEAM";			
+
+			assertNull(asignarEquipo.getAsignarEquipo());
+
+		}
+	
+	// Asignar equipo que existe, pero su edad es INVALIDA en intervalo (>=18 y <=45)
+		@Test
+		void testSetAsignarEquipo_Edad_INVALIDO() {
+
+			AsignarEquipo asignarEquipo = new AsignarEquipo();			
+			String nombreEquipo= "NEWTEAM";
+			int edad = 15;
+			asignarEquipo.setAsignarEquipo(nombreEquipo);
+			asignarEquipo.setAsignarEdad(edad);
+			
+			
+			assertEquals(0,asignarEquipo.getAsignarEdad());
+
+			}
 		
-		Equipo equipo = new Equipo();
-		String nombreEquipo = "LOLETE";
-		equipo.setNombreEquipo(nombreEquipo);
+	// Asignar equipo que existe, pero no tiene edad.
+	@Test
+	void testSetAsignarEquipo_sin_edad() {
+
+		AsignarEquipo asignarEquipo = new AsignarEquipo();			
+		String nombreEquipo="NEWTEAM";
+		int edad = 15;
+		asignarEquipo.setAsignarEquipo(nombreEquipo);	
+		asignarEquipo.setAsignarEdad(edad);		
 		
-		assertEquals(nombreEquipo,equipo.getNombreEquipo());
-	}
+		assertEquals(0,asignarEquipo.getAsignarEdad());
 
-	// Guardar nombre de equipo VALIDO en intervalo (>=3 || <=6)
-	@Test
-	void testTestSetNombreEquipoIntervalo() {
-
-		Equipo equipo = new Equipo();
-		String nombreEquipo = "JUANJO";
-		equipo.setNombreEquipo(nombreEquipo);
-
-		assertEquals(nombreEquipo,equipo.getNombreEquipo());
 	}
 	
-	// Guardar nombre de equipo INVALIDO contiene números
+	// Asignar equipo que existe, pero su idioma es INVALIDO
 	@Test
-	void testTestSetNombreEquipoInvalidoNumerico() {
-		Equipo equipo = new Equipo();
-		String nombreEquipo = "JUANJO2";
-		equipo.setNombreEquipo(nombreEquipo);
+	void testSetAsignarEquipo_Idioma_INVALIDO() {
 
-		assertNull(equipo.getNombreEquipo());
-	}
-	
-	// Guardar nombre de equipo INVALIDO menor longitud de la permitida (<3)
-	@Test
-	void testTestSetNombreEquipoInvalidoMinimo() {
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		AsignarEquipo asignarIdioma = new AsignarEquipo();
+		String nombreEquipo = "NEWTEAM";
+		String Idioma = "portugués";
+		asignarEquipo.setAsignarEquipo(nombreEquipo);
+		asignarIdioma.setAsignarIdioma(Idioma);
+
+				
+		assertNull(asignarEquipo.getAsignarIdioma());//¿asignarEquipo o asignarIdioma?
 		
-		Equipo equipo = new Equipo();
-		String nombreEquipo = "JU";
-		equipo.setNombreEquipo(nombreEquipo);
-
-		assertNull(equipo.getNombreEquipo());
 	}
 	
-	// Guardar nombre de equipo INVALIDO mayor longitud de la permitida (>6)
+	//Asignar equipo que existe, pero sin idioma.
 	@Test
-	void testTestSetNombreEquipoInvalidoMaximo() {
+	void testSetAsignarEquipo_INVALIDO_sin_idioma() {
+
+		AsignarEquipo asignarJugador = new AsignarEquipo();
+		AsignarEquipo asignarIdioma = new AsignarEquipo();
+		String nombreJugador = "NEWTEAM";
+		String Idioma = "español";
+		asignarJugador.setAsignarJugador(nombreJugador);
+			
+		assertNull(asignarJugador.getAsignarIdioma());//¿asignarJugador o asignarIdioma?
+
+	}
+	
+	// Guardar el jugador asignado cuando el nombre del jugador es VALIDO en intervalo (>=5 || <=15)
+	@Test
+	void testSetNombreAsignarJugador_VALIDO() {
 		
-		Equipo equipo = new Equipo();
-		String nombreEquipo = "JUAN JOSE DE LA FUENTE";
-		equipo.setNombreEquipo(nombreEquipo);
+		AsignarEquipo asignarJugador = new AsignarEquipo();
+		String nombreJugador = "ANTONIO";
+		//Se asigna edad
+		int edad=24;
+		//Se asigna idioma
+		String idioma= "español";
+		asignarJugador.setAsignarJugador(nombreJugador);
 
-		assertNull(equipo.getNombreEquipo());
-	}
-	
-	
-	
-	
-	// Guardar nombre de jugador VALIDO con el mínimo (4 caracteres)
-	@Test
-	void testSetNombreJugadorValido() {
-		Jugador jugador = new Jugador();
-		String nombreJugador = "ANTO";
-		jugador.setNombreJugador(nombreJugador);
-
-		assertEquals(nombreJugador, jugador.getNombreJugador());
-	}
-	
-	
-	
-	//No guarda el nombre del jugador con menos de 4 caracteres
-	@Test
-	void testSetNombreJugadorInvalidoMinimoCaracteres() {
-		Jugador jugador = new Jugador();
-		String nombreJugador = "PEP";
-		jugador.setNombreJugador(nombreJugador);
-
-		assertNull(jugador.getNombreJugador());
+		assertEquals(nombreJugador,asignarJugador.getAsignarJugador());
 
 	}
-	
-	// Guardar nombre del jugador con el minimo de caracteres(4)
+
+	// Asignar jugador que no exista (es nulo)
 	@Test
-	void testSetNombreJugadorValidoMinimoCaracteres() {
-		Jugador jugador = new Jugador();
+	void testSetAsignarJugador_INVALIDO() {
+		
+		AsignarEquipo asignarJugador = new AsignarEquipo();
+		String nombreJugador = null;
+		asignarJugador.setAsignarJugador(nombreJugador);
+
+		assertNull(asignarJugador.getAsignarJugador());	
+
+	}
+
+	// Asignar jugador que exista, pero su nombre es INVALIDO en intervalo (>=5 || <=15)
+	@Test
+	void testSetNombreAsignarJugador_INVALIDO() {
+
+		AsignarEquipo asignarJugador = new AsignarEquipo();	
 		String nombreJugador = "PEPE";
-		jugador.setNombreJugador(nombreJugador);
+		asignarJugador.setAsignarJugador(nombreJugador);
 
-		assertEquals(nombreJugador,jugador.getNombreJugador());
+		assertNull(asignarJugador.getAsignarJugador());
 
 	}
 	
-	 //Guardar jugador con 20 caracteres
-	 	
+	// Asignar jugador que existe, pero no tiene nombre.
+		@Test
+		void testSetNombreAsignarJugador_sin_nombre() {
+
+			AsignarEquipo asignarJugador = new AsignarEquipo();	
+			String nombreJugador = "PEPE";			
+
+			assertNull(asignarJugador.getAsignarJugador());
+
+		}
+	
+	// Asignar jugador que existe, pero su edad es INVALIDA en intervalo (>18 y <46)
 	@Test
-	void testSetNombreJugador_VALIDO_MaximoCaracteres() {
-		Jugador jugador = new Jugador();
+	void testSetAsignarEdad_INVALIDO() {
 
-		String nombreJugador = "JOSE RAMON DE JIMENA";
-		jugador.setNombreJugador(nombreJugador);
+		AsignarEquipo asignarJugador = new AsignarEquipo();			
+			int edad = 15;
+			asignarJugador.setAsignarEdad(edad);
 
-		assertEquals(nombreJugador, jugador.getNombreJugador());
-	}
+			assertEquals(0,asignarJugador.getAsignarEdad());
 
-	 // Si el nombre del jugador tiene más del max de caracteres(20) no se guardará
-		
-	@Test
-		void testSetNombreJugador_INVALIDO_MaximoCaracteres() {
-			Jugador jugador = new Jugador();
-			
-			String nombreJugador = "José Ramón De Jiménez";
-			jugador.setNombreJugador(nombreJugador);
-			
-			assertNull(jugador.getNombreJugador());
 		}
 
-	
-	 // Guardar un jugador con menos de 20 caracteres
-	 
-	
+	// Asignar jugador que existe, pero no tiene edad.
 	@Test
-	void testSetNombreJugadorValidoMenosMaximoCaracteres() {
-		Jugador jugador = new Jugador();
-		String nombreJugador = "JOSE";
-		jugador.setNombreJugador(nombreJugador);
+	void testSetAsignarEdad_sin_edad() {
 
-		assertEquals(nombreJugador,jugador.getNombreJugador());
-	}
+		AsignarEquipo asignarJugador = new AsignarEquipo();			
+			String nombreJugador="ANTONIO";
+			int edad = 15;
+			
+			
+			assertEquals(0,asignarJugador.getAsignarEdad());
 
-	// Si el idioma es incorrecto, no se guardará.
+		}
 	
-	@Test
-	void testSetIdioma_INVALIDO() {
-		Jugador jugador = new Jugador();
+	// Asignar jugador que existe, pero su idioma es INVALIDO
+		@Test
+		void testSetAsignarIdioma_INVALIDO() {
 
-		String idioma = "portugués";
-		jugador.setIdioma(idioma);
+			AsignarEquipo asignarJugador = new AsignarEquipo();
+			AsignarEquipo asignarIdioma = new AsignarEquipo();
+			String nombreJugador = "ANTONIO";
+			String Idioma = "portugués";
+			asignarJugador.setAsignarJugador(nombreJugador);
+			asignarIdioma.setAsignarIdioma(Idioma);
 
-		assertNull(jugador.getIdioma());
-	}
+			
+			assertNull(asignarJugador.getAsignarIdioma());//¿asignarJugador o asignarIdioma?
 
-	// Si el idioma esta vacio, no se guardará.
-	
-	@Test
-	void testSetIdioma_INVALIDO_Vacio() {
-		Jugador jugador = new Jugador();
+		}
+		
+		//Asignar jugador que existe, pero sin idioma.
+		@Test
+		void testSetAsignarIdioma_INVALIDO_sin_idioma() {
 
-		String idioma = "";
-		jugador.setIdioma(idioma);
+			AsignarEquipo asignarJugador = new AsignarEquipo();
+			AsignarEquipo asignarIdioma = new AsignarEquipo();
+			String nombreJugador = "ANTONIO";
+			String Idioma = "español";
+			asignarJugador.setAsignarJugador(nombreJugador);
+		
+			assertNull(asignarJugador.getAsignarIdioma());//¿asignarJugador o asignarIdioma?
 
-		assertNull(jugador.getIdioma());
-	}
-
-	// Set idioma INVALIDO Null
-	
-	@Test
-	void testSetIdioma_INVALIDO_Null() {
-		Jugador jugador = new Jugador();
-
-		String idioma = null;
-		jugador.setIdioma(idioma);
-
-		assertNull(jugador.getIdioma());
-	}
-
-	// Test tipoJugador sin edad valida
-	
-	@Test
-	void testTipoJugadorSinEdad() {
-		Jugador jugador = new Jugador();
-
-		jugador.setNombreJugador(null);
-		jugador.setEdad(0);
-		jugador.setIdioma("español");
-
-		assertNull(jugador.getTipoJugador());
-
-	}
+		}
 }
