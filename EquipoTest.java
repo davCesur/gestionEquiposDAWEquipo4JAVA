@@ -177,7 +177,7 @@ class EquipoTest {
 		  });
 		}
 		
-		//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE RANKING
+		//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE CATEGORÍA
 		//Introducir ranking con categoría primera con el valor máximo(Válida)
 		@Test
 		void testSetCategoriaEquipoPrimeraValorMaximo() {
