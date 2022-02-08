@@ -54,11 +54,11 @@ class EquipoTest {
 	}
 	
 	 /**
-	 * Guardar Equipo con un maximo de 3 caracteres
+	 * Guardar Equipo con un mínimo de 3 caracteres
 	 */
 	
 	@Test
-	void testTestSetNombreEquipoMaxCaracteres() {
+	void testTestSetNombreEquipoMinCaracteres() {
 		//Se crea el equipo
 		Equipo equipo = new Equipo();
 		//Se asigna nombre
@@ -66,7 +66,7 @@ class EquipoTest {
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertNull(null,equipo.getNombreEquipo());
+		assertEquals(nombreEquipo,equipo.getNombreEquipo());
 	
 	}
 
