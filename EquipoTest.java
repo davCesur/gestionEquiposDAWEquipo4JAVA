@@ -26,31 +26,15 @@ class EquipoTest {
 	 */
 	
 	@Test
-	void testSetNombreEquipoMinCaracteres() {
+	void testSetNombreEquipoMaxCaracteres() {
 		//Se crea el equipo
 		Equipo equipo = new Equipo();
 		//Se asigna nombre
-		String nombreEquipo = "Lo";
+		String nombreEquipo = "Lolete";
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertNull(equipo.getNombreEquipo());
-	}
-	
-	 /**
-	 * Si el nombre del equipo es menor de 6 caracteres no se guarda.
-	 */
-	
-	@Test
-	void testSetNombreEquipoInferiorcaracteres() {
-		//Se crea el equipo
-		Equipo equipo = new Equipo();
-		//Se asigna nombre
-		String nombreEquipo = "pa";
-		//Se asigna el equipo
-		equipo.setNombreEquipo(nombreEquipo);
-		//Se comprueba
-		assertNull(equipo.getNombreEquipo());
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	}
 	
 	 /**
@@ -58,7 +42,7 @@ class EquipoTest {
 	 */
 	
 	@Test
-	void testTestSetNombreEquipoMinCaracteres() {
+	void TestSetNombreEquipoMinCaracteres() {
 		//Se crea el equipo
 		Equipo equipo = new Equipo();
 		//Se asigna nombre
@@ -66,7 +50,7 @@ class EquipoTest {
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertEquals(nombreEquipo,equipo.getNombreEquipo());
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
 	}
 
