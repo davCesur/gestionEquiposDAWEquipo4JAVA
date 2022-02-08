@@ -31,7 +31,7 @@ class AsignarEquipoTest {
 		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
 		//Se comprueba
-		assertNull(null,equipo.getNombreEquipo());
+		assertEquals(nombreEquipo,equipo.getNombreEquipo());
 	
 	}
 	/**
@@ -43,7 +43,7 @@ class AsignarEquipoTest {
 		String nombreEquipo = "JUANJO";
 		equipo.setNombreEquipo(nombreEquipo);
 		
-		assertEquals(nombreEquipo, equipo.getNombreEquipo());
+		assertEquals(nombreEquipo,equipo.getNombreEquipo());
 	
 	}
 	/**
@@ -80,7 +80,7 @@ class AsignarEquipoTest {
 		String nombreJugador = "PEP";
 		jugador.setNombreJugador(nombreJugador);
 		
-		assertEquals(null,jugador.getNombreJugador());
+		assertNull(jugador.getNombreJugador());
 		
 	}
 	
@@ -120,7 +120,7 @@ class AsignarEquipoTest {
 		String nombreJugador = "JOSE RAMON JIMENEZ DE LAS";
 		jugador.setNombreJugador(nombreJugador);
 		
-		assertEquals(null,jugador.getNombreJugador());
+		assertNull(jugador.getNombreJugador());
 	}
 	
 	/**
