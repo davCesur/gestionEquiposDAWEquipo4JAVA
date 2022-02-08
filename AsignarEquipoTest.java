@@ -5,52 +5,42 @@ import org.junit.jupiter.api.Test;
 class AsignarEquipoTest {
 
 		 
-	 // Guardar equipo con un minimo de 3 carácteres.
-	 
+	 // Guardar nombre de equipo VALIDO con el mínimo (3 caracteres)
 	@Test
 	void testSetNombreEquipoMinCaracteres() {
-		//Se crea el equipo
+		
 		Equipo equipo = new Equipo();
-		//Se asigna nombre
 		String nombreEquipo = "LOL";
-		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
-		//Se comprueba
+		
 		assertEquals(nombreEquipo,equipo.getNombreEquipo());
 	}
 
-	// Guardar Equipo con un maximo de 6 caracteres
-	 
+	// Guardar nombre de equipo VALIDO con el máximo (6 caracteres)
 	@Test
 	void testTestSetNombreEquipoMaxCaracteres() {
-		//Se crea el equipo
+		
 		Equipo equipo = new Equipo();
-		//Se asigna nombre
 		String nombreEquipo = "LOLETE";
-		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
-		//Se comprueba
+		
 		assertEquals(nombreEquipo,equipo.getNombreEquipo());
-
 	}
 
-	 // Guardar Equipo con nombre sin numeros.
-	 
+	// Guardar nombre de equipo VALIDO en intervalo (>=3 || <=6)
 	@Test
-	void testTestSetNombreEquipovalidoNumerico() {
+	void testTestSetNombreEquipoIntervalo() {
 
 		Equipo equipo = new Equipo();
 		String nombreEquipo = "JUANJO";
 		equipo.setNombreEquipo(nombreEquipo);
 
 		assertEquals(nombreEquipo,equipo.getNombreEquipo());
-
 	}
-
-	  //No guarda equipo con nombre si contiene numeros.
-	 	
+	
+	// Guardar nombre de equipo INVALIDO contiene números
 	@Test
-	void testTestSetNombreEquipoinvalidoNumerico() {
+	void testTestSetNombreEquipoInvalidoNumerico() {
 		Equipo equipo = new Equipo();
 		String nombreEquipo = "JUANJO2";
 		equipo.setNombreEquipo(nombreEquipo);
@@ -59,21 +49,40 @@ class AsignarEquipoTest {
 
 	}
 	
-	//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE JUGADOR
+	// Guardar nombre de equipo INVALIDO menor longitud de la permitida (<3)
+	@Test
+	void testTestSetNombreEquipoInvalidoMinimo() {
+		Equipo equipo = new Equipo();
+		String nombreEquipo = "JU";
+		equipo.setNombreEquipo(nombreEquipo);
+
+		assertNull(equipo.getNombreEquipo());
+	}
 	
-	// Guardar jugador con mas de 4 caracteres
-	 	
+	// Guardar nombre de equipo INVALIDO mayor longitud de la permitida (>6)
+	@Test
+	void testTestSetNombreEquipoInvalidoMaximo() {
+		Equipo equipo = new Equipo();
+		String nombreEquipo = "JUAN JOSE DE LA FUENTE";
+		equipo.setNombreEquipo(nombreEquipo);
+
+		assertNull(equipo.getNombreEquipo());
+	}
+	
+	
+	// Guardar nombre de jugador VALIDO con el mínimo (4 caracteres)
 	@Test
 	void testSetNombreJugadorValido() {
 		Jugador jugador = new Jugador();
-		String nombreJugador = "ANTONIO";
+		String nombreJugador = "ANTO";
 		jugador.setNombreJugador(nombreJugador);
 
 		assertEquals(nombreJugador, jugador.getNombreJugador());
 	}
 	
-	  //No guarda el nombre del jugador con menos de 4 caracteres
-	 
+	
+	
+	//No guarda el nombre del jugador con menos de 4 caracteres
 	@Test
 	void testSetNombreJugadorInvalidoMinimoCaracteres() {
 		Jugador jugador = new Jugador();
@@ -84,8 +93,7 @@ class AsignarEquipoTest {
 
 	}
 	
-	 // Guardar nombre del jugador con el minimo de caracteres(4)
-	 	
+	// Guardar nombre del jugador con el minimo de caracteres(4)
 	@Test
 	void testSetNombreJugadorValidoMinimoCaracteres() {
 		Jugador jugador = new Jugador();
