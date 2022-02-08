@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class AsignarEquipoTest {
 
 		 
-	 // Guardar nombre de equipo VALIDO con el mínimo (3 caracteres)
+	// Guardar nombre de equipo VALIDO con el mínimo (3 caracteres)
 	@Test
 	void testSetNombreEquipoMinCaracteres() {
 		
@@ -52,6 +52,7 @@ class AsignarEquipoTest {
 	// Guardar nombre de equipo INVALIDO menor longitud de la permitida (<3)
 	@Test
 	void testTestSetNombreEquipoInvalidoMinimo() {
+		
 		Equipo equipo = new Equipo();
 		String nombreEquipo = "JU";
 		equipo.setNombreEquipo(nombreEquipo);
@@ -62,12 +63,15 @@ class AsignarEquipoTest {
 	// Guardar nombre de equipo INVALIDO mayor longitud de la permitida (>6)
 	@Test
 	void testTestSetNombreEquipoInvalidoMaximo() {
+		
 		Equipo equipo = new Equipo();
 		String nombreEquipo = "JUAN JOSE DE LA FUENTE";
 		equipo.setNombreEquipo(nombreEquipo);
 
 		assertNull(equipo.getNombreEquipo());
 	}
+	
+	
 	
 	
 	// Guardar nombre de jugador VALIDO con el mínimo (4 caracteres)
