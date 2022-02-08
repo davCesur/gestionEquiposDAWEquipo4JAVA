@@ -11,6 +11,12 @@ public class Jugador {
 	public Jugador () {
 	}
 	
+	
+	
+	public String getNombreJugador() {
+		return nombre;
+	}
+
 	/**
 	 * Establece el nombre del Jugador
 	 * Condiciones (si no se cumplen, establecer como null):
@@ -27,6 +33,12 @@ public class Jugador {
 		
 	}
 	
+	
+	
+	public int getEdad() {
+		return edad;
+	}
+	
 	/**
 	 * Establece la edad
 	 * Condiciones (si no se cumplen, establecer como 0):
@@ -34,19 +46,18 @@ public class Jugador {
 	 *   No contenga ningún carácter que no sea número
 	 */
 	public void setEdad(int edad) {
-		//Comprobamos si es Integer
 		this.edad = 0;
-		try { 
-	        Integer.parseInt(edad+""); 
-	    } catch(NumberFormatException e) {
-	    } catch(NullPointerException e) {
-	    }
-		
 		if( edad >=18 && edad <=99 )
 			this.edad = edad;
 
 	}
 	
+	
+	
+	public String getIdioma() {
+		return idioma;
+	}
+
 	/**
 	 * Establece el idioma
 	 * Condiciones (si no se cumplen, establecer como null):
@@ -64,43 +75,31 @@ public class Jugador {
 		
 	}
 	
+	
+	
+	
 	/**
-	 * Establece el Tipo de Jugador
+	 * Obtiene el Tipo de Jugador
 	 * Condiciones:
 	 *   de 18 a 25 años, Junior
 	 *   de 25 a 35 años, Senior
 	 *   más de 35 años, Master
 	 *   Debe tener todos sus campos edad, nombre e idioma rellenos
 	 */
-	public void setTipoJugador(String tipojugador, int edad, String nombre, String idioma) {
+	public String tipoJugador() {
 		
+		String tipojugador = null;
+
 		if (edad==0 || nombre==null || idioma==null) {
-			this.tipojugador=null;
+			tipojugador=null;
 		} else if (edad>=18 && edad<=25) {
-			this.tipojugador="Junior";
+			tipojugador="Junior";
 		} else if (edad>=26 && edad<=35) {
-			this.tipojugador="Senior";
+			tipojugador="Senior";
 		} else if (edad>=36 && edad<=99) {
-			this.tipojugador="Master";
-		} else {
-			this.tipojugador=null;
+			tipojugador="Master";
 		}
 		
-	}
-	
-
-	public String getIdioma() {
-		return idioma;
-	}
-	
-	public String getNombreJugador() {
-		return nombre;
-	}
-	public int getEdad() {
-		return edad;
-	}
-	
-	public String getTipoJugador() {
 		return tipojugador;
 	}
 }

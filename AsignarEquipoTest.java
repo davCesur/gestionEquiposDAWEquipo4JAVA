@@ -46,7 +46,6 @@ class AsignarEquipoTest {
 		equipo.setNombreEquipo(nombreEquipo);
 
 		assertNull(equipo.getNombreEquipo());
-
 	}
 	
 	// Guardar nombre de equipo INVALIDO menor longitud de la permitida (<3)
