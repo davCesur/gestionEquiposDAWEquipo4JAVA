@@ -1,6 +1,8 @@
+*.class
 /AsignarEquipo.class
 /Equipo.class
 /EquipoTest.class
 /Jugador.class
 /JugadorTest.class
 /TestAsignarEquipo.class
+/AsignarEquipoTest.class

@@ -44,7 +44,7 @@ class JugadorTest {
 	void testSetNombreJugador_VALIDO_MinimoCaracteres() {
 		Jugador jugador = new Jugador();
 		
-		String nombreJugador = "Pepe";
+		String nombreJugador = "PEPE";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador,jugador.getNombreJugador());
@@ -55,7 +55,7 @@ class JugadorTest {
 	void testSetNombreJugador_VALIDO() {
 		Jugador jugador = new Jugador();
 		
-		String nombreJugador = "Antonio";
+		String nombreJugador = "ANTONIO";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
@@ -66,7 +66,7 @@ class JugadorTest {
 	void testSetNombreJugador_VALIDO_MaximoCaracteres() {
 		Jugador jugador = new Jugador();
 		
-		String nombreJugador = "José Ramón De Jimena";
+		String nombreJugador = "JOSÉ RAMON DE JIMENA";
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
@@ -102,7 +102,7 @@ class JugadorTest {
 		String nombreJugador = null;
 		jugador.setNombreJugador(nombreJugador);
 			
-		assertNull(jugador.getEdad());
+		assertNull(jugador.getNombreJugador());
 	}
 	
 
@@ -167,7 +167,7 @@ class JugadorTest {
 		int edad = 17;
 		jugador.setEdad(edad);
 		
-		assertNull(jugador.getEdad());
+		assertEquals(0, jugador.getEdad());
 	}
 
 	 // Set edad VÁLIDA límite inferior (=18)
@@ -211,7 +211,7 @@ class JugadorTest {
 		int edad = 100;
 		jugador.setEdad(edad);
 		
-		assertNull(jugador.getEdad());
+		assertEquals(0, jugador.getEdad());
 	}
 	
 	// Set edad no VÁLIDA Null
@@ -224,7 +224,7 @@ class JugadorTest {
 			jugador.setEdad(edad);
 	    });
 		
-		assertNull(jugador.getEdad());
+		assertEquals(0, jugador.getEdad());
 	}
 	
 	// Set edad no VÁLIDA String
@@ -239,5 +239,167 @@ class JugadorTest {
 			assertNull(jugador.getEdad());
 	    });
 	}
+	
+	
+	// Test tipoJugador Junior límite inferior
+	@Test
+	void testTipoJugadorJunior_Inferior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Marcos");
+		jugador.setEdad(18);
+		jugador.setIdioma("inglés");
+		jugador.setTipoJugador("Junior", 18, "Marcos", "inglés");
+		
+		assertEquals("Junior", jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador Junior rango intermedio
+	@Test
+	void testTipoJugadorJunior_Intermedio() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Rigoberto");
+		jugador.setEdad(20);
+		jugador.setIdioma("inglés");
+		jugador.setTipoJugador("Junior", 20, "Rigoberto", "inglés");
+		
+		assertEquals("Junior", jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador Junior límite superior
+	@Test
+	void testTipoJugadorJunior_Superior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Manuel");
+		jugador.setEdad(25);
+		jugador.setIdioma("español");
+		jugador.setTipoJugador("Junior", 25, "Manuel", "español");
+		
+		assertEquals("Junior", jugador.getTipoJugador());
+		
+	}
+	
+	// Test tipoJugador Senior límite inferior
+	@Test
+	void testTipoJugadorSenior_Inferior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Bonifacio");
+		jugador.setEdad(26);
+		jugador.setIdioma("español");
+		jugador.setTipoJugador("Senior", 26, "Bonifacio", "español");
+		
+		assertEquals("Senior", jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador Senior rango intermedio
+	@Test
+	void testTipoJugadorSenior_Intermedio() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Anacleto");
+		jugador.setEdad(30);
+		jugador.setIdioma("alemán");
+		jugador.setTipoJugador("Senior", 30, "Anacleto", "alemán");
+		
+		assertEquals("Senior", jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador Senior límite superior
+	@Test
+	void testTipoJugadorSenior_Superior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Yeray");
+		jugador.setEdad(35);
+		jugador.setIdioma("alemán");
+		jugador.setTipoJugador("Senior", 35, "Yeray", "alemán");
+		
+		assertEquals("Senior", jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador Master límite inferior
+	@Test
+	void testTipoJugadorMaster_Inferior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Jonathan");
+		jugador.setEdad(36);
+		jugador.setIdioma("inglés");
+		jugador.setTipoJugador("Master", 36, "Jonathan", "inglés");
+		
+		assertEquals("Master", jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador Master rango intermedio
+	@Test
+	void testTipoJugadorMaster_Intermedio() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Luisma");
+		jugador.setEdad(40);
+		jugador.setIdioma("alemán");
+		jugador.setTipoJugador("Master", 40, "Luisma", "alemán");
+		
+		assertEquals("Master", jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador Master límite superior
+	@Test
+	void testTipoJugadorMaster_Superior() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Alejandro");
+		jugador.setEdad(99);
+		jugador.setIdioma("español");
+		jugador.setTipoJugador("Master", 99, "Alejandro", "español");
+		
+		assertEquals("Master", jugador.getTipoJugador());
+		
+	}
+	
+	// Test tipoJugador sin nombre válido
+	@Test
+	void testTipoJugadorSinNombre() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(null);
+		jugador.setEdad(99);
+		jugador.setIdioma("español");
+		jugador.setTipoJugador("Master", 99, null, "español");
+		
+		assertNull(jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador sin edad válida
+	@Test
+	void testTipoJugadorSinEdad() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Miguel");
+		jugador.setEdad(0);
+		jugador.setIdioma("español");
+		jugador.setTipoJugador("Junior", 0, "Miguel", "español");
+		
+		assertNull(jugador.getTipoJugador());
+		
+	}
+	// Test tipoJugador sin Idioma válido
+	@Test
+	void testTipoJugadorSinIdioma() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Mariano");
+		jugador.setEdad(25);
+		jugador.setIdioma("idioma no válido");
+		jugador.setTipoJugador("Senior", 25, "Mariano", null);
+		
+		assertNull(jugador.getTipoJugador());
+		
+	}
+	
+	
 	
 }
