@@ -9,13 +9,17 @@ public class AsignarEquipoTest {
 	@Test
 	void testTestSetNombreAsignarEquipoValido() {
 
-		AsignarEquipo asignarEquipo = new AsignarEquipo();
-		String nombreEquipo = "NEWTEAM";
-		Integer ranking = 0;		
-		asignarEquipo.setAsignarEquipo(nombreEquipo);
-		asignarEquipo.setAsignarRanking(ranking);
 		
-		assertEquals(nombreEquipo,ranking, asignarEquipo.getAsignarEquipo());
+		Equipo equipo = new Equipo();
+		String nombreEquipo = "TEAM";		
+		int ranking = 5;
+		equipo.setNombreEquipo(nombreEquipo);
+		equipo.setRanking(ranking);
+		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setEquipo(equipo);
+		
+		assertEquals(equipo,asignarEquipo.getEquipo());
 	
 	}
 	
@@ -23,11 +27,12 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetAsignarEquipo_INVALIDO() {
 			
-		AsignarEquipo asignarEquipo = new AsignarEquipo();
-		String nombreEquipo = null;
-		asignarEquipo.setAsignarEquipo(nombreEquipo);
+		Equipo equipo = new Equipo();
 
-		assertNull(asignarEquipo.getAsignarEquipo());	
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setEquipo(equipo);
+		
+		assertNull(equipo.getNombreEquipo());	
 			
 	}
 		
@@ -35,11 +40,15 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetNombreAsignarEquipo_INVALIDO() {
 
-		AsignarEquipo asignarEquipo = new AsignarEquipo();	
-		String nombreEquipo = "NE";
-		asignarEquipo.setAsignarEquipo(nombreEquipo);
+		
+		Equipo equipo = new Equipo() ;
+		String nombreEquipo = "PE";
+		equipo.setNombreEquipo(nombreEquipo);
 
-		assertNull(asignarEquipo.getAsignarEquipo());
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setEquipo(equipo);
+		
+		assertNull(asignarEquipo.getEquipo());
 
 	}
 		
@@ -47,24 +56,29 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetNombreAsignarEquipo_INVALIDO_sin_nombre() {
 
-		AsignarEquipo asignarEquipo = new AsignarEquipo();	
+		Equipo equipo = new Equipo();	
 		String nombreEquipo = "NEWTEAM";			
 
-		assertNull(asignarEquipo.getAsignarEquipo());
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+	
+		assertNull(asignarEquipo.getEquipo());
 
 	}
 	
-	// Asignar equipo que existe, pero ranking es INVALIDO en intervalo 
+	// Asignar equipo que existe, pero el ranking es INVALIDO 
 	@Test
 	void testSetAsignarEquipo_INVALIDO_Ranking() {
 
-		AsignarEquipo asignarEquipo = new AsignarEquipo();			
+		Equipo equipo = new Equipo();			
 		String nombreEquipo= "NEWTEAM";
-		int ranking = 0;
-		asignarEquipo.setAsignarEquipo(nombreEquipo);
-		asignarEquipo.setAsignarRanking(ranking);
+		int ranking = -1;
+		equipo.setNombreEquipo(nombreEquipo);
+		equipo.setRanking(ranking);
+		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setEquipo(equipo);
 						
-		assertEquals(ranking,asignarEquipo.getAsignarRanking());
+		assertNull(asignarEquipo.getEquipo());
 
 	}
 		
@@ -72,54 +86,34 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetAsignarEquipo_INVALIDO_sin_ranking() {
 
-		AsignarEquipo asignarEquipo = new AsignarEquipo();			
+		Equipo equipo = new Equipo();				
 		String nombreEquipo="NEWTEAM";
-		Integer ranking = 0;
-		asignarEquipo.setAsignarEquipo(nombreEquipo);	
+		int Ranking = 11;
+		equipo.setNombreEquipo(nombreEquipo);	
 		
-		assertEquals(ranking,asignarEquipo.getAsignarRanking());
-
-	}
-	
-	//Asignar equipo que existe, pero sin categoria(sin setAsignarCategoria)
-	@Test
-	void testSetAsignarEquipo_INVALIDO_sin_categoria() {
-
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
-		AsignarEquipo asignarCategoria = new AsignarEquipo();
-		String nombreEquipo = "NEWTEAM";
-		int raking = 10;
-		asignarEquipo.setAsignarEquipo(nombreEquipo);
+		asignarEquipo.setEquipo(equipo);
 				
-		assertNull(asignarEquipo.getAsignarCategoria()); //¿asignarJugador o asignarIdioma?
-	
-	}
-	
-	// Asignar equipo que existe, pero la categoria esta fuera de intervalos(
-	@Test
-	void testSetAsignarEquipo_INVALIDO_categoria() {
+		assertNull(asignarEquipo.getEquipo());
 
-		AsignarEquipo asignarEquipo = new AsignarEquipo();
-		String nombreEquipo = "NEWTEAM";
-		int ranking = -1;
-		asignarEquipo.setAsignarEquipo(nombreEquipo);
-		asignarEquipo.setAsignarRanking(ranking);
-			
-		assertNull(asignarEquipo.getAsignarCategoria());//¿asignarEquipo o asignarIdioma?
-		
-	}
-		
-	// Guardar el jugador asignado cuando el nombre del jugador es VALIDO en intervalo (>=5 || <=15)
+	}	
+
+	//Asignar jugador que exista y tenga todos sus campos válidos
 	@Test
-	void testSetNombreAsignarJugador_VALIDO() {
+	void testSetJugador_VALIDO() {
 		
-		AsignarEquipo asignarJugador = new AsignarEquipo();
+		Jugador jugador= new Jugador();
 		String nombreJugador = "ANTONIO";
 		int edad=24;
 		String idioma= "español";
-		asignarJugador.setAsignarJugador(nombreJugador);
-
-		assertEquals(nombreJugador,asignarJugador.getAsignarJugador());
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edad);
+		jugador.setNombreJugador(idioma);
+		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setJugador(jugador);
+		
+		assertEquals(jugador,asignarEquipo.getJugador());
 
 	}
 
@@ -127,23 +121,27 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetAsignarJugador_INVALIDO() {
 		
-		AsignarEquipo asignarJugador = new AsignarEquipo();
-		String nombreJugador = null;
-		asignarJugador.setAsignarJugador(nombreJugador);
+		Jugador jugador = new Jugador();
+		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setJugador(jugador);
 
-		assertNull(asignarJugador.getAsignarJugador());	
+		assertNull(asignarEquipo.getJugador());	
 
 	}
 
-	// Asignar jugador que exista, pero su nombre es INVALIDO en intervalo (>=5 || <=15)
+	// Asignar jugador que exista, pero su nombre es INVALIDO en intervalo (>=4 || <=20)
 	@Test
 	void testSetNombreAsignarJugador_INVALIDO() {
 
-		AsignarEquipo asignarJugador = new AsignarEquipo();	
-		String nombreJugador = "PEPE";
-		asignarJugador.setAsignarJugador(nombreJugador);
+		Jugador jugador = new Jugador();
+		String Jugador = "PEPE";
+		jugador.setNombreJugador(Jugador);
+		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setJugador(jugador);
 
-		assertNull(asignarJugador.getAsignarJugador());
+		assertNull(asignarEquipo.getJugador());	
 
 	}
 	
@@ -151,10 +149,13 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetNombreAsignarJugador_sin_nombre() {
 
-		AsignarEquipo asignarJugador = new AsignarEquipo();	
-		String nombreJugador = "PEPE";			
+		Jugador jugador = new Jugador();
+		String Jugador = null;
+		jugador.setNombreJugador(Jugador);
+		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
 
-		assertNull(asignarJugador.getAsignarJugador());
+		assertNull(asignarEquipo.getJugador());	
 
 	}
 	
@@ -162,54 +163,64 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetAsignarEdadJugador_INVALIDO() {
 
-		AsignarEquipo asignarJugador = new AsignarEquipo();			
-		String nombreJugador = "PEPE";
-		int edad = 15;
-		asignarJugador.setAsignarJugador(nombreJugador);
-		asignarJugador.setAsignarEdad(edad);
-
-		assertEquals(0,asignarJugador.getAsignarEdad());
-
+		Jugador jugador= new Jugador();
+		String nombreJugador = "ANTONIO";
+		int edad=15;
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edad);
+		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setJugador(jugador);
+		
+		assertNull(asignarEquipo.getJugador());
 	}
 
 	// Asignar jugador que existe, pero no tiene edad.(sin setAsignarEdad)
 	@Test
 	void testSetAsignarEdadJugador_INVALIDO_sin_edad() {
 
-		AsignarEquipo asignarJugador = new AsignarEquipo();			
-		String nombreJugador="ANTONIO";
-		int edad = 15;
-		asignarJugador.setAsignarJugador(nombreJugador);
-			
-		assertEquals(0,asignarJugador.getAsignarEdad());
-
+		Jugador jugador= new Jugador();
+		String nombreJugador = "ANTONIO";
+		int edad=19;
+		jugador.setNombreJugador(nombreJugador);
+		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setJugador(jugador);
+		
+		assertNull(asignarEquipo.getJugador());
 	}
+
 	
 	// Asignar jugador que existe, pero su idioma es INVALIDO
 	@Test
 	void testSetAsignarIdiomaJugador_INVALIDO() {
 
-		AsignarEquipo asignarJugador = new AsignarEquipo();
+		Jugador jugador= new Jugador();
 		String nombreJugador = "ANTONIO";
-		String Idioma = "portugués";
-		asignarJugador.setAsignarJugador(nombreJugador);
-		asignarJugador.setAsignarIdioma(Idioma);
-			
-		assertNull(asignarJugador.getAsignarIdioma());//¿asignarJugador o asignarIdioma?
+		String idioma= "aleman";
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setNombreJugador(idioma);
 		
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setJugador(jugador);
+		
+		assertNull(asignarEquipo.getJugador());
+
 	}
 		
-	//Asignar jugador que existe, pero sin idioma.(sin set.AsignarIdioma)
+	//Asignar jugador que existe, pero sin idioma.
 	@Test
 	void testSetAsignarIdiomaJugador_INVALIDO_sin_idioma() {
 
-		AsignarEquipo asignarJugador = new AsignarEquipo();
-		AsignarEquipo asignarIdioma = new AsignarEquipo();
+		Jugador jugador= new Jugador();
 		String nombreJugador = "ANTONIO";
-		String Idioma = "español";
-		asignarJugador.setAsignarJugador(nombreJugador);
+		String idioma= "español";
+		jugador.setNombreJugador(nombreJugador);
+	
+		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setJugador(jugador);
 		
-		assertNull(asignarJugador.getAsignarIdioma());//¿asignarJugador o asignarIdioma?
+		assertNull(asignarEquipo.getJugador());
 
 	}
 }
