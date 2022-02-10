@@ -1,4 +1,5 @@
 public class AsignarEquipo {
+
 	private Equipo equipo;
 	private Jugador jugador;
 	
@@ -13,7 +14,7 @@ public class AsignarEquipo {
 	 *  equipo no sea nulo
 	 *  nombre equipo no sea nulo
 	 *  ranking sea distinto de -1
-3	 */
+	 */
 	public void setEquipo(Equipo equipo) {
 		
 		this.equipo = null;
@@ -40,7 +41,7 @@ public class AsignarEquipo {
 	 *  jugador no sea nulo
 	 *  idioma de jugador no sea nulo
 	 *  edad sea distinto de 0
-3	 */	
+	 */	
 	public void setJugador(Jugador jugador) {
 
 		this.jugador = null;
@@ -58,5 +59,4 @@ public class AsignarEquipo {
 	public Jugador getJugador() {
 		return jugador;
 	}
-
 }

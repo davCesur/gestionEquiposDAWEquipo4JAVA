@@ -4,21 +4,22 @@ import org.junit.jupiter.api.Test;
 
 public class AsignarEquipoTest {
 
-	//Asignar jugador que exista y tenga todos sus campos válidos
+	//Asignar jugador que exista y tenga todos sus campos vÃ¡lidos
 	@Test
 	void testSetJugador_VALIDO() {
 		
 		Jugador jugador= new Jugador();
 		String nombreJugador = "ANTONIO";
 		int edad=24;
-		String idioma= "inglés";
+
+		String idioma= "inglÃ©s";
 		jugador.setNombreJugador(nombreJugador);
 		jugador.setEdad(edad);
 		jugador.setIdioma(idioma);
 		
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
 		asignarEquipo.setJugador(jugador);
-		
+
 		assertEquals(jugador,asignarEquipo.getJugador());
 
 	}
@@ -32,7 +33,9 @@ public class AsignarEquipoTest {
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
 		asignarEquipo.setJugador(jugador);
 
+
 		assertNull(asignarEquipo.getJugador());
+
 
 	}
 
@@ -53,7 +56,9 @@ public class AsignarEquipoTest {
 	
 	// Asignar jugador que existe, pero no tiene nombre (sin setAsignarJugador)
 	@Test
+
 	void testSetNombreAsignarJugador_INVALIDO_sin_nombre() {
+
 
 		Jugador jugador = new Jugador();
 		String Jugador = null;
@@ -87,6 +92,7 @@ public class AsignarEquipoTest {
 
 		Jugador jugador= new Jugador();
 		String nombreJugador = "ANTONIO";
+
 		jugador.setNombreJugador(nombreJugador);
 		
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
@@ -118,7 +124,7 @@ public class AsignarEquipoTest {
 
 		Jugador jugador= new Jugador();
 		String nombreJugador = "ANTONIO";
-		String idioma= "español";
+		String idioma= "espaÃ±ol";
 		jugador.setNombreJugador(nombreJugador);
 	
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
@@ -128,7 +134,7 @@ public class AsignarEquipoTest {
 
 	}
 	
-	// Asignar equipo que exista y tenga todos sus campos válidos
+	// Asignar equipo que exista y tenga todos sus campos vÃ¡lidos
 	@Test
 	void testTestSetNombreAsignarEquipoValido() {
 
@@ -162,8 +168,7 @@ public class AsignarEquipoTest {
 	// Asignar equipo que existe, pero su nombre es INVALIDO en intervalo (>=3 || <=8)
 	@Test
 	void testSetNombreAsignarEquipo_INVALIDO() {
-
-		
+    
 		Equipo equipo = new Equipo() ;
 		String nombreEquipo = "PE";
 		equipo.setNombreEquipo(nombreEquipo);
