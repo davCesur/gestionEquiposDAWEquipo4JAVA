@@ -53,7 +53,7 @@ public class AsignarEquipoTest {
 	
 	// Asignar jugador que existe, pero no tiene nombre (sin setAsignarJugador)
 	@Test
-	void testSetNombreAsignarJugador_sin_nombre() {
+	void testSetNombreAsignarJugador_INVALIDO_sin_nombre() {
 
 		Jugador jugador = new Jugador();
 		String Jugador = null;
