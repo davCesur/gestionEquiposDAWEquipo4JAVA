@@ -3,7 +3,7 @@ public class Jugador {
 	private String nombre;
 	private int edad;
 	private String idioma;
-	private String tipojugador;
+	
 	
 	/**
 	 * Constructor
@@ -13,10 +13,6 @@ public class Jugador {
 	
 	
 	
-	public String getNombreJugador() {
-		return nombre;
-	}
-
 	/**
 	 * Establece el nombre del Jugador
 	 * Condiciones (si no se cumplen, establecer como null):
@@ -33,11 +29,14 @@ public class Jugador {
 		
 	}
 	
-	
-	
-	public int getEdad() {
-		return edad;
+	/**
+	 * Retorna el nombre del jugador
+	 */
+	public String getNombreJugador() {
+		return nombre;
 	}
+
+	
 	
 	/**
 	 * Establece la edad
@@ -52,12 +51,12 @@ public class Jugador {
 
 	}
 	
-	
-	
-	public String getIdioma() {
-		return idioma;
+	public int getEdad() {
+		return edad;
 	}
-
+	
+	
+	
 	/**
 	 * Establece el idioma
 	 * Condiciones (si no se cumplen, establecer como null):
@@ -72,15 +71,21 @@ public class Jugador {
 			if( id.equals(idioma) )
 				this.idioma = idioma;
 		}
-		
 	}
 	
+	/**
+	 * Retorna el idioma del jugador
+	 */
+	public String getIdioma() {
+		return idioma;
+	}
+
 	
 	
 	
 	/**
 	 * Obtiene el Tipo de Jugador
-	 * Condiciones:
+	 * Condiciones (si no se cumplen, devuelve null):
 	 *   de 18 a 25 años, Junior
 	 *   de 25 a 35 años, Senior
 	 *   más de 35 años, Master
