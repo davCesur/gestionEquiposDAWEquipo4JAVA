@@ -6,18 +6,28 @@ class EquipoTest {
 
 
 	 /**
+	 * Si el nombre del equipo es null
+	 */
+	@Test
+	void testSetNombreEquipoNull() {
+		
+		Equipo equipo = new Equipo();
+		String nombreEquipo = null;
+		equipo.setNombreEquipo(nombreEquipo);
+		
+		assertNull(equipo.getNombreEquipo());
+	}
+	
+	 /**
 	 * Si el nombre del equipo esta vacio no se guardara
 	 */
-	
 	@Test
 	void testSetNombreEquipoVacio() {
-		//Se crea el equipo
+		
 		Equipo equipo = new Equipo();
-		//Se asigna nombre
-		String nombreEquipo = " ";
-		//Se asigna el equipo
+		String nombreEquipo = "";
 		equipo.setNombreEquipo(nombreEquipo);
-		//Se comprueba
+		
 		assertNull(equipo.getNombreEquipo());
 	}
 	
@@ -27,13 +37,11 @@ class EquipoTest {
 	
 	@Test
 	void testSetNombreEquipoMaxCaracteres() {
-		//Se crea el equipo
+		
 		Equipo equipo = new Equipo();
-		//Se asigna nombre
 		String nombreEquipo = "Lolete";
-		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
-		//Se comprueba
+		
 		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	}
 	
@@ -43,32 +51,25 @@ class EquipoTest {
 	
 	@Test
 	void TestSetNombreEquipoMinCaracteres() {
-		//Se crea el equipo
+		
 		Equipo equipo = new Equipo();
-		//Se asigna nombre
 		String nombreEquipo = "Lol";
-		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
-		//Se comprueba
+		
 		assertEquals(nombreEquipo, equipo.getNombreEquipo());
-	
 	}
 
 	 /**
 	 * Si el nombre del equipo no contiene numeros, sera guardado.
 	 */
-	
 	@Test
 	void testTestSetNombreEquipovalidoNumerico() {
-		//Se crea el equipo
+		
 		Equipo equipo = new Equipo();
-		//Se asigna nombre
 		String nombreEquipo = "Juanjo";
-		//Se asigna el equipo
 		equipo.setNombreEquipo(nombreEquipo);
-		//Se comprueba
+
 		assertEquals(nombreEquipo, equipo.getNombreEquipo());
-	
 	}
 	
 	 /**
@@ -77,13 +78,11 @@ class EquipoTest {
 	
 	@Test
 	void testTestSetNombreEquipoinvalidoNumerico() {
-		//Creamos el equipo
+		
 		Equipo equipo = new Equipo();
-		//Añadimos el nombre
 		String nombreEquipo = "Juan2";
-		//Se asigna el nombre
 		equipo.setNombreEquipo(nombreEquipo);
-		//Se comprueba
+
 		assertNull(equipo.getNombreEquipo());
 	}
 	

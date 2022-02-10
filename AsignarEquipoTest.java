@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class AsignarEquipoTest {
 
-	//Asignar jugador que exista y tenga todos sus campos v√°lidos
+	//Asignar jugador que exista y tenga todos sus campos v·lidos
 	@Test
 	void testSetJugador_VALIDO() {
 		
@@ -133,7 +133,7 @@ public class AsignarEquipoTest {
 
 	}
 	
-	// Asignar equipo que exista y tenga todos sus campos v√°lidos
+	// Asignar equipo que exista y tenga todos sus campos v·lidos
 	@Test
 	void testTestSetNombreAsignarEquipoValido() {
 

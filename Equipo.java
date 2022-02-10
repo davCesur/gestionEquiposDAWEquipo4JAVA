@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class Equipo {
 	private String nombreEquipo;
 	private int ranking;
@@ -20,11 +19,11 @@ public class Equipo {
 		this.nombreEquipo = null;
 		
 		// Si el nombre esta vacio
-		if ( !nombreEquipo.isEmpty()
-			 && nombreEquipo != null
-			 && nombreEquipo.length() <= 6
-			 && nombreEquipo.length() >= 3
-			 && !nombreEquipo.matches(".*\\d.*") ) {
+		if ( nombreEquipo != null
+		&& !nombreEquipo.isEmpty()
+		&& nombreEquipo.length() <= 6
+		&& nombreEquipo.length() >= 3
+		&& !nombreEquipo.matches(".*\\d.*") ) {
 			// Si contiene algún número
 			this.nombreEquipo = nombreEquipo;
 		}
@@ -60,8 +59,8 @@ public class Equipo {
 		
 		if(this.nombreEquipo != null
 		&& !this.nombreEquipo.isEmpty()
-		&& this.ranking > 0
-		&& this.ranking < 10) {
+		&& this.ranking >= 0
+		&& this.ranking <= 10) {
 			if (this.ranking>=7 && this.ranking <=10)
 				categoria = "Primera";
 			else if (this.ranking>=3 && this.ranking<=6)

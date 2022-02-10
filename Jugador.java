@@ -3,7 +3,6 @@ public class Jugador {
 	private String nombre;
 	private int edad;
 	private String idioma;
-	private String tipojugador;
 	
 	
 	/**
