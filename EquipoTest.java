@@ -5,79 +5,96 @@ import org.junit.jupiter.api.Assertions;
 class EquipoTest {
 
 
-	@Test/**
-	 * Guardar Equipo con más de 6 caracteres
-	 */
-	void testSetNombreEquipoMinCaracteres() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Lolete";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
-	}
-	/**
-	 * Guardar Equipo con menos de 6 caracteres
+	 /**
+	 * Si el nombre del equipo esta vacio no se guardara
 	 */
 	
-	void testSetNombreEquipoInferiorcaracteres() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Lolete";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(null, Equipo2.getNombreEquipo());
-	}
-	/**
-	 * Guardar Equipo con maximo de 3 caracteres
-	 */
 	@Test
-	void testTestSetNombreEquipoMaxCaracteres() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Lol";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
-		/**
-		 * Guardar Equipo con mas de 3 caracteres
-		 */
+	void testSetNombreEquipoVacio() {
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
+		String nombreEquipo = " ";
+		//Se asigna el equipo
+		equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertNull(equipo.getNombreEquipo());
 	}
-	void testTestSetNombreEquipoSuperiorCaracteres() {
-		Equipo Equipo2 = new Equipo();
+	
+	 /**
+	 * Si el nombre del equipo es menor de 6 caracteres no se guarda.
+	 */
+	
+	@Test
+	void testSetNombreEquipoMaxCaracteres() {
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
+		String nombreEquipo = "Lolete";
+		//Se asigna el equipo
+		equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
+	}
+	
+	 /**
+	 * Guardar Equipo con un mínimo de 3 caracteres
+	 */
+	
+	@Test
+	void TestSetNombreEquipoMinCaracteres() {
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
 		String nombreEquipo = "Lol";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(null, Equipo2.getNombreEquipo());
+		//Se asigna el equipo
+		equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
 	}
-	/**
-	 * Guardar Equipo con nombre sin numeros
+
+	 /**
+	 * Si el nombre del equipo no contiene numeros, sera guardado.
 	 */
-	void testTestSetNombreEquipoValido() {
-		Equipo Equipo2 = new Equipo();
+	
+	@Test
+	void testTestSetNombreEquipovalidoNumerico() {
+		//Se crea el equipo
+		Equipo equipo = new Equipo();
+		//Se asigna nombre
 		String nombreEquipo = "Juanjo";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(nombreEquipo, Equipo2.getNombreEquipo());
+		//Se asigna el equipo
+		equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertEquals(nombreEquipo, equipo.getNombreEquipo());
 	
 	}
-	/**
-	 * Guardar Equipo con numeros
+	
+	 /**
+	 * No guarda el nombre del equipo si contiene numeros.
 	 */
-	void testTestSetNombreEquipoInvalido() {
-		Equipo Equipo2 = new Equipo();
-		String nombreEquipo = "Juanjo2";
-		Equipo2.setNombreEquipo(nombreEquipo);
-		
-		assertEquals(null, Equipo2.getNombreEquipo());
+	
+	@Test
+	void testTestSetNombreEquipoinvalidoNumerico() {
+		//Creamos el equipo
+		Equipo equipo = new Equipo();
+		//Añadimos el nombre
+		String nombreEquipo = "Juan2";
+		//Se asigna el nombre
+		equipo.setNombreEquipo(nombreEquipo);
+		//Se comprueba
+		assertNull(equipo.getNombreEquipo());
 	}
 	
 	//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE RANKING
-	//Asignar posición de ranking por debajo del mínimo (No válido)
+		//Asignar posición de ranking por debajo del mínimo (No válido)
 		@Test
 		void testSetRankingPorDebajoDeLimite() {
 			Equipo equipo = new Equipo();
 			int ranking = -1;
 			equipo.setRanking(ranking);
-			assertNull(equipo.getRanking());
+			assertEquals(-1, equipo.getRanking());
 		}
 		
 		
@@ -118,7 +135,8 @@ class EquipoTest {
 			int ranking=11;
 			equipo.setRanking(ranking);
 			
-			assertNull(equipo.getRanking());
+
+			assertEquals(11, equipo.getRanking());
 		}
 		
 		//Dejar el valor vacío (No válido)
@@ -142,6 +160,127 @@ class EquipoTest {
 				equipo.setRanking(ranking);
 		  });
 		}
-
-	
+		
+		//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE CATEGORÍA
+		//Introducir ranking con categoría primera con el valor máximo(Válida)
+		@Test
+		void testSetCategoriaEquipoPrimeraValorMaximo() {
+			Equipo equipo = new Equipo();
+			int ranking=10;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			
+			assertEquals("Primera", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría primera con el valor intermedio(Válida)
+		@Test
+		void testSetCategoriaEquipoPrimeraValorIntermedio() {
+			Equipo equipo = new Equipo();
+			int ranking=8;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			
+			assertEquals("Primera", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría primera con el valor mínimo(Válida)
+		@Test
+		void testSetCategoriaEquipoPrimeraValorMinimo() {
+			Equipo equipo = new Equipo();
+			int ranking=7;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			
+			assertEquals("Primera", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría segunda con valor máximo(Válida)
+		@Test
+		void testSetCategoriaEquipoSegundaValorMaximo() {
+			Equipo equipo = new Equipo();
+			int ranking=6;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			assertEquals("Segunda", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría segunda con valor intermedio(Válida)
+		@Test
+		void testSetCategoriaEquipoSegundaValorIntermedio() {
+			Equipo equipo = new Equipo();
+			int ranking=4;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			assertEquals("Segunda", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría segunda con valor mínimo(Válida)
+		@Test
+		void testSetCategoriaEquipoSegundaValorMinimo() {
+			Equipo equipo = new Equipo();
+			int ranking=3;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			assertEquals("Segunda", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría tercera valor máximo(Válida)
+		@Test
+		void testSetCategoriaEquipoTerceraValorMaximo() {
+			Equipo equipo = new Equipo();
+			int ranking=2;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			assertEquals("Tercera", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría tercera valor intermedio(Válida)
+		@Test
+		void testSetCategoriaEquipoTerceraValorIntermedio() {
+			Equipo equipo = new Equipo();
+			int ranking=1;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			assertEquals("Tercera", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir ranking con categoría tercera valor mínimo(Válida)
+		@Test
+		void testSetCategoriaEquipoTerceraValorMinimo() {
+			Equipo equipo = new Equipo();
+			int ranking=0;
+			equipo.setNombreEquipo("nombre");
+			equipo.setRanking(ranking);
+			assertEquals("Tercera", equipo.CategoriaEquipo());
+		}
+		
+		
+		//Introducir ranking vacío(No Válida)
+		@Test
+		void testSetCategoriaRankingVacio() {
+			Equipo equipo = new Equipo();
+			//Integer ranking = null;
+			equipo.setNombreEquipo("nombre");
+			assertEquals("", equipo.CategoriaEquipo());
+		}
+		
+		//Introducir nombre vacío(No Válida)
+		@Test
+		void testSetCategoriaNombreVacio() {
+			Equipo equipo = new Equipo();
+			Integer ranking=7;
+			String nombreEquipo="";
+			equipo.setNombreEquipo(nombreEquipo);
+			equipo.setRanking(ranking);
+			assertEquals("",equipo.CategoriaEquipo());
+		}
+		
+		//Comprobar HOLAMUNDO
+		@Test
+		void testHOLAMUNDO() {
+			Equipo equipo = new Equipo();
+			assertEquals("hola mundo",equipo.HOLAMUNDO());
+		}
+		
 }
