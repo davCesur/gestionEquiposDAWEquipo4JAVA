@@ -132,11 +132,11 @@ class EquipoTest {
 		@Test
 		void testSetRankingValorPorEncimaLimite() {
 			Equipo equipo = new Equipo();
-			int ranking=11;
+			int ranking=-1;
 			equipo.setRanking(ranking);
 			
 
-			assertEquals(11, equipo.getRanking());
+			assertEquals(-1, equipo.getRanking());
 		}
 		
 		//Dejar el valor vacío (No válido)
