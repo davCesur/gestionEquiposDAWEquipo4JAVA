@@ -7,3 +7,5 @@
 /TestAsignarEquipo.class
 /AsignarEquipoTest.class
 AsignarEquipoTest.class
+*.class
+AsignarEquipoTest.class
