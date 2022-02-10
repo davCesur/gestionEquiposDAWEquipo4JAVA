@@ -12,7 +12,7 @@ public class AsignarEquipoTest {
 		String nombreJugador = "ANTONIO";
 		int edad=24;
 
-		String idioma= "ingl√©s";
+		String idioma= "inglÈs";
 		jugador.setNombreJugador(nombreJugador);
 		jugador.setEdad(edad);
 		jugador.setIdioma(idioma);
@@ -124,7 +124,6 @@ public class AsignarEquipoTest {
 
 		Jugador jugador= new Jugador();
 		String nombreJugador = "ANTONIO";
-		String idioma= "espa√±ol";
 		jugador.setNombreJugador(nombreJugador);
 	
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
@@ -172,25 +171,50 @@ public class AsignarEquipoTest {
 		Equipo equipo = new Equipo() ;
 		String nombreEquipo = "PE";
 		equipo.setNombreEquipo(nombreEquipo);
-
+		
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
 		asignarEquipo.setEquipo(equipo);
 		
 		assertNull(asignarEquipo.getEquipo());
-
 	}
+
+	// Si el idioma esta vacio, no se guardar·.
+	
+	@Test
+	void testSetIdioma_INVALIDO_Vacio() {
+		Jugador jugador = new Jugador();
+
+		String idioma = "";
+		jugador.setIdioma(idioma);
+
+		assertNull(jugador.getIdioma());
+	}
+
+	// Set idioma INVALIDO Null
+	
+	@Test
+	void testSetIdioma_INVALIDO_Null() {
+		Jugador jugador = new Jugador();
+
+		String idioma = null;
+		jugador.setIdioma(idioma);
+
+		assertNull(jugador.getIdioma());
+	}
+
 		
 	// Asignar equipo que existe, pero no tiene nombre.
 	@Test
 	void testSetNombreAsignarEquipo_INVALIDO_sin_nombre() {
 
 		Equipo equipo = new Equipo();	
-		String nombreEquipo = "NEWTEAM";			
+		String nombreEquipo = "NEWTEAM";
+		equipo.setNombreEquipo(nombreEquipo);
 
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
+		asignarEquipo.setEquipo(equipo);
 	
 		assertNull(asignarEquipo.getEquipo());
-
 	}
 	
 	// Asignar equipo que existe, pero el ranking es INVALIDO 
@@ -216,7 +240,6 @@ public class AsignarEquipoTest {
 
 		Equipo equipo = new Equipo();				
 		String nombreEquipo="NEWTEAM";
-		int Ranking = 11;
 		equipo.setNombreEquipo(nombreEquipo);	
 		
 		AsignarEquipo asignarEquipo = new AsignarEquipo();
