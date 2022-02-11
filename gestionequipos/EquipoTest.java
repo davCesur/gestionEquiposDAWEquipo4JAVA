@@ -289,11 +289,4 @@ class EquipoTest {
 			assertEquals("",equipo.CategoriaEquipo());
 		}
 		
-		//Comprobar HOLAMUNDO
-		@Test
-		void testHOLAMUNDO() {
-			Equipo equipo = new Equipo();
-			assertEquals("hola mundo",equipo.HOLAMUNDO());
-		}
-		
 }

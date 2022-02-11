@@ -218,6 +218,9 @@ class JugadorTest {
 	}
 
 	// Set edad no VÁLIDA superior (>99)
+	// TEST INVALIDADO
+	// en Story 8 se pide que si es mayor de 99, sea SuperMaster 
+	/*
 	@Test
 	void testSetEdad_INVALIDA_Superior() {
 		Jugador jugador = new Jugador();
@@ -227,6 +230,7 @@ class JugadorTest {
 		
 		assertEquals(0, jugador.getEdad());
 	}
+	*/
 	
 	// Set edad no VÁLIDA Null
 	@Test
@@ -366,6 +370,19 @@ class JugadorTest {
 		jugador.setIdioma("español");
 		
 		assertEquals("Master", jugador.tipoJugador());
+		
+	}
+	
+	// Test tipoJugador Master límite superior
+	@Test
+	void testTipoJugadorSuperMaster() {
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador("Alejandro");
+		jugador.setEdad(115);
+		jugador.setIdioma("español");
+		
+		assertEquals("SuperMaster", jugador.tipoJugador() );
 		
 	}
 	
