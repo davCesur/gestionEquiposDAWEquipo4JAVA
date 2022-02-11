@@ -1,10 +1,23 @@
+/**
+ * ## por compatibilidad con clientes windows y evitar
+ * ## problemas mayores con el resto de equipo, se utiliza
+ * ## la codificación ISO-8859-1 en lugar de UTF-8
+ * 
+ * Clase de creación de un equipo
+ * 
+ * Versión 0.3
+ * @author equipo 4 1ºDAW 21-22
+ * Licencia Pública General de GNU (GPL) versión 3
+ */
+
+package gestionequipos;
+
 public class Equipo {
+	
 	private String nombreEquipo;
-	private int ranking;
-	private String categoria;
+	private int ranking = -1; //valoramos -1 como nulo
 	
 	public Equipo () {
-		this.ranking = -1;
 	}
 	
 	/**
@@ -55,9 +68,9 @@ public class Equipo {
 	 */
 	
 	public String CategoriaEquipo() {
-		categoria="";
+		String categoria="";
 		
-		if(this.nombreEquipo != null
+		if( this.nombreEquipo != null
 		&& !this.nombreEquipo.isEmpty()
 		&& this.ranking >= 0
 		&& this.ranking <= 10) {

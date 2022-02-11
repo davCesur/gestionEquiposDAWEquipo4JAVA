@@ -1,3 +1,17 @@
+/**
+ * ## por compatibilidad con clientes windows y evitar
+ * ## problemas mayores con el resto de equipo, se utiliza
+ * ## la codificación ISO-8859-1 en lugar de UTF-8
+ * 
+ * Test unitarios para AsignarEquipo.java
+ * 
+ * Versión 0.1
+ * @author equipo 4 1ºDAW 21-22
+ * Licencia Pública General de GNU (GPL) versión 3
+ */
+
+package gestionequipos;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
