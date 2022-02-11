@@ -150,7 +150,7 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorEdadNoValida() {
 
-		String Jugador = this.jugadorNombreNoValido;
+		String Jugador = this.jugadorNombreValido;
 		int edad = this.jugadorEdadNoValida;
 		String idioma = this.jugadorIdiomaValido;
 

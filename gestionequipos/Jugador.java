@@ -55,14 +55,13 @@ public class Jugador {
 	/**
 	 * Establece la edad
 	 * Condiciones (si no se cumplen, establecer como 0):
-	 *   Entero entre 18 y 99.
+	 *   Entero mayor de 18
 	 *   No contenga ningún carácter que no sea número
 	 */
 	public void setEdad(int edad) {
-		this.edad = 0;
-		if( edad >=18 && edad <=99 )
+		this.edad = -1;
+		if( edad >=18 )
 			this.edad = edad;
-
 	}
 	
 	public int getEdad() {
@@ -103,13 +102,15 @@ public class Jugador {
 	 *   de 18 a 25 años, Junior
 	 *   de 25 a 35 años, Senior
 	 *   más de 35 años, Master
+	 *   más de 100 años, SuperMaster
 	 *   Debe tener todos sus campos edad, nombre e idioma rellenos
 	 */
 	public String tipoJugador() {
+		System.out.println(this.edad);
 		
 		String tipojugador = null;
 
-		if (edad==0 || nombre==null || idioma==null) {
+		if (edad<=0 || nombre==null || idioma==null) {
 			tipojugador=null;
 		} else if (edad>=18 && edad<=25) {
 			tipojugador="Junior";
@@ -117,7 +118,10 @@ public class Jugador {
 			tipojugador="Senior";
 		} else if (edad>=36 && edad<=99) {
 			tipojugador="Master";
+		} else if (edad>=100) {
+			tipojugador="SuperMaster";
 		}
+		System.out.println(tipojugador);
 		
 		return tipojugador;
 	}

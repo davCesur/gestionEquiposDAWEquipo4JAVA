@@ -15,7 +15,16 @@ package gestionequipos;
 public class Equipo {
 	
 	private String nombreEquipo;
-	private int ranking = -1; //valoramos -1 como nulo
+	private int nombreEquipoLimiteInferior=3;
+	private int nombreEquipoLimiteSuperior=6;
+	
+	private int rankingEquipo = -1; //valoramos -1 como nulo
+	private int rankingEquipoLimiteInferior=0;
+	private int rankingEquipoLimiteSuperior=10;
+	
+	int[][] categoriaLimites = {{7,10},{3,6},{0,2}};
+	String[] categoriaNombres = {"Primera","Segunda","Tercera"};
+	
 	
 	public Equipo () {
 	}
@@ -24,8 +33,8 @@ public class Equipo {
 	 * setNombreEquipo
 	 * Metodo que asigna un nombre al equipo siempre que se cumplan las condiciones:
 	 * El nombre no puede ser Null
-	 * Debe contener entre 3 y 6 caracteres
-	 * No debe contener numeros
+	 * Estar entre los límites
+	 * No puede contener numeros
 	 */
 	
 	public void setNombreEquipo(String nombreEquipo) {
@@ -34,10 +43,10 @@ public class Equipo {
 		// Si el nombre esta vacio
 		if ( nombreEquipo != null
 		&& !nombreEquipo.isEmpty()
-		&& nombreEquipo.length() <= 6
-		&& nombreEquipo.length() >= 3
+		&& nombreEquipo.length() <= this.nombreEquipoLimiteSuperior
+		&& nombreEquipo.length() >= this.nombreEquipoLimiteInferior
 		&& !nombreEquipo.matches(".*\\d.*") ) {
-			// Si contiene algún número
+			
 			this.nombreEquipo = nombreEquipo;
 		}
 	}
@@ -52,9 +61,13 @@ public class Equipo {
 	 */
 	
 	public void setRanking(int ranking) {				
-		this.ranking=-1;
-		if (ranking >=0 && ranking <=10)
-			this.ranking=ranking;
+		this.rankingEquipo=-1;
+		
+		if( ranking >=this.rankingEquipoLimiteInferior
+		&&  ranking <=this.rankingEquipoLimiteSuperior ) {
+			
+			this.rankingEquipo=ranking;
+		}
 	}
 	
 	/**
@@ -68,43 +81,44 @@ public class Equipo {
 	 */
 	
 	public String CategoriaEquipo() {
+		
 		String categoria="";
 		
 		if( this.nombreEquipo != null
 		&& !this.nombreEquipo.isEmpty()
-		&& this.ranking >= 0
-		&& this.ranking <= 10) {
-			if (this.ranking>=7 && this.ranking <=10)
-				categoria = "Primera";
-			else if (this.ranking>=3 && this.ranking<=6)
-				categoria = "Segunda";
-			else if (this.ranking >=0 && this.ranking <3)
-				categoria = "Tercera";
+		&& this.rankingEquipo >= this.rankingEquipoLimiteInferior
+		&& this.rankingEquipo <= this.rankingEquipoLimiteSuperior) {
+			
+			for( int i=0 ; i<this.categoriaNombres.length ; i++ ) {
+				
+				int limiteInferior = this.categoriaLimites[i][0];
+				int limiteSuperior = this.categoriaLimites[i][1];
+				
+				if( this.rankingEquipo >= limiteInferior
+				&&  this.rankingEquipo <= limiteSuperior ) {
+					
+					categoria = this.categoriaNombres[i];
+				}
+			}
 		}
+		
 		return categoria;
 	}
 	
 	/**
-	 * getNombreJugador
 	 * Metodo que devuelve el nombre del equipo.
+	 * @return String this.nombreEquipo
 	 */
-	
 	public String getNombreEquipo() {
-		return nombreEquipo;
+		return this.nombreEquipo;
 	}
 	
 	/**
-	 * getRanking
-	 * Metodo que devuelve el ranking.
+	 * Devuelve el ranking.
+	 * @return int this.rankingEquipo
 	 */
-	
 	public int getRanking() {
-		return ranking;
+		return this.rankingEquipo;
 	}
 	
-	public String HOLAMUNDO() {
-		String hola = "hola mundo";
-		return hola;
-	}
-
 }
