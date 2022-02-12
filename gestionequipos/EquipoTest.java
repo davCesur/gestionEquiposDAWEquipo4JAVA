@@ -18,10 +18,20 @@ import org.junit.jupiter.api.Assertions;
 
 class EquipoTest {
 
+	private int nombreEquipoLimiteInferior=3;
+	private int nombreEquipoLimiteSuperior=6;
+	
+	private int rankingEquipo = -1; //valoramos -1 como nulo
+	private int rankingEquipoLimiteInferior=0;
+	private int rankingEquipoLimiteSuperior=10;
+	
+	int[][] categoriaLimites = {{7,10},{3,6},{0,2}};
+	String[] categoriaNombres = {"Primera","Segunda","Tercera"};
 
-	 /**
-	 * Si el nombre del equipo es null
-	 */
+	
+	/**
+	* Si el nombre del equipo es null
+	*/
 	@Test
 	void testSetNombreEquipoNull() {
 		
