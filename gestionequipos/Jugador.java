@@ -34,10 +34,15 @@ public class Jugador {
 	 *   No contenga ningún número
 	 */
 	public void setNombreJugador(String nombre) {
-		if ( nombre!=null && !nombre.matches(".*\\d.*")
-		&& nombre.length()>=4 && nombre.length()<=20 ) {
+		if ( 
+		nombre!=null 
+		&& !nombre.matches(".*\\d.*")
+		&& nombre.length()>=4 
+		&& nombre.length()<=20 ) {
+			
 			this.nombre = nombre.toUpperCase();
 		} else {
+			
 			this.nombre = null;
 		}
 		
@@ -60,8 +65,9 @@ public class Jugador {
 	 */
 	public void setEdad(int edad) {
 		this.edad = -1;
-		if( edad >=18 )
+		if ( edad >= 18 ) {
 			this.edad = edad;
+		}
 	}
 	
 	public int getEdad() {
@@ -110,15 +116,20 @@ public class Jugador {
 		
 		String tipojugador = null;
 
-		if (edad<=0 || nombre==null || idioma==null) {
+		if (edad<=0 || 
+				nombre==null || 
+				idioma==null) {
 			tipojugador=null;
-		} else if (edad>=18 && edad<=25) {
+		} else if (edad >= 18 
+				&& edad <= 25) {
 			tipojugador="Junior";
-		} else if (edad>=26 && edad<=35) {
+		} else if (edad >= 26 
+				&& edad <= 35) {
 			tipojugador="Senior";
-		} else if (edad>=36 && edad<=99) {
+		} else if (edad >= 36 
+				&& edad <= 99) {
 			tipojugador="Master";
-		} else if (edad>=100) {
+		} else if (edad >= 100) {
 			tipojugador="SuperMaster";
 		}
 		System.out.println(tipojugador);
