@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
 
-class EquipoTest {
+public class EquipoTest {
 
 	private int nombreEquipoLimiteInferior=3;
 	private int nombreEquipoLimiteSuperior=6;

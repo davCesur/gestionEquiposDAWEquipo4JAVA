@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-class JugadorTest {
+public class JugadorTest {
 	
 	/** Variables para nombre */
 	// String entre 4 y 20 caracteres sin números
