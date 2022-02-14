@@ -18,37 +18,6 @@ import static org.junit.Assert.assertNull;
 
 public class JugadorTest {
 	
-	/** Variables para nombre */
-	// String entre 4 y 20 caracteres sin números
-	private String nombreValido = "Antonio";
-	private String nombreValidoMinimoCaracteres = "Pepe";
-	private String nombreValidoMaximoCaracteres = "Jose Ramon de Jimena";
-	private String nombreInvalidoMinimoCaracteres = "Pep";
-	private String nombreInvalidoMaximoCaracteres = "Jose Ramon de Jimenez";
-	private String nombreInvalidoConNumero = "Manolo 1";
-	
-	/** Variables para edad */
-	// Entero entre 18 y 99 (-1 nulo)
-	private int edadValidaLimiteInferior = 18;
-	private int edadValida = 20;
-	private int edadNula = -1;
-	private int edadInvalida = 17;
-	
-	/** Variables para idioma */
-	// String entre estas opciones: español, inglés o alemán
-	private String idiomaValido = "español";
-	private String idiomaNoValido = "arameo";
-
-	/** Variables para tipo de jugador */
-	/*   de 18 a 25 años, Junior
-	 *   de 25 a 35 años, Senior
-	 *   más de 35 años, Master
-	 *   más de 100 años, SuperMaster */
-	int[][] tipoJugadorRangos = {{18,25},{26,35},{36,99},{100,200}};
-	String[] tipoJugadorNombres = {"Junior","Senior","Master","SuperMaster"};
-
-	
-	
 	
 	/**
 	 * ########## setNombre ##########   
@@ -74,7 +43,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetNombreInvalidoMenorMinimoCaracteres() {
 		
-		String nombreJugador = this.nombreInvalidoMinimoCaracteres;
+		String nombreJugador = "Pep";
 		
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
@@ -88,7 +57,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetNombreValidoMinimoCaracteres() {
 		
-		String nombreJugador = this.nombreValidoMinimoCaracteres;
+		String nombreJugador = "Antonio";
 		
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
@@ -102,7 +71,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetNombreValido() {
 		
-		String nombreJugador = this.nombreValido;
+		String nombreJugador = "Antonio";
 		
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
@@ -116,7 +85,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetNombreValidoMaximoCaracteres() {
 		
-		String nombreJugador = this.nombreValidoMaximoCaracteres;
+		String nombreJugador = "Jose Ramon de Jimena";
 		
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
@@ -130,7 +99,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetNombreInvalidoMaximoCaracteres() {
 		
-		String nombreJugador = this.nombreInvalidoMaximoCaracteres;
+		String nombreJugador = "Jose Ramon de Jimenez";
 		
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
@@ -144,7 +113,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetNombreInvalidoConNumero() {
 		
-		String nombreJugador = this.nombreInvalidoConNumero;
+		String nombreJugador = "Manolo 1";
 		
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
@@ -178,7 +147,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetIdiomaValido() {
 		
-		String idioma = this.idiomaValido;
+		String idioma = "español";
 		
 		Jugador jugador = new Jugador();
 		jugador.setIdioma(idioma);
@@ -192,7 +161,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetIdiomaNoValido() {
 		
-		String idioma = this.idiomaNoValido;
+		String idioma = "arameo";
 		
 		Jugador jugador = new Jugador();
 		jugador.setIdioma(idioma);
@@ -239,8 +208,8 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetEdadInvalidaInferior() {
 		
-		int edad = this.edadInvalida;
-		int edadNula = this.edadNula;
+		int edad = 17;
+		int edadNula = -1;
 		
 		Jugador jugador = new Jugador();
 		jugador.setEdad(edad);
@@ -254,7 +223,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetEdadValidaLimiteInferior() {
 		
-		int edad = this.edadValidaLimiteInferior;
+		int edad = 18;
 		
 		Jugador jugador = new Jugador();
 		jugador.setEdad(edad);
@@ -268,7 +237,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetEdadValidaIntervalo() {
 		
-		int edad = this.edadValida;
+		int edad = 20;
 		
 		Jugador jugador = new Jugador();
 		jugador.setEdad(edad);
@@ -282,7 +251,7 @@ public class JugadorTest {
 	@Test
 	void testJugadorSetEdadNull() {
 		
-		int edad = this.edadNula;
+		int edad = -1;
 		
 		Jugador jugador = new Jugador();
 		jugador.setEdad(edad);
@@ -294,6 +263,10 @@ public class JugadorTest {
 	
 	/**
 	 * ########## tipoJugador ##########   
+	 *   de 18 a 25 años, Junior
+	 *   de 25 a 35 años, Senior
+	 *   más de 35 años, Master
+	 *   más de 100 años, SuperMaster
 	 */
 	
 	/**
@@ -302,10 +275,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorJuniorInferior() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		int edadJugador = this.tipoJugadorRangos[0][0];
-		String tipoJugador = this.tipoJugadorNombres[0];
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 18;
+		String tipoJugador = "Junior";
 		
 		Jugador jugador = new Jugador();
 		
@@ -322,14 +295,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorJuniorIntervalo() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		String tipoJugador = this.tipoJugadorNombres[0];
-
-		//Buscamos un aleatorio entre los límites
-		int rango = this.tipoJugadorRangos[0][1] - this.tipoJugadorRangos[0][0];
-		int numeroEnRango = (int) Math.floor(Math.random() * ( rango - 1 ));
-		int edadJugador = numeroEnRango + this.tipoJugadorRangos[0][0] + 1;
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 20;
+		String tipoJugador = "Junior";
 		
 		Jugador jugador = new Jugador();
 		
@@ -346,10 +315,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorJuniorSuperior() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		int edadJugador = this.tipoJugadorRangos[0][1];
-		String tipoJugador = this.tipoJugadorNombres[0];
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 25;
+		String tipoJugador = "Junior";
 		
 		Jugador jugador = new Jugador();
 		
@@ -367,10 +336,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorSeniorInferior() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		int edadJugador = this.tipoJugadorRangos[1][0];
-		String tipoJugador = this.tipoJugadorNombres[1];
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 26;
+		String tipoJugador = "Senior";
 		
 		Jugador jugador = new Jugador();
 		
@@ -387,14 +356,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorSeniorIntervalo() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		String tipoJugador = this.tipoJugadorNombres[1];
-
-		//Buscamos un aleatorio entre los límites
-		int rango = this.tipoJugadorRangos[1][1] - this.tipoJugadorRangos[1][0];
-		int aleatorioEnRango = (int) Math.floor(Math.random() * ( rango - 1 ));
-		int edadJugador = aleatorioEnRango + this.tipoJugadorRangos[1][0] + 1;
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 29;
+		String tipoJugador = "Senior";
 		
 		Jugador jugador = new Jugador();
 		
@@ -411,10 +376,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorSeniorSuperior() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		int edadJugador = this.tipoJugadorRangos[1][1];
-		String tipoJugador = this.tipoJugadorNombres[1];
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 35;
+		String tipoJugador = "Senior";
 		
 		Jugador jugador = new Jugador();
 		
@@ -431,10 +396,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorMasterInferior() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		int edadJugador = this.tipoJugadorRangos[2][0];
-		String tipoJugador = this.tipoJugadorNombres[2];
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 36;
+		String tipoJugador = "Master";
 		
 		Jugador jugador = new Jugador();
 		
@@ -451,14 +416,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorMasterIntervalo() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		String tipoJugador = this.tipoJugadorNombres[2];
-
-		//Buscamos un aleatorio entre los límites
-		int rango = this.tipoJugadorRangos[2][1] - this.tipoJugadorRangos[2][0];
-		int numeroEnRango = (int) Math.floor(Math.random() * ( rango - 1 ));
-		int edadJugador = numeroEnRango + this.tipoJugadorRangos[2][0] + 1;
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 45;
+		String tipoJugador = "Master";
 		
 		Jugador jugador = new Jugador();
 		
@@ -475,10 +436,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorMasterSuperior() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		int edadJugador = this.tipoJugadorRangos[2][1];
-		String tipoJugador = this.tipoJugadorNombres[2];
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 99;
+		String tipoJugador = "Master";
 		
 		Jugador jugador = new Jugador();
 		
@@ -496,10 +457,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorSuperMasterInferior() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		int edadJugador = this.tipoJugadorRangos[3][0];
-		String tipoJugador = this.tipoJugadorNombres[3];
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 100;
+		String tipoJugador = "SuperMaster";
 		
 		Jugador jugador = new Jugador();
 		
@@ -516,14 +477,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorSuperMasterIntervalo() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		String tipoJugador = this.tipoJugadorNombres[3];
-
-		//Buscamos un aleatorio entre los límites
-		int rango = this.tipoJugadorRangos[3][1] - this.tipoJugadorRangos[3][0];
-		int numeroEnRango = (int) Math.floor(Math.random() * ( rango - 1 ));
-		int edadJugador = numeroEnRango + this.tipoJugadorRangos[3][0] + 1;
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 125;
+		String tipoJugador = "SuperMaster";
 		
 		Jugador jugador = new Jugador();
 		
@@ -540,10 +497,10 @@ public class JugadorTest {
 	@Test
 	void testJugadorTipoJugadorSuperMasterSuperior() {
 		
-		String nombreJugador = this.nombreValido;
-		String idioma = this.idiomaValido;
-		int edadJugador = this.tipoJugadorRangos[3][1];
-		String tipoJugador = this.tipoJugadorNombres[3];
+		String nombreJugador = "Antonio";
+		String idioma = "español";
+		int edadJugador = 200;
+		String tipoJugador = "SuperMaster";
 		
 		Jugador jugador = new Jugador();
 		

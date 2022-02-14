@@ -20,35 +20,11 @@ public class Jugador {
 	private String idioma;
 	
 	
-	/** LIMITES */
-	// Nombre: String entre 4 y 20 caracteres sin números
-	int nombreMinimoCaracteres = 4;
-	int nombreMaximoCaracteres = 20;
-	
-	// Edad: Entero entre 18 y 99 (-1 nulo)
-	private int edadMinima = 18;
-	private int edadMaxima = 200;
-	private int edadNula = -1;
-	
-	// Idioma: String entre estas opciones: español, inglés o alemán
-	String idiomasValidos[] = {"español","inglés","alemán"};
-
-	/* tipo de jugador:
-	 *   de 18 a 25 años, Junior
-	 *   de 25 a 35 años, Senior
-	 *   más de 35 años, Master
-	 *   más de 100 años, SuperMaster */
-	int[][] tipoJugadorRangos = {{18,25},{26,35},{36,99},{100,200}};
-	String[] tipoJugadorNombres = {"Junior","Senior","Master","SuperMaster"};
-
-	
-	
 	/**
 	 * Constructor
 	 */
 	public Jugador () {
 	}
-	
 	
 	
 	/**
@@ -59,8 +35,8 @@ public class Jugador {
 	 */
 	public void setNombreJugador(String nombre) {
 		
-		int minimoCaracteres = this.nombreMinimoCaracteres;
-		int maximoCaracteres = this.nombreMaximoCaracteres;
+		int minimoCaracteres = 4;
+		int maximoCaracteres = 20;
 		
 		if ( nombre!=null
 		 && !nombre.matches(".*\\d.*") //no contiene números
@@ -93,9 +69,9 @@ public class Jugador {
 	 */
 	public void setEdad(int edad) {
 		
-		int edadMinima = this.edadMinima;
-		int edadMaxima = this.edadMaxima;
-		int edadNula = this.edadNula;
+		int edadMinima = 18;
+		int edadMaxima = 200;
+		int edadNula = -1;
 		
 		if( edad >= edadMinima && edad <= edadMaxima ) {
 			this.edad = edad;
@@ -117,7 +93,7 @@ public class Jugador {
 	 */
 	public void setIdioma(String idioma) {
 		
-		String idiomas[] = this.idiomasValidos;
+		String idiomas[] = {"español","inglés","alemán"};
 		
 		this.idioma = null;
 		
@@ -149,8 +125,8 @@ public class Jugador {
 	public String tipoJugador() {
 		
 		int edad = this.edad;
-		int[][] limites = this.tipoJugadorRangos;
-		String[] nombres = this.tipoJugadorNombres;
+		int[][] limites = {{18,25},{26,35},{36,99},{100,200}};
+		String[] nombres = {"Junior","Senior","Master","SuperMaster"};
 		
 		String tipojugador = null;
 
