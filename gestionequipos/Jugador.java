@@ -38,7 +38,7 @@ public class Jugador {
 	 *   de 25 a 35 años, Senior
 	 *   más de 35 años, Master
 	 *   más de 100 años, SuperMaster */
-	int[][] tipoJugadorLimites = {{18,25},{26,35},{36,99},{100,200}};
+	int[][] tipoJugadorRangos = {{18,25},{26,35},{36,99},{100,200}};
 	String[] tipoJugadorNombres = {"Junior","Senior","Master","SuperMaster"};
 
 	
@@ -149,7 +149,7 @@ public class Jugador {
 	public String tipoJugador() {
 		
 		int edad = this.edad;
-		int[][] limites = this.tipoJugadorLimites;
+		int[][] limites = this.tipoJugadorRangos;
 		String[] nombres = this.tipoJugadorNombres;
 		
 		String tipojugador = null;
