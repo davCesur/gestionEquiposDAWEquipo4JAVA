@@ -16,122 +16,151 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-/**
- *  
- * @autores Miguel Carmona - Iván Márquez
- *
- */
-
 class JugadorTest {
 	
-	/** Variables para jugador */
+	/** Variables para nombre */
 	// String entre 4 y 20 caracteres sin números
-	private String InvalidoVacio = "";
-	private String NombreInvalidoMinimoCaracteres = "Pep";
-	private String NombreValido = "Antonio";
-	private String NombreValidoMinimoCaracteres = "Pepe";
-	private String NombreValidoMaximoCaracteres = "Jose Ramon de Jimena";
-	private String NombreInvalidoMaximoCaracteres = "Jose Ramon de Jimenez";
-	private String NombreInvalidoConNumero = "Manolo 1";
-	private String NombreNulo = null;
+	private String nombreValido = "Antonio";
+	private String nombreValidoMinimoCaracteres = "Pepe";
+	private String nombreValidoMaximoCaracteres = "Jose Ramon de Jimena";
+	private String nombreInvalidoMinimoCaracteres = "Pep";
+	private String nombreInvalidoMaximoCaracteres = "Jose Ramon de Jimenez";
+	private String nombreInvalidoConNumero = "Manolo 1";
+	
+	/** Variables para edad */
 	// Entero entre 18 y 99 (-1 nulo)
-	private int EdadInvalida = 17;
-	private int EdadValidaLimiteInferior = 18;
-	private int EdadValida = 20;
-	private int EdadNula = -1;
-	private String EdadInvalidaTexto = "Hola";
+	private int edadValidaLimiteInferior = 18;
+	private int edadValida = 20;
+	private int edadNula = -1;
+	private int edadInvalida = 17;
+	
+	/** Variables para idioma */
 	// String entre estas opciones: español, inglés o alemán
-	private String IdiomaValido = "español";
-	private String IdiomaNoValido = "arameo";
+	private String idiomaValido = "español";
+	private String idiomaNoValido = "arameo";
+
+	/** Variables para tipo de jugador */
+	/*   de 18 a 25 años, Junior
+	 *   de 25 a 35 años, Senior
+	 *   más de 35 años, Master
+	 *   más de 100 años, SuperMaster */
+	int[][] tipoJugadorLimites = {{18,25},{26,35},{36,99},{100,200}};
+	String[] tipoJugadorNombres = {"Junior","Senior","Master","SuperMaster"};
+
+	
 	
 	
 	/**
 	 * ########## setNombre ##########   
 	 */
 	
-	// Set nombre INVÁLIDO vacío
+	/**
+	 *  SetNombre INVÁLIDO vacío
+	 */
 	@Test
-	void testSetNombreJugadorInvalidoVacio() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetNombreVacio() {
 		
-		String nombreJugador = InvalidoVacio;
+		String nombreJugador = "";
+		
+		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertNull(jugador.getNombreJugador());	
 	}
 
-	// Set nombre INVÁLIDO menor del límite inferior (menos de 4 caracteres)
+	/**
+	 *  SetNombre INVÁLIDO menor del límite inferior (menos de 4 caracteres)
+	 */
 	@Test
-	void testSetNombreJugadorInvalidoMenorMinimoCaracteres() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetNombreInvalidoMenorMinimoCaracteres() {
 		
-		String nombreJugador = NombreInvalidoMinimoCaracteres;
+		String nombreJugador = this.nombreInvalidoMinimoCaracteres;
+		
+		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertNull(jugador.getNombreJugador());	
 	}
 
-	 // Set nombre VÁLIDO límite inferior (4 caracteres)
+	/**
+	 *  SetNombre VÁLIDO límite inferior (4 caracteres)
+	 */
 	@Test
-	void testSetNombreJugadorValidoMinimoCaracteres() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetNombreValidoMinimoCaracteres() {
 		
-		String nombreJugador = NombreValidoMinimoCaracteres;
+		String nombreJugador = this.nombreValidoMinimoCaracteres;
+		
+		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador,jugador.getNombreJugador());
 	}	
 
-	 // Set nombre VÁLIDO en el intervalo (entre 4 y 20 caracteres)
+	/**
+	 * SetNombre VÁLIDO en el intervalo (entre 4 y 20 caracteres)
+	 */
 	@Test
-	void testSetNombreJugadorValido() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetNombreValido() {
 		
-		String nombreJugador = NombreValido;
+		String nombreJugador = this.nombreValido;
+		
+		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
 	}
 
-	 // Set nombre VÁLIDO límite superior (20 caracteres)
+	/**
+	 *  SetNombre VÁLIDO límite superior (20 caracteres)
+	 */
 	@Test
-	void testSetNombreJugadorValidoMaximoCaracteres() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetNombreValidoMaximoCaracteres() {
 		
-		String nombreJugador = NombreValidoMaximoCaracteres;
+		String nombreJugador = this.nombreValidoMaximoCaracteres;
+		
+		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertEquals(nombreJugador, jugador.getNombreJugador());
 	}
 
-	 // Set nombre INVÁLIDO por encima del límite (20 caracteres)
+	/** 
+	 * SetNombre INVÁLIDO por encima del límite (20 caracteres)
+	 */
 	@Test
-	void testSetNombreJugadorInvalidoMaximoCaracteres() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetNombreInvalidoMaximoCaracteres() {
 		
-		String nombreJugador = NombreInvalidoMaximoCaracteres;
+		String nombreJugador = this.nombreInvalidoMaximoCaracteres;
+		
+		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertNull(jugador.getNombreJugador());
 	}
 
-	// Set nombre INVÁLIDO que contenga algún número
+	/**
+	 *  SetNombre INVÁLIDO que contenga algún número
+	 */
 	@Test
-	void testSetNombreJugadorInvalidoConNumero() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetNombreInvalidoConNumero() {
 		
-		String nombreJugador = NombreInvalidoConNumero;
+		String nombreJugador = this.nombreInvalidoConNumero;
+		
+		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
 		
 		assertNull(jugador.getNombreJugador());
 	}
 	
-	// Set nombre no VÁLIDo Null
+	/**
+	 *  SetNombre no VÁLIDO Null
+	 */
 	@Test
-	void testSetNombreJugador_INVALIDO_Null() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetNombreNull() {
 		
-		String nombreJugador = NombreNulo;
+		String nombreJugador = null;
+		
+		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(nombreJugador);
 			
 		assertNull(jugador.getNombreJugador());
@@ -143,46 +172,57 @@ class JugadorTest {
 	 * ########## setIdioma ##########   
 	 */
 
-	// Set idiomas VÁLIDOS
+	/**
+	 *  SetIdioma VÁLIDO
+	 */
 	@Test
-	void testSetIdioma_VALIDO() {
+	void testJugadorSetIdiomaValido() {
+		
+		String idioma = this.idiomaValido;
 		
 		Jugador jugador = new Jugador();
-		
-		String idioma = IdiomaValido;
 		jugador.setIdioma(idioma);
 		
 		assertEquals(idioma,jugador.getIdioma());
 	}
 
-	// Set idioma INVÁLIDO (string incorrecto)
+	/**
+	 *  SetIdioma NO VÁLIDO
+	 */
 	@Test
-	void testSetIdioma_INVALIDO() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetIdiomaNoValido() {
 		
-		String idioma = "portugués";
+		String idioma = this.idiomaNoValido;
+		
+		Jugador jugador = new Jugador();
 		jugador.setIdioma(idioma);
 		
 		assertNull(jugador.getIdioma());
 	}
 
-	// Set idioma INVÁLIDO vacío
+	/**
+	 *  SetIdioma INVÁLIDO vacío
+	 */
 	@Test
-	void testSetIdioma_INVALIDO_Vacio() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetIdiomaVacio() {
 		
 		String idioma = "";
+		
+		Jugador jugador = new Jugador();
 		jugador.setIdioma(idioma);
 		
 		assertNull(jugador.getIdioma());
 	}
 
-	// Set idioma INVÁLIDO Null
+	/**
+	 *  SetIdioma INVÁLIDO Null
+	 */
 	@Test
-	void testSetIdioma_INVALIDO_Null() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetIdiomaNull() {
 		
 		String idioma = null;
+		
+		Jugador jugador = new Jugador();
 		jugador.setIdioma(idioma);
 		
 		assertNull(jugador.getIdioma());
@@ -193,252 +233,325 @@ class JugadorTest {
 	 * ########## setEdad ##########   
 	 */
 
-	// Set edad INVÁLIDA inferior(<18)
+	/**
+	 *  SetEdad INVÁLIDA inferior(<18)
+	 */
 	@Test
-	void testSetEdadInvalidaInferior() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetEdadInvalidaInferior() {
 		
-		int edad = EdadInvalida;
+		int edad = this.edadInvalida;
+		int edadNula = this.edadNula;
+		
+		Jugador jugador = new Jugador();
 		jugador.setEdad(edad);
 		
-		assertEquals(-1, jugador.getEdad());
+		assertEquals(edadNula, jugador.getEdad());
 	}
 
-	 // Set edad VÁLIDA límite inferior (=18)
+	/**
+	 *  SetEdad VÁLIDA límite inferior (=18)
+	 */
 	@Test
-	void testSetEdadValidaLimiteInferior() {
+	void testJugadorSetEdadValidaLimiteInferior() {
+		
+		int edad = this.edadValidaLimiteInferior;
+		
 		Jugador jugador = new Jugador();
-		
-		int edad = EdadValidaLimiteInferior;
-		jugador.setEdad(edad);
-
-		assertEquals(edad,jugador.getEdad());
-	}
-
-	 // Set edad VÁLIDA (>=18 && =<99)
-	@Test
-	void testSetEdadValidaIntervalo() {
-		Jugador jugador = new Jugador();
-		
-		int edad = EdadValida;
-		jugador.setEdad(edad);
-		
-		assertEquals(edad,jugador.getEdad());
-	}
-
-	// Set edad no VÁLIDA superior (>99)
-	// TESTS INVALIDADOS
-	// en Story 8 se pide que si es mayor de 99, sea SuperMaster 
-	/*
-	@Test
-	void testSetEdad_VALIDA_LimiteSuperior() {
-		Jugador jugador = new Jugador();
-		
-		int edad = 99;
 		jugador.setEdad(edad);
 
 		assertEquals(edad,jugador.getEdad());
 	}
 
+	/**
+	 *  SetEdad VÁLIDA
+	 */
 	@Test
-	void testSetEdad_INVALIDA_Superior() {
-		Jugador jugador = new Jugador();
+	void testJugadorSetEdadValidaIntervalo() {
 		
-		int edad = 100;
+		int edad = this.edadValida;
+		
+		Jugador jugador = new Jugador();
 		jugador.setEdad(edad);
 		
-		assertEquals(0, jugador.getEdad());
+		assertEquals(edad,jugador.getEdad());
 	}
-	*/
-	
-	// Set edad no VÁLIDA Null
-	@Test
-	void testSetEdad_INVALIDA_Null() {
-		Jugador jugador = new Jugador();
-		
-			int edad = EdadNula;
-			jugador.setEdad(edad);
 
+	/**
+	 *  SetEdad no VÁLIDA Null
+	 */
+	@Test
+	void testJugadorSetEdadNull() {
 		
-		assertEquals(-1, jugador.getEdad());
+		int edad = this.edadNula;
+		
+		Jugador jugador = new Jugador();
+		jugador.setEdad(edad);
+		
+		assertEquals(edad, jugador.getEdad());
 	}
 	
-	// Set edad no VÁLIDA String
-	@Test
-	void testSetEdad_INVALIDA_String() {
-		Jugador jugador = new Jugador();
-		
-			int edad = Integer.parseInt(EdadInvalidaTexto);
-			jugador.setEdad(edad);
-			
-			assertEquals(-1, jugador.getEdad());
-	}
+	
 	
 	/**
 	 * ########## tipoJugador ##########   
 	 */
 	
-	// Test tipoJugador Junior límite inferior
+	/**
+	 *  Test tipoJugador Junior límite inferior
+	 */
 	@Test
-	void testTipoJugadorJunior_Inferior() {
+	void testJugadorTipoJugadorJuniorInferior() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		int edadJugador = this.tipoJugadorLimites[0][0];
+		String tipoJugador = this.tipoJugadorNombres[0];
+		
 		Jugador jugador = new Jugador();
 		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(18);
-		jugador.setIdioma("inglés");
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
 		
-		assertEquals("Junior", jugador.tipoJugador());
-		
-	}
-	// Test tipoJugador Junior rango intermedio
-	@Test
-	void testTipoJugadorJunior_Intermedio() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(20);
-		jugador.setIdioma("inglés");
-		
-		assertEquals("Junior", jugador.tipoJugador());
-		
-	}
-	// Test tipoJugador Junior límite superior
-	@Test
-	void testTipoJugadorJunior_Superior() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(25);
-		jugador.setIdioma("español");
-		
-		assertEquals("Junior", jugador.tipoJugador());
-		
+		assertEquals(tipoJugador, jugador.tipoJugador());
 	}
 	
-	// Test tipoJugador Senior límite inferior
+	/**
+	 *  Test tipoJugador Junior intervalo
+	 */
 	@Test
-	void testTipoJugadorSenior_Inferior() {
+	void testJugadorTipoJugadorJuniorIntervalo() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		String tipoJugador = this.tipoJugadorNombres[0];
+
+		//Buscamos un aleatorio entre los límites
+		int rango = this.tipoJugadorLimites[0][1] - this.tipoJugadorLimites[0][0];
+		int numeroEnRango = (int) Math.floor(Math.random() * ( rango - 1 ));
+		int edadJugador = numeroEnRango + this.tipoJugadorLimites[0][0] + 1;
+		
 		Jugador jugador = new Jugador();
 		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(26);
-		jugador.setIdioma("español");
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
 		
-		assertEquals("Senior", jugador.tipoJugador());
-		
-	}
-	// Test tipoJugador Senior rango intermedio
-	@Test
-	void testTipoJugadorSenior_Intermedio() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(30);
-		jugador.setIdioma("alemán");
-		
-		assertEquals("Senior", jugador.tipoJugador());
-		
-	}
-	// Test tipoJugador Senior límite superior
-	@Test
-	void testTipoJugadorSenior_Superior() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(35);
-		jugador.setIdioma("alemán");
-		
-		assertEquals("Senior", jugador.tipoJugador());
-		
-	}
-	// Test tipoJugador Master límite inferior
-	@Test
-	void testTipoJugadorMaster_Inferior() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(36);
-		jugador.setIdioma("inglés");
-		
-		assertEquals("Master", jugador.tipoJugador());
-		
-	}
-	// Test tipoJugador Master rango intermedio
-	@Test
-	void testTipoJugadorMaster_Intermedio() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(40);
-		jugador.setIdioma("alemán");
-		
-		assertEquals("Master", jugador.tipoJugador());
-		
-	}
-	// Test tipoJugador Master límite superior
-	@Test
-	void testTipoJugadorMaster_Superior() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(99);
-		jugador.setIdioma("español");
-		
-		assertEquals("Master", jugador.tipoJugador());
-		
+		assertEquals(tipoJugador, jugador.tipoJugador());
 	}
 	
-	// Test tipoJugador Master límite superior
+	/**
+	 *  Test tipoJugador Junior límite superior
+	 */
 	@Test
-	void testTipoJugadorSuperMaster() {
+	void testJugadorTipoJugadorJuniorSuperior() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		int edadJugador = this.tipoJugadorLimites[0][1];
+		String tipoJugador = this.tipoJugadorNombres[0];
+		
 		Jugador jugador = new Jugador();
 		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(115);
-		jugador.setIdioma("español");
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
 		
-		assertEquals("SuperMaster", jugador.tipoJugador() );
-		
-	}
-	
-	// Test tipoJugador sin nombre válido
-	@Test
-	void testTipoJugadorSinNombre() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreNulo);
-		jugador.setEdad(99);
-		jugador.setIdioma("español");
-		
-		assertNull(jugador.tipoJugador());
-	}
-	
-	// Test tipoJugador sin edad válida
-	@Test
-	void testTipoJugadorSinEdad() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(0);
-		jugador.setIdioma("español");
-		
-		assertNull(jugador.tipoJugador());
-		
-	}
-	
-	// Test tipoJugador sin Idioma válido
-	@Test
-	void testTipoJugadorSinIdioma() {
-		Jugador jugador = new Jugador();
-		
-		jugador.setNombreJugador(NombreValido);
-		jugador.setEdad(25);
-		jugador.setIdioma("idioma no válido");
-		
-		assertNull(jugador.tipoJugador());
-		
+		assertEquals(tipoJugador, jugador.tipoJugador());
 	}
 	
 	
+	/**
+	 *  Test tipoJugador Senior límite inferior
+	 */
+	@Test
+	void testJugadorTipoJugadorSeniorInferior() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		int edadJugador = this.tipoJugadorLimites[1][0];
+		String tipoJugador = this.tipoJugadorNombres[1];
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
+	
+	/**
+	 *  Test tipoJugador Senior intervalo
+	 */
+	@Test
+	void testJugadorTipoJugadorSeniorIntervalo() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		String tipoJugador = this.tipoJugadorNombres[1];
+
+		//Buscamos un aleatorio entre los límites
+		int rango = this.tipoJugadorLimites[1][1] - this.tipoJugadorLimites[1][0];
+		int aleatorioEnRango = (int) Math.floor(Math.random() * ( rango - 1 ));
+		int edadJugador = aleatorioEnRango + this.tipoJugadorLimites[1][0] + 1;
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
+	
+	/**
+	 *  Test tipoJugador Senior límite superior
+	 */
+	@Test
+	void testJugadorTipoJugadorSeniorSuperior() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		int edadJugador = this.tipoJugadorLimites[1][1];
+		String tipoJugador = this.tipoJugadorNombres[1];
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
+	
+	/**
+	 *  Test tipoJugador Master límite inferior
+	 */
+	@Test
+	void testJugadorTipoJugadorMasterInferior() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		int edadJugador = this.tipoJugadorLimites[2][0];
+		String tipoJugador = this.tipoJugadorNombres[2];
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
+	
+	/**
+	 *  Test tipoJugador Master intervalo
+	 */
+	@Test
+	void testJugadorTipoJugadorMasterIntervalo() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		String tipoJugador = this.tipoJugadorNombres[2];
+
+		//Buscamos un aleatorio entre los límites
+		int rango = this.tipoJugadorLimites[2][1] - this.tipoJugadorLimites[2][0];
+		int numeroEnRango = (int) Math.floor(Math.random() * ( rango - 1 ));
+		int edadJugador = numeroEnRango + this.tipoJugadorLimites[2][0] + 1;
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
+	
+	/**
+	 *  Test tipoJugador Master límite superior
+	 */
+	@Test
+	void testJugadorTipoJugadorMasterSuperior() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		int edadJugador = this.tipoJugadorLimites[2][1];
+		String tipoJugador = this.tipoJugadorNombres[2];
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
+	
+	
+	/**
+	 *  Test tipoJugador SuperMaster límite inferior
+	 */
+	@Test
+	void testJugadorTipoJugadorSuperMasterInferior() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		int edadJugador = this.tipoJugadorLimites[3][0];
+		String tipoJugador = this.tipoJugadorNombres[3];
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
+	
+	/**
+	 *  Test tipoJugador SuperMaster intervalo
+	 */
+	@Test
+	void testJugadorTipoJugadorSuperMasterIntervalo() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		String tipoJugador = this.tipoJugadorNombres[3];
+
+		//Buscamos un aleatorio entre los límites
+		int rango = this.tipoJugadorLimites[3][1] - this.tipoJugadorLimites[3][0];
+		int numeroEnRango = (int) Math.floor(Math.random() * ( rango - 1 ));
+		int edadJugador = numeroEnRango + this.tipoJugadorLimites[3][0] + 1;
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
+	
+	/**
+	 *  Test tipoJugador Master límite superior
+	 */
+	@Test
+	void testJugadorTipoJugadorSuperMasterSuperior() {
+		
+		String nombreJugador = this.nombreValido;
+		String idioma = this.idiomaValido;
+		int edadJugador = this.tipoJugadorLimites[3][1];
+		String tipoJugador = this.tipoJugadorNombres[3];
+		
+		Jugador jugador = new Jugador();
+		
+		jugador.setNombreJugador(nombreJugador);
+		jugador.setEdad(edadJugador);
+		jugador.setIdioma(idioma);
+		
+		assertEquals(tipoJugador, jugador.tipoJugador());
+	}
 	
 }

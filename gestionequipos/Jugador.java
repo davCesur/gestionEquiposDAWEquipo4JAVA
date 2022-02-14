@@ -14,9 +14,33 @@ package gestionequipos;
 
 
 public class Jugador {
+	
 	private String nombre;
 	private int edad;
 	private String idioma;
+	
+	
+	/** LIMITES */
+	// Nombre: String entre 4 y 20 caracteres sin números
+	int nombreMinimoCaracteres = 4;
+	int nombreMaximoCaracteres = 20;
+	
+	// Edad: Entero entre 18 y 99 (-1 nulo)
+	private int edadMinima = 18;
+	private int edadMaxima = 200;
+	private int edadNula = -1;
+	
+	// Idioma: String entre estas opciones: español, inglés o alemán
+	String idiomasValidos[] = {"español","inglés","alemán"};
+
+	/* tipo de jugador:
+	 *   de 18 a 25 años, Junior
+	 *   de 25 a 35 años, Senior
+	 *   más de 35 años, Master
+	 *   más de 100 años, SuperMaster */
+	int[][] tipoJugadorLimites = {{18,25},{26,35},{36,99},{100,200}};
+	String[] tipoJugadorNombres = {"Junior","Senior","Master","SuperMaster"};
+
 	
 	
 	/**
@@ -34,10 +58,19 @@ public class Jugador {
 	 *   No contenga ningún número
 	 */
 	public void setNombreJugador(String nombre) {
-		if ( nombre!=null && !nombre.matches(".*\\d.*")
-		&& nombre.length()>=4 && nombre.length()<=20 ) {
-			this.nombre = nombre.toUpperCase();
+		
+		int minimoCaracteres = this.nombreMinimoCaracteres;
+		int maximoCaracteres = this.nombreMaximoCaracteres;
+		
+		if ( nombre!=null
+		 && !nombre.matches(".*\\d.*") //no contiene números
+		 && nombre.length() >= minimoCaracteres
+		 && nombre.length() <= maximoCaracteres ) {
+			
+			this.nombre = nombre;
+		
 		} else {
+			
 			this.nombre = null;
 		}
 		
@@ -59,9 +92,16 @@ public class Jugador {
 	 *   No contenga ningún carácter que no sea número
 	 */
 	public void setEdad(int edad) {
-		this.edad = -1;
-		if( edad >=18 )
+		
+		int edadMinima = this.edadMinima;
+		int edadMaxima = this.edadMaxima;
+		int edadNula = this.edadNula;
+		
+		if( edad >= edadMinima && edad <= edadMaxima ) {
 			this.edad = edad;
+		} else {
+			this.edad = edadNula;
+		}
 	}
 	
 	public int getEdad() {
@@ -77,7 +117,8 @@ public class Jugador {
 	 */
 	public void setIdioma(String idioma) {
 		
-		String idiomas[] = {"español","inglés","alemán"};
+		String idiomas[] = this.idiomasValidos;
+		
 		this.idioma = null;
 		
 		for( String id:idiomas ) {
@@ -106,22 +147,22 @@ public class Jugador {
 	 *   Debe tener todos sus campos edad, nombre e idioma rellenos
 	 */
 	public String tipoJugador() {
-		System.out.println(this.edad);
+		
+		int edad = this.edad;
+		int[][] limites = this.tipoJugadorLimites;
+		String[] nombres = this.tipoJugadorNombres;
 		
 		String tipojugador = null;
 
-		if (edad<=0 || nombre==null || idioma==null) {
-			tipojugador=null;
-		} else if (edad>=18 && edad<=25) {
-			tipojugador="Junior";
-		} else if (edad>=26 && edad<=35) {
-			tipojugador="Senior";
-		} else if (edad>=36 && edad<=99) {
-			tipojugador="Master";
-		} else if (edad>=100) {
-			tipojugador="SuperMaster";
+		for( int i=0 ; i<nombres.length ; i++ ) {
+			
+			int limiteInferior = limites[i][0];
+			int limiteSuperior = limites[i][1];
+			
+			if( edad >= limiteInferior && edad <= limiteSuperior ) {
+				tipojugador = nombres[i];
+			}
 		}
-		System.out.println(tipojugador);
 		
 		return tipojugador;
 	}
