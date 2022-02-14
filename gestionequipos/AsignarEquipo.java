@@ -1,3 +1,17 @@
+/**
+ * ## por compatibilidad con clientes windows y evitar
+ * ## problemas mayores con el resto de equipo, se utiliza
+ * ## la codificación ISO-8859-1 en lugar de UTF-8
+ * 
+ * Clase de assignación de jugadores y equipos
+ * 
+ * Versión 0.3.1
+ * @author equipo 4 1ºDAW 21-22
+ * Licencia Pública General de GNU (GPL) versión 3
+ */
+
+package gestionequipos;
+
 public class AsignarEquipo {
 
 	private Equipo equipo;
@@ -8,12 +22,13 @@ public class AsignarEquipo {
 
 	}
 
+	
 	/**
-	 * Recibe un objeto equipo y lo establece.
-	 * Si no se cumple estas condiones, establecer a null:
-	 *  equipo no sea nulo
+	 * Recibe un objeto equipo y lo establece a la propiedad.
+	 * Condiones: (si no se establece a null)
+	 *  objeto equipo no sea nulo
 	 *  nombre equipo no sea nulo
-	 *  ranking sea distinto de -1
+	 *  ranking sea distinto de -1 (nulo)
 	 */
 	public void setEquipo(Equipo equipo) {
 		
@@ -29,12 +44,14 @@ public class AsignarEquipo {
 	}
 	
 	/**
-	 * Devuelve equipo
+	 * Devuelve el objeto equipo guardado
+	 * @return Equipo this.equipo
 	 */
 	public Equipo getEquipo() {
-		return equipo;
+		return this.equipo;
 	}
 
+	
 	/**
 	 * Recibe un objeto jugador y lo establece.
 	 * Si no se cumple estas condiones, establecer a null:
@@ -56,7 +73,12 @@ public class AsignarEquipo {
 		}
 	}
 
+	/**
+	 * Devuelve el objeto jugador guardado
+	 * @return Jugador this.jugador
+	 */
 	public Jugador getJugador() {
-		return jugador;
+		return this.jugador;
 	}
+	
 }

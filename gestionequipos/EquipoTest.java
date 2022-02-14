@@ -1,13 +1,37 @@
+/**
+ * ## por compatibilidad con clientes windows y evitar
+ * ## problemas mayores con el resto de equipo, se utiliza
+ * ## la codificación ISO-8859-1 en lugar de UTF-8
+ * 
+ * Test unitarios para Equipo.java
+ * 
+ * Versión 0.1
+ * @author equipo 4 1ºDAW 21-22
+ * Licencia Pública General de GNU (GPL) versión 3
+ */
+
+package gestionequipos;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
 
 class EquipoTest {
 
+	private int nombreEquipoLimiteInferior=3;
+	private int nombreEquipoLimiteSuperior=6;
+	
+	private int rankingEquipo = -1; //valoramos -1 como nulo
+	private int rankingEquipoLimiteInferior=0;
+	private int rankingEquipoLimiteSuperior=10;
+	
+	int[][] categoriaLimites = {{7,10},{3,6},{0,2}};
+	String[] categoriaNombres = {"Primera","Segunda","Tercera"};
 
-	 /**
-	 * Si el nombre del equipo es null
-	 */
+	
+	/**
+	* Si el nombre del equipo es null
+	*/
 	@Test
 	void testSetNombreEquipoNull() {
 		
@@ -273,13 +297,6 @@ class EquipoTest {
 			equipo.setNombreEquipo(nombreEquipo);
 			equipo.setRanking(ranking);
 			assertEquals("",equipo.CategoriaEquipo());
-		}
-		
-		//Comprobar HOLAMUNDO
-		@Test
-		void testHOLAMUNDO() {
-			Equipo equipo = new Equipo();
-			assertEquals("hola mundo",equipo.HOLAMUNDO());
 		}
 		
 }
