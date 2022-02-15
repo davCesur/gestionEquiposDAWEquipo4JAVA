@@ -57,7 +57,7 @@ public class AsignarEquipo {
 	 * Si no se cumple estas condiones, establecer a null:
 	 *  jugador no sea nulo
 	 *  idioma de jugador no sea nulo
-	 *  edad sea distinto de 0
+	 *  edad >=18 y <=200
 	 */	
 	public void setJugador(Jugador jugador) {
 
@@ -67,7 +67,8 @@ public class AsignarEquipo {
 		jugador!=null
 		&& jugador.getNombreJugador() != null
 		&& jugador.getIdioma() != null
-		&& jugador.getEdad() != 0) {
+		&& jugador.getEdad() >=18
+		&& jugador.getEdad() <=200 ) {
 			
 			this.jugador=jugador;
 		}

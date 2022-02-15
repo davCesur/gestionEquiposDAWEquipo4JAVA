@@ -18,27 +18,6 @@ import static org.junit.Assert.assertNull;
 
 public class AsignarEquipoTest {
 	
-	/** Variables para jugador */
-	// String entre 4 y 20 caracteres sin números
-	private String jugadorNombreValido = "Jugador válido";
-	private String jugadorNombreNoValido = "Jugador 13 no válido";
-	// Entero entre 18 y 99 (-1 nulo)
-	private int jugadorEdadValida = 25;
-	private int jugadorEdadNoValida = 5;
-	private int jugadorEdadNula = -1;
-	// String entre estas opciones: español, inglés o alemán
-	private String jugadorIdiomaValido = "español";
-	private String jugadorIdiomaNoValido = "arameo";
-	
-	/** Variables para equipo */
-	// String entre 3 y 6 caracteres sin números
-	private String equipoNombreValido = "equipo";
-	private String equipoNombreNoValido = "equipo no válido 24";
-	// Entero entre 0 y 10 (-1 nulo)
-	private int equipoRankingValido = 5;
-	private int equipoRankingNoValido = 15;
-	private int equipoRankingNulo = -1;
-	
 	
 	/**
 	 * #### Test para jugador
@@ -50,9 +29,9 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorValido() {
 		
-		String nombreJugador = this.jugadorNombreValido;
-		int edad = this.jugadorEdadValida;
-		String idioma = this.jugadorIdiomaValido;
+		String nombreJugador = "Jugador válido";
+		int edad = 25;
+		String idioma = "español";
 		
 		Jugador jugador= new Jugador();
 		jugador.setNombreJugador(nombreJugador);
@@ -87,9 +66,9 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorNombreNoValido() {
 
-		String Jugador = this.jugadorNombreNoValido;
-		int edad = this.jugadorEdadValida;
-		String idioma = this.jugadorIdiomaValido;
+		String Jugador = "Jugador 13 no válido";
+		int edad = 25;
+		String idioma = "español";
 
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(Jugador);
@@ -108,8 +87,8 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorNombreSinAsignar() {
 
-		int edad = this.jugadorEdadValida;
-		String idioma = this.jugadorIdiomaValido;
+		int edad = 25;
+		String idioma = "español";
 
 		Jugador jugador = new Jugador();
 		jugador.setEdad(edad);
@@ -128,8 +107,8 @@ public class AsignarEquipoTest {
 	void testSetJugadorNombreNulo() {
 
 		String Jugador = null;
-		int edad = this.jugadorEdadValida;
-		String idioma = this.jugadorIdiomaValido;
+		int edad = 25;
+		String idioma = "español";
 
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(Jugador);
@@ -150,9 +129,9 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorEdadNoValida() {
 
-		String Jugador = this.jugadorNombreValido;
-		int edad = this.jugadorEdadNoValida;
-		String idioma = this.jugadorIdiomaValido;
+		String Jugador = "Jugador válido";
+		int edad = 5;
+		String idioma = "español";
 
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(Jugador);
@@ -171,8 +150,8 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorEdadSinAsignar() {
 
-		String Jugador = this.jugadorNombreNoValido;
-		String idioma = this.jugadorIdiomaValido;
+		String Jugador = "Jugador 13 no válido";
+		String idioma = "español";
 
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(Jugador);
@@ -190,9 +169,9 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorEdadNula() {
 
-		String Jugador = this.jugadorNombreNoValido;
-		int edad = this.jugadorEdadNula;
-		String idioma = this.jugadorIdiomaValido;
+		String Jugador = "Jugador 13 no válido";
+		int edad = -1;
+		String idioma = "español";
 
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(Jugador);
@@ -211,11 +190,11 @@ public class AsignarEquipoTest {
 	 *  Asignar jugador con idioma no válido
 	 */
 	@Test
-	void testSetJugadorIdiomaNoValido() {
+	void testSetjugadorIdiomaNoValido() {
 
-		String Jugador = this.jugadorNombreValido;
-		int edad = this.jugadorEdadValida;
-		String idioma = this.jugadorIdiomaNoValido;
+		String Jugador = "Jugador válido";
+		int edad = 25;
+		String idioma = "arameo";
 
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(Jugador);
@@ -234,8 +213,8 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorIdiomaSinAsignar() {
 
-		String Jugador = this.jugadorNombreValido;
-		int edad = this.jugadorEdadValida;
+		String Jugador = "Jugador válido";
+		int edad = 25;
 
 		Jugador jugador = new Jugador();
 		jugador.setNombreJugador(Jugador);
@@ -253,8 +232,8 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetJugadorIdiomaNulo() {
 
-		String Jugador = this.jugadorNombreValido;
-		int edad = this.jugadorEdadValida;
+		String Jugador = "Jugador válido";
+		int edad = 25;
 		String idioma = null;
 
 		Jugador jugador = new Jugador();
@@ -283,8 +262,8 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetEquipoValido() {
 		
-		String nombreEquipo = this.equipoNombreValido;		
-		int ranking = this.equipoRankingValido;
+		String nombreEquipo = "equipo";		
+		int ranking = 5;
 		
 		Equipo equipo = new Equipo();
 		equipo.setNombreEquipo(nombreEquipo);
@@ -316,8 +295,8 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetEquipoSetNombreNoValido() {
 		
-		String nombreEquipo = this.equipoNombreNoValido;		
-		int ranking = this.equipoRankingValido;
+		String nombreEquipo = "equipo no válido 24";		
+		int ranking = 5;
 		
 		Equipo equipo = new Equipo();
 		equipo.setNombreEquipo(nombreEquipo);
@@ -335,7 +314,7 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetEquipoSinAsignarNombre() {
 		
-		int ranking = this.equipoRankingValido;
+		int ranking = 5;
 		
 		Equipo equipo = new Equipo();
 		equipo.setRanking(ranking);
@@ -353,7 +332,7 @@ public class AsignarEquipoTest {
 	void testSetEquipoNombreNulo() {
 		
 		String nombreEquipo = null;		
-		int ranking = this.equipoRankingValido;
+		int ranking = 5;
 		
 		Equipo equipo = new Equipo();
 		equipo.setNombreEquipo(nombreEquipo);
@@ -372,8 +351,8 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetEquipoRankingNoValido() {
 		
-		String nombreEquipo = this.equipoNombreValido;		
-		int ranking = this.equipoRankingNoValido;
+		String nombreEquipo = "equipo";		
+		int ranking = 15;
 		
 		Equipo equipo = new Equipo();
 		equipo.setNombreEquipo(nombreEquipo);
@@ -391,7 +370,7 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetEquipoRankingSinAsignar() {
 		
-		String nombreEquipo = this.equipoNombreValido;		
+		String nombreEquipo = "equipo";		
 		
 		Equipo equipo = new Equipo();
 		equipo.setNombreEquipo(nombreEquipo);
@@ -408,8 +387,8 @@ public class AsignarEquipoTest {
 	@Test
 	void testSetEquipoRankingNulo() {
 		
-		String nombreEquipo = this.equipoNombreValido;		
-		int ranking = this.equipoRankingNulo;
+		String nombreEquipo = "equipo";		
+		int ranking = -1;
 		
 		Equipo equipo = new Equipo();
 		equipo.setNombreEquipo(nombreEquipo);

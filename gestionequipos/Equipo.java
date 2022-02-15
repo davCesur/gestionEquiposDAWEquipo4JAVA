@@ -15,16 +15,7 @@ package gestionequipos;
 public class Equipo {
 	
 	private String nombreEquipo;
-	private int nombreEquipoLimiteInferior=3;
-	private int nombreEquipoLimiteSuperior=6;
-	
 	private int rankingEquipo = -1; //valoramos -1 como nulo
-	private int rankingEquipoLimiteInferior=0;
-	private int rankingEquipoLimiteSuperior=10;
-	
-	int[][] categoriaLimites = {{7,10},{3,6},{0,2}};
-	String[] categoriaNombres = {"Primera","Segunda","Tercera"};
-	
 	
 	public Equipo () {
 	}
@@ -43,8 +34,8 @@ public class Equipo {
 		// Si el nombre esta vacio
 		if ( nombreEquipo != null
 		&& !nombreEquipo.isEmpty()
-		&& nombreEquipo.length() <= this.nombreEquipoLimiteSuperior
-		&& nombreEquipo.length() >= this.nombreEquipoLimiteInferior
+		&& nombreEquipo.length() <= 6
+		&& nombreEquipo.length() >= 3
 		&& !nombreEquipo.matches(".*\\d.*") ) {
 			
 			this.nombreEquipo = nombreEquipo;
@@ -63,8 +54,8 @@ public class Equipo {
 	public void setRanking(int ranking) {				
 		this.rankingEquipo=-1;
 		
-		if( ranking >=this.rankingEquipoLimiteInferior
-		&&  ranking <=this.rankingEquipoLimiteSuperior ) {
+		if( ranking >=0
+		&&  ranking <=10 ) {
 			
 			this.rankingEquipo=ranking;
 		}
@@ -83,21 +74,23 @@ public class Equipo {
 	public String CategoriaEquipo() {
 		
 		String categoria="";
+		int[][] categoriaLimites = {{7,10},{3,6},{0,2}};
+		String[] categoriaNombres = {"Primera","Segunda","Tercera"};
 		
 		if( this.nombreEquipo != null
 		&& !this.nombreEquipo.isEmpty()
-		&& this.rankingEquipo >= this.rankingEquipoLimiteInferior
-		&& this.rankingEquipo <= this.rankingEquipoLimiteSuperior) {
+		&& this.rankingEquipo >= 0
+		&& this.rankingEquipo <= 10) {
 			
-			for( int i=0 ; i<this.categoriaNombres.length ; i++ ) {
+			for( int i=0 ; i<categoriaNombres.length ; i++ ) {
 				
-				int limiteInferior = this.categoriaLimites[i][0];
-				int limiteSuperior = this.categoriaLimites[i][1];
+				int limiteInferior = categoriaLimites[i][0];
+				int limiteSuperior = categoriaLimites[i][1];
 				
 				if( this.rankingEquipo >= limiteInferior
 				&&  this.rankingEquipo <= limiteSuperior ) {
 					
-					categoria = this.categoriaNombres[i];
+					categoria = categoriaNombres[i];
 				}
 			}
 		}

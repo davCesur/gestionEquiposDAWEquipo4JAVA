@@ -18,16 +18,6 @@ import org.junit.jupiter.api.Assertions;
 
 public class EquipoTest {
 
-	private int nombreEquipoLimiteInferior=3;
-	private int nombreEquipoLimiteSuperior=6;
-	
-	private int rankingEquipo = -1; //valoramos -1 como nulo
-	private int rankingEquipoLimiteInferior=0;
-	private int rankingEquipoLimiteSuperior=10;
-	
-	int[][] categoriaLimites = {{7,10},{3,6},{0,2}};
-	String[] categoriaNombres = {"Primera","Segunda","Tercera"};
-
 	
 	/**
 	* Si el nombre del equipo es null
@@ -110,6 +100,7 @@ public class EquipoTest {
 		assertNull(equipo.getNombreEquipo());
 	}
 	
+	
 	//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE RANKING
 		//Asignar posición de ranking por debajo del mínimo (No válido)
 		@Test
@@ -185,6 +176,14 @@ public class EquipoTest {
 		}
 		
 		//A PARTIR DE AQUÍ COMIENZAN LOS TESTS DE CATEGORÍA
+		/**
+		 * Condiciones:
+		 * 	Entre 7 y 10 (Ambos incluidos): Primera
+		 * 	Entre 3 y 6 (Ambos incluidos): Segunda
+		 * 	Entre 0 y 2 (Ambos incluidos): Tercera
+		 * Dependiendo del ranking se asignara una categoria u otra.
+		 */
+
 		//Introducir ranking con categoría primera con el valor máximo(Válida)
 		@Test
 		void testSetCategoriaEquipoPrimeraValorMaximo() {
